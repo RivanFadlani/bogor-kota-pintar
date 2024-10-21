@@ -748,7 +748,7 @@
             </div>
 
             <div class="px-4 sm:mx-7 flex flex-wrap gap-3 mt-14 justify-center">
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                     viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
@@ -756,7 +756,7 @@
                         clip-rule="evenodd" />
                 </svg>
 
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                     viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
@@ -764,7 +764,7 @@
                         clip-rule="evenodd" />
                 </svg>
 
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                     viewBox="0 0 24 24">
                     <path
@@ -772,7 +772,7 @@
                 </svg>
 
 
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
                     <path fill="currentColor" fill-rule="evenodd"
