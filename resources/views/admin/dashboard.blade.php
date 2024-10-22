@@ -15,9 +15,10 @@
                             Quick Win
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
+    <!-- //END quickwins -->
     </div>
+
 </x-app-layout>
