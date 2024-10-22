@@ -1,14 +1,4 @@
-<!-- admin/dokumen/create.blade.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Dokumen</title>
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
+<x-app-layout>
     <div class="container mx-auto">
         <h1 class="text-2xl font-bold mb-4">Tambah Dokumen</h1>
 
@@ -52,5 +42,4 @@
             </div>
         </form>
     </div>
-</body>
-</html>
+    </x-app-layout>

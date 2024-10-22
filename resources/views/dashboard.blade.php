@@ -14,8 +14,4 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-wrap justify-between">
-    <a href="{{ route('admin.dokumen.create') }}" class="bg-green-500 text-white px-4 py-2 rounded mb-4 inline-block">Tambah Dokumen</a>
-    </div>
-
 </x-app-layout>

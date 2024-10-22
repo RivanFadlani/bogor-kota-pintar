@@ -15,22 +15,36 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+        <div class="min-h-screen bg-gray-100 flex">
+            <!-- Sidebar -->
+            <aside class="w-64 bg-white shadow-lg p-4"> <!-- Perbaikan padding -->
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold mb-4">Menu</h2>
+                    <ul>
+                        <li><a href="/admin/dashboard" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dashboard</a></li>
+                        <li><a href="/admin/dokumen" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dokumen</a></li>
+                    </ul>
+                </div>
+            </aside>
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+            <!-- Main Content -->
+            <div class="flex-1">
+                @include('layouts.navigation')
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <!-- Page Heading -->
+                @isset($header)
+                    <header class="bg-white shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                @endisset
+
+                <!-- Page Content -->
+                <main>
+                    {{ $slot }}
+                </main>
+            </div>
         </div>
     </body>
 </html>
