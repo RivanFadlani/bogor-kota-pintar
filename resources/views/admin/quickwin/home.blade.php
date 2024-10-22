@@ -10,10 +10,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="flex flex-wrap justify-between">
-                        {{ __("You're logged in!") }}
-                        <a href="quickwins" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Quick Win
-                        </a>
+                        <h1 class="text-lg">Quick Win</h1>
+                        <a href="{{ route('admin/quickwins/create') }}"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Tambah
+                            Quick
+                            Win</a>
                     </div>
 
                 </div>
