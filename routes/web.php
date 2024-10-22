@@ -28,14 +28,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/dashboard', [HomeController::class, 'index']);
 
-    Route::get('/admin/quickwins', [QuickwinController::class, 'index'])->name('admin/quickwins');
-    Route::get('/admin/quickwins/create', [QuickwinController::class, 'create'])->name('admin/quickwins/create');
+    Route::get('/admin/quickwin', [QuickwinController::class, 'index'])->name('admin.quickwin.index');
+    Route::get('/admin/quickwin/create', [QuickwinController::class, 'create'])->name('admin.quickwin.create');
+    Route::post('/admin/quickwin/store', [QuickwinController::class, 'store'])->name('admin.quickwin.store');
 
     //DOKUMEN ROUTE
     Route::get('/admin/dokumen', [DokumenController::class, 'index'])->name('admin.dokumen.index');
     Route::get('/admin/dokumen/create', [DokumenController::class, 'create'])->name('admin.dokumen.create');
-    Route::post('/admin/dokumen/create', [DokumenController::class, 'store'])->name('admin.dokumen.store');
-
+    Route::post('/admin/dokumen/store', [DokumenController::class, 'store'])->name('admin.dokumen.store');
 });
 
 require __DIR__ . '/auth.php';
