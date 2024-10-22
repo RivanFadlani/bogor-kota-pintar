@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -29,6 +30,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/admin/quickwins', [QuickwinController::class, 'index'])->name('admin/quickwins');
     Route::get('/admin/quickwins/create', [QuickwinController::class, 'create'])->name('admin/quickwins/create');
+
+    //DOKUMEN ROUTE
+    Route::get('/admin/dokumen', [DokumenController::class, 'index'])->name('admin.dokumen.index');
+    Route::get('/admin/dokumen/create', [DokumenController::class, 'create'])->name('admin.dokumen.create');
+    Route::post('/admin/dokumen/create', [DokumenController::class, 'store'])->name('admin.dokumen.store');
+
 });
 
 require __DIR__ . '/auth.php';
