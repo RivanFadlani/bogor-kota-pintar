@@ -12,7 +12,13 @@ class Dokumen extends Model
 
     protected $fillable = [
         'judul',
-        'file',
-        'kategori_id',
+        'gambar',
+        'url',
+        'kategori_id'
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id', 'id');
+    }
 }

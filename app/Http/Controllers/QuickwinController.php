@@ -13,7 +13,7 @@ class QuickwinController extends Controller
 {
     public function index(): view
     {
-        $quickwins = Quickwin::all();
+        $quickwins = Quickwin::paginate(3);
 
         return view('admin.quickwin.index', compact('quickwins'));
         //
@@ -27,23 +27,70 @@ class QuickwinController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'gambar' => 'required|image|mimes:jpeg,jpg,png|max:2048', // Gambar jadi nullable
-            'judul' => 'required|min:5',
-            'deskripsi' => 'required|min:10'
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'judul' => 'required|string|max:50',
+            'deskripsi' => 'required|string|max:50',
+            'tahun' => 'required|date|before_or_equal:today'
         ]);
 
-        // upload image
-        $gambar = $request->file('gambar');
-        $gambar->storeAs('public/products', $gambar->hashName());
+        //upload foto KE file /uploads DI /storage
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $ext = $file->getClientOriginalExtension();
+            $newName =  date('dmY') . Str::random(10) . '.' . $ext;
+            $file->move('uploads/quickwin', $newName);
+            $filename = $newName;
+        }
 
-        // Simpan data ke database
         Quickwin::create([
-            'gambar' => $gambar->hashName(),
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi
+            'gambar' => $filename ?? '',
+            'judul' => $request->input('judul'),
+            'deskripsi' => $request->input('deskripsi'),
+            'tahun' => $request->input('tahun')
+        ]);
+        return redirect()->route('admin.quickwin.index')->with('success', 'Dokumen berhasil ditambahkan!');
+    }
+
+    public function edit($id)
+    {
+        // Cari data employee berdasarkan ID
+        $quickwins = Quickwin::findOrFail($id);
+
+        // Kembalikan view edit dengan data employee
+        return view('admin.quickwin.edit', compact('quickwins'));
+    }
+
+    // Function untuk mengupdate data employee
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'judul' => 'required|string|max:50',
+            'deskripsi' => 'required|string|max:50',
+            'tahun' => 'required|date|before_or_equal:today'
         ]);
 
-        // Redirect dengan pesan sukses
-        return redirect()->route('admin.quickwin.index')->with(['success' => 'Data Berhasil Disimpan']);
+        // Cari employee berdasarkan ID
+        $quickwins = Quickwin::findOrFail($id);
+
+        // Update data employee
+        $quickwins->update([
+            'gambar' => $filename ?? '',
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'tahun' => $request->tahun
+        ]);
+
+        // Redirect ke halaman yang diinginkan setelah update
+        return redirect()->route('admin.quickwin.index')->with('success', 'Employee updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $quickwins = Quickwin::findOrFail($id);
+        $quickwins->delete();
+
+        return redirect()->route('admin.quickwin.index')->with('success', 'Status deleted successfully!');
     }
 }

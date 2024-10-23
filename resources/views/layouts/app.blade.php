@@ -29,6 +29,9 @@
                     </li>
                     <li><a href="/admin/dokumen" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dokumen</a>
                     </li>
+                    <li><a href="/admin/kategori" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Kategori
+                            Dokumen</a>
+                    </li>
                 </ul>
             </div>
         </aside>

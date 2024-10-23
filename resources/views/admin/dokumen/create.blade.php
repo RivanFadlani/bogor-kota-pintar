@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container mx-auto">
+    <div class="container p-10 mx-auto">
         <h1 class="text-2xl font-bold mb-4">Tambah Dokumen</h1>
 
         <!-- Notifikasi kesuksesan -->
@@ -21,12 +21,12 @@
         @endif
 
         <!-- Form untuk menambah dokumen -->
-        <form action="{{ route('admin.dokumen.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.dokumen.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
+            enctype="multipart/form-data">
             @csrf
 
-            <!-- Input untuk Judul -->
             <div class="mb-4">
-                <label for="judul" class="block text-gray-700">Judul Dokumen:</label>
+                <label for="judul" class="block text-gray-700">Judul</label>
                 <input type="text" name="judul" id="judul" class="w-full p-2 border border-gray-300 rounded"
                     value="{{ old('judul') }}" required>
                 @error('judul')
@@ -36,9 +36,28 @@
 
             <!-- Input untuk Upload Gambar -->
             <div class="mb-4">
-                <label for="file_foto" class="block text-gray-700">Upload Gambar:</label>
-                <input type="file" name="file_foto" id="file_foto" class="w-full p-2 border border-gray-300 rounded"
-                    required>
+                <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
+                <input type="file" name="gambar" id="gambar"
+                    class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}" required>
+            </div>
+
+            <!-- Input untuk URL -->
+            <div class="mb-4">
+                <label for="url" class="block text-gray-700">Link</label>
+                <input type="text" name="url" id="deskripsi" class="w-full p-2 border border-gray-300 rounded"
+                    value="{{ old('url') }}" required>
+                @error('url')
+                    <span class="bg-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div>
+                <label for="kategori_id">Pilih Kategori</label>
+                <select name="kategori_id" id="kategori_id">
+                    @foreach ($kategoris as $kategori)
+                        <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <!-- Tombol Submit -->

@@ -9,34 +9,34 @@
             <thead>
                 <tr>
                     <th class="border px-4 py-2 text-start">No</th>
-                    <th class="border px-4 py-2 text-start">Gambar</th>
                     <th class="border px-4 py-2 text-start">Judul</th>
-                    <th class="border px-4 py-2 text-start">Deskripsi</th>
-                    <th class="border px-4 py-2 text-start">Tahun</th>
+                    <th class="border px-4 py-2 text-start">Gambar</th>
+                    <th class="border px-4 py-2 text-start">Link</th>
+                    <th class="border px-4 py-2 text-start">Kategori</th>
                     <th class="border px-4 py-2 text-start">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($quickwins as $key => $item)
+                @foreach ($dokumens as $key => $item)
                     <tr>
                         <td class="border-b px-4 py-2">{{ $key + 1 }}</td>
-                        <td class="px-4 py-2 border">
-                            <img src="{{ asset('uploads/quickwin/' . $item->gambar) }}" alt="Foto Pelapor"
-                                class="w-24">
-                        </td>
                         <td class="border px-4 py-2">{{ $item->judul }}</td>
-                        <td class="border px-4 py-2">{{ $item->deskripsi }}</td>
-                        <td class="border px-4 py-2">{{ $item->tahun }}</td>
+                        <td class="px-4 py-2 border">
+                            <img src="{{ asset('uploads/dokumen/' . $item->gambar) }}" alt="dokumen" class="w-24">
+                        </td>
+                        <td class="border px-4 py-2">{{ $item->link }}</td>
+                        <td class="border px-4 py-2">{{ $item->kategori }}</td>
+                        <td class="border px-4 py-2">{{ $item->kategori }}</td>
                         <td class="border px-4 py-2">
-                            <a href="{{ route('admin.quickwin.edit', $item->id) }}"
+                            <a href="{{ route('admin.kategori.edit', $item->id) }}"
                                 class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
                             <form id="delete-form-{{ $item->id }}"
-                                action="{{ route('admin.quickwin.destroy', $item->id) }}" method="POST"
+                                action="{{ route('admin.kategori.destroy', $item->id) }}" method="POST"
                                 class="inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="px-4 py-2 bg-red-600 text-white rounded"
-                                    onclick="openModal('{{ route('admin.quickwin.destroy', $item->id) }}')">
+                                    onclick="openModal('{{ route('admin.kategori.destroy', $item->id) }}')">
                                     Hapus
                                 </button>
                             </form>

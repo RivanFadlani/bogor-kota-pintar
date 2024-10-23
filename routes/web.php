@@ -28,14 +28,29 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/dashboard', [HomeController::class, 'index']);
 
+    // QUICKWIN ROUTE
     Route::get('/admin/quickwin', [QuickwinController::class, 'index'])->name('admin.quickwin.index');
     Route::get('/admin/quickwin/create', [QuickwinController::class, 'create'])->name('admin.quickwin.create');
     Route::post('/admin/quickwin/store', [QuickwinController::class, 'store'])->name('admin.quickwin.store');
+    Route::get('/admin/quickwin/{id}/edit', [QuickwinController::class, 'edit'])->name('admin.quickwin.edit');
+    Route::put('/admin/quickwin/{id}', [QuickwinController::class, 'update'])->name('admin.quickwin.update');
+    Route::delete('/admin/quickwin/{id}', [QuickwinController::class, 'destroy'])->name('admin.quickwin.destroy');
 
     //DOKUMEN ROUTE
     Route::get('/admin/dokumen', [DokumenController::class, 'index'])->name('admin.dokumen.index');
     Route::get('/admin/dokumen/create', [DokumenController::class, 'create'])->name('admin.dokumen.create');
     Route::post('/admin/dokumen/store', [DokumenController::class, 'store'])->name('admin.dokumen.store');
+    Route::get('/admin/dokumen/{id}/edit', [DokumenController::class, 'edit'])->name('admin.dokumen.edit');
+    Route::put('/admin/dokumen/{id}', [DokumenController::class, 'update'])->name('admin.dokumen.update');
+    Route::delete('/admin/dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.dokumen.destroy');
+
+    //DOKUMEN KATEGORI ROUTE
+    Route::get('/admin/kategori', [DokumenController::class, 'index'])->name('admin.kategori.index');
+    Route::get('/admin/kategori/create', [DokumenController::class, 'create'])->name('admin.kategori.create');
+    Route::post('/admin/kategori/store', [DokumenController::class, 'store'])->name('admin.kategori.store');
+    Route::get('/admin/kategori/{id}/edit', [DokumenController::class, 'edit'])->name('admin.kategori.edit');
+    Route::put('/admin/kategori/{id}', [DokumenController::class, 'update'])->name('admin.kategori.update');
+    Route::delete('/admin/kategori/{id}', [DokumenController::class, 'destroy'])->name('admin.kategori.destroy');
 });
 
 require __DIR__ . '/auth.php';

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('file');
+            $table->string('url');
             $table->foreignId('kategori_id');
             $table->timestamps();
         });
