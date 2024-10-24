@@ -1,43 +1,37 @@
 <x-app-layout>
     <div class="container p-10 mx-auto mt-10">
-        <h1 class="text-2xl font-bold mb-4">Daftar Dokumen</h1>
+        <h1 class="text-2xl font-bold mb-4">Visi dan Misi</h1>
 
-        <a href="{{ route('admin.dokumen.create') }}"
-            class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">Tambah Dokumen</a>
+        <a href="{{ route('admin.visimisi.create') }}"
+            class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">Tambah Visi dan Misi</a>
 
         <table class="min-w-full bg-white border border-gray-300">
             <thead>
                 <tr>
-                    <th class="border px-4 py-2 text-start">Judul</th>
-                    <th class="border px-4 py-2 text-start">Gambar</th>
-                    <th class="border px-4 py-2 text-start">Link</th>
-                    <th class="border px-4 py-2 text-start">Kategori</th>
+                    <th class="border w-[30%] px-4 py-2 text-start">Visi</th>
+                    <th class="border w-[50%] px-4 py-2 text-start">Misi</th>
                     <th class="border px-4 py-2 text-start">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($dokumens as $dokumen)
+                @foreach ($visimisis as $vm)
                     <tr>
-                        <td class="border px-4 py-2">{{ $dokumen->judul }}</td>
-                        <td class="px-4 py-2 border">
-                            <img src="{{ asset('uploads/dokumen/' . $dokumen->gambar) }}" alt="dokumen" class="w-24">
-                        </td>
-                        <td class="border px-4 py-2">{{ $dokumen->url }}</td>
-                        <td class="border px-4 py-2">{{ $dokumen->kategori_id }}</td>
+                        <td class="border px-4 py-2">{{ $vm->visi }}</td>
+                        <td class="border px-4 py-2">{{ $vm->misi }}</td>
                         <td class="border px-4 py-2">
                             {{-- Edit Button Start --}}
-                            <a href="{{ route('admin.dokumen.edit', $dokumen->id) }}"
+                            <a href="{{ route('admin.visimisi.edit', $vm->id) }}"
                                 class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
                             {{-- Edit Button End --}}
 
                             {{-- Delete Form Start --}}
-                            <form id="delete-form-{{ $dokumen->id }}"
-                                action="{{ route('admin.kategori.destroy', $dokumen->id) }}" method="POST"
+                            <form id="delete-form-{{ $vm->id }}"
+                                action="{{ route('admin.visimisi.destroy', $vm->id) }}" method="POST"
                                 class="inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="px-4 py-2 bg-red-600 text-white rounded"
-                                    onclick="openModal('{{ route('admin.kategori.destroy', $dokumen->id) }}')">
+                                    onclick="openModal('{{ route('admin.visimisi.destroy', $vm->id) }}')">
                                     Hapus
                                 </button>
                             </form>
@@ -55,9 +49,7 @@
                                 <div class="flex justify-end mt-4">
                                     <button type="button" class="mr-2 px-4 py-2 bg-gray-300 rounded"
                                         onclick="closeModal()">Batal</button>
-                                    <form id="delete-form-{{ $dokumen->id }}"
-                                        action="{{ route('admin.dokumen.destroy', $dokumen->id) }}" method="POST"
-                                        class="inline">
+                                    <form id="delete-form" action="" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
@@ -71,7 +63,7 @@
             </tbody>
         </table>
         <div class="mt-4">
-            {{ $dokumens->links() }}
+            {{ $visimisis->links() }}
         </div>
     </div>
     <script>

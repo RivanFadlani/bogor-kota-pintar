@@ -65,9 +65,10 @@ class DokumenController extends Controller
     {
         // Cari data employee berdasarkan ID
         $dokumens = Dokumen::findOrFail($id);
+        $kategoris = Kategori::all();
 
         // Kembalikan view edit dengan data employee
-        return view('admin.dokumen.edit', compact('dokumens'));
+        return view('admin.dokumen.edit', compact('dokumens', 'kategoris'));
     }
 
     // Function untuk mengupdate data employee

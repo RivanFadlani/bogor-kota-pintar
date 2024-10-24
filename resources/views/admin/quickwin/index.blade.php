@@ -26,8 +26,12 @@
                         <td class="border px-4 py-2">{{ $quickwin->deskripsi }}</td>
                         <td class="border px-4 py-2">{{ $quickwin->tahun }}</td>
                         <td class="border px-4 py-2">
+                            {{-- Edit Button Start --}}
                             <a href="{{ route('admin.quickwin.edit', $quickwin->id) }}"
                                 class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
+                            {{-- Edit Button End --}}
+
+                            {{-- Delete Form Start --}}
                             <form id="delete-form-{{ $quickwin->id }}"
                                 action="{{ route('admin.quickwin.destroy', $quickwin->id) }}" method="POST"
                                 class="inline-block">
@@ -38,9 +42,11 @@
                                     Hapus
                                 </button>
                             </form>
+                            {{-- Delete Form End --}}
                         </td>
                     </tr>
-                    <!-- Modal Konfirmasi Hapus -->
+                    <!-- Modal Konfirmasi Hapus Start -->
+
                     <div id="deleteModal" class="fixed z-50 inset-0 hidden overflow-y-auto"
                         aria-labelledby="deleteModalLabel" role="dialog" aria-modal="true">
                         <div class="flex items-center justify-center min-h-screen">
@@ -61,6 +67,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Modal Konfirmasi Hapus End -->
                 @endforeach
             </tbody>
         </table>

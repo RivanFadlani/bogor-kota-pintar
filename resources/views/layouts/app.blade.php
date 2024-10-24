@@ -19,7 +19,7 @@
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 flex">
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-lg p-4"> <!-- Perbaikan padding -->
+        <aside class="w-64 bg-white shadow-lg p-4">
             <div class="p-6">
                 <h2 class="text-xl font-semibold mb-4">Menu</h2>
                 <ul>
@@ -31,6 +31,9 @@
                     </li>
                     <li><a href="/admin/kategori" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Kategori
                             Dokumen</a>
+                    </li>
+                    <li><a href="/admin/visimisi" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Visi dan
+                            Misi</a>
                     </li>
                 </ul>
             </div>

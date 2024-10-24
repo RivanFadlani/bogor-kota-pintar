@@ -20,20 +20,22 @@
             </div>
         @endif
 
-        <!-- Form untuk menambah dokumen -->
+        <!-- Form untuk menambah quickwin start -->
         <form action="{{ route('admin.quickwin.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
             enctype="multipart/form-data">
             @csrf
 
-            <!-- Input untuk Upload Gambar -->
+            <!-- Input untuk Upload Gambar start -->
             <div class="mb-4">
                 <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
                 <input type="file" name="gambar" id="gambar"
                     class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}" required>
             </div>
+            <!-- Input untuk Upload Gambar end -->
+
 
             <div class="grid grid-cols-2 gap-4">
-                <!-- Input untuk Judul -->
+                <!-- Input Judul Start -->
                 <div class="mb-4">
                     <label for="judul" class="block text-gray-700">Judul</label>
                     <input type="text" name="judul" id="judul"
@@ -42,7 +44,9 @@
                         <span class="bg-red-500">{{ $message }}</span>
                     @enderror
                 </div>
+                <!-- Input Judul End -->
 
+                {{-- Input Tahun Start --}}
                 <div class="mb-4">
                     <label for="tahun" class="block text-gray-700">Tahun</label>
                     <input type="date" name="tahun" id="tahun"
@@ -51,22 +55,24 @@
                         <span class="bg-red-500">{{ $message }}</span>
                     @enderror
                 </div>
+                {{-- Input Tahun End --}}
             </div>
 
-            <!-- Input untuk Deskripsi -->
+            <!-- Input Deskripsi Start -->
             <div class="mb-4">
-                <label for="deskripsi" class="block text-gray-700">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi" id="deskripsi" class="w-full p-2 border border-gray-300 rounded"
-                    value="{{ old('deskripsi') }}" required>
+                <label for="deskripsi" class="block text-gray-700">Deskripsi</label>
+                <textarea name="deskripsi" id="deskripsi" class="w-full p-2 border border-gray-300 rounded" required>{{ old('deskripsi') }}</textarea>
                 @error('deskripsi')
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
             </div>
+            <!-- Input Deskripsi End -->
 
             <!-- Tombol Submit -->
             <div>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Dokumen</button>
             </div>
         </form>
+        <!-- Form untuk menambah quickwin end -->
     </div>
 </x-app-layout>
