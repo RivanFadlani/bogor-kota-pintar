@@ -780,7 +780,6 @@
             header.classList.remove('text-white')
         }
         }
-        });
     </script>
 
     <script>
