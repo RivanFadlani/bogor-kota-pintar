@@ -32,7 +32,7 @@ class DokumenController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'judul' => 'required|string|max:50',
             'url' => 'required|url',
-            'kategori_id' => 'required|exist:kategoris,id'
+            'kategori_id' => 'required'
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -80,17 +80,18 @@ class DokumenController extends Controller
         $dokumens->update([
             'gambar' => $filename ?? '',
             'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'tahun' => $request->tahun
+            'url' => $request->url,
+            'kategori_id' => $request->kategori_id
         ]);
 
         // Redirect ke halaman yang diinginkan setelah update
-        return redirect()->route('admin.quickwin.index')->with('success', 'Employee updated successfully.');
+        return redirect()->route('admin.dokumen.index')->with('success', 'Employee updated successfully.');
     }
 
     public function destroy($id)
     {
         $dokumens = Dokumen::findOrFail($id);
+
         $dokumens->delete();
 
         return redirect()->route('admin.dokumen.index')->with('success', 'Status deleted successfully!');

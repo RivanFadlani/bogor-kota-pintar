@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dokumens', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('file');
+            $table->string('gambar');
             $table->string('url');
             $table->foreignId('kategori_id');
             $table->timestamps();

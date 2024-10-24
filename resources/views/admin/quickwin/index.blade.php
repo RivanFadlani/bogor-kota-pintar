@@ -8,7 +8,6 @@
         <table class="min-w-full bg-white border border-gray-300">
             <thead>
                 <tr>
-                    <th class="border px-4 py-2 text-start">No</th>
                     <th class="border px-4 py-2 text-start">Gambar</th>
                     <th class="border px-4 py-2 text-start">Judul</th>
                     <th class="border px-4 py-2 text-start">Deskripsi</th>
@@ -17,54 +16,52 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($quickwins as $key => $item)
+                @foreach ($quickwins as $quickwin)
                     <tr>
-                        <td class="border-b px-4 py-2">{{ $key + 1 }}</td>
                         <td class="px-4 py-2 border">
-                            <img src="{{ asset('uploads/quickwin/' . $item->gambar) }}" alt="Foto Pelapor"
+                            <img src="{{ asset('uploads/quickwin/' . $quickwin->gambar) }}" alt="Foto Pelapor"
                                 class="w-24">
                         </td>
-                        <td class="border px-4 py-2">{{ $item->judul }}</td>
-                        <td class="border px-4 py-2">{{ $item->deskripsi }}</td>
-                        <td class="border px-4 py-2">{{ $item->tahun }}</td>
+                        <td class="border px-4 py-2">{{ $quickwin->judul }}</td>
+                        <td class="border px-4 py-2">{{ $quickwin->deskripsi }}</td>
+                        <td class="border px-4 py-2">{{ $quickwin->tahun }}</td>
                         <td class="border px-4 py-2">
-                            <a href="{{ route('admin.quickwin.edit', $item->id) }}"
+                            <a href="{{ route('admin.quickwin.edit', $quickwin->id) }}"
                                 class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
-                            <form id="delete-form-{{ $item->id }}"
-                                action="{{ route('admin.quickwin.destroy', $item->id) }}" method="POST"
+                            <form id="delete-form-{{ $quickwin->id }}"
+                                action="{{ route('admin.quickwin.destroy', $quickwin->id) }}" method="POST"
                                 class="inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="px-4 py-2 bg-red-600 text-white rounded"
-                                    onclick="openModal('{{ route('admin.quickwin.destroy', $item->id) }}')">
+                                    onclick="openModal('{{ route('admin.quickwin.destroy', $quickwin->id) }}')">
                                     Hapus
                                 </button>
                             </form>
                         </td>
                     </tr>
-                @endforeach
-                <!-- Modal Konfirmasi Hapus -->
-                <div id="deleteModal" class="fixed z-50 inset-0 hidden overflow-y-auto"
-                    aria-labelledby="deleteModalLabel" role="dialog" aria-modal="true">
-                    <div class="flex items-center justify-center min-h-screen">
-                        <div class="fixed inset-0 bg-black opacity-30"></div>
-                        <div class="bg-white rounded-lg shadow-lg p-6 z-10">
-                            <h2 class="text-lg font-bold mb-4" id="deleteModalLabel">Konfirmasi Hapus</h2>
-                            <p>Apakah Anda yakin ingin menghapus item ini?</p>
-                            <div class="flex justify-end mt-4">
-                                <button type="button" class="mr-2 px-4 py-2 bg-gray-300 rounded"
-                                    onclick="closeModal()">Batal</button>
-                                <form id="delete-form" action="" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        class="px-4 py-2 bg-red-500 text-white rounded">Hapus</button>
-                                </form>
+                    <!-- Modal Konfirmasi Hapus -->
+                    <div id="deleteModal" class="fixed z-50 inset-0 hidden overflow-y-auto"
+                        aria-labelledby="deleteModalLabel" role="dialog" aria-modal="true">
+                        <div class="flex items-center justify-center min-h-screen">
+                            <div class="fixed inset-0 bg-black opacity-30"></div>
+                            <div class="bg-white rounded-lg shadow-lg p-6 z-10">
+                                <h2 class="text-lg font-bold mb-4" id="deleteModalLabel">Konfirmasi Hapus</h2>
+                                <p>Apakah Anda yakin ingin menghapus item ini?</p>
+                                <div class="flex justify-end mt-4">
+                                    <button type="button" class="mr-2 px-4 py-2 bg-gray-300 rounded"
+                                        onclick="closeModal()">Batal</button>
+                                    <form id="delete-form" action="" method="POST" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="px-4 py-2 bg-red-500 text-white rounded">Hapus</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+                @endforeach
             </tbody>
         </table>
         <div class="mt-4">

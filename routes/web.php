@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\DokumenController;
-use App\Http\Controllers\ProfileController;
+use App\Models\Kategori;
+use App\Models\Quickwin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\QuickwinController;
-use App\Models\Quickwin;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,12 +47,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/admin/dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.dokumen.destroy');
 
     //DOKUMEN KATEGORI ROUTE
-    Route::get('/admin/kategori', [DokumenController::class, 'index'])->name('admin.kategori.index');
-    Route::get('/admin/kategori/create', [DokumenController::class, 'create'])->name('admin.kategori.create');
-    Route::post('/admin/kategori/store', [DokumenController::class, 'store'])->name('admin.kategori.store');
-    Route::get('/admin/kategori/{id}/edit', [DokumenController::class, 'edit'])->name('admin.kategori.edit');
-    Route::put('/admin/kategori/{id}', [DokumenController::class, 'update'])->name('admin.kategori.update');
-    Route::delete('/admin/kategori/{id}', [DokumenController::class, 'destroy'])->name('admin.kategori.destroy');
+    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('admin.kategori.index');
+    Route::get('/admin/kategori/create', [KategoriController::class, 'create'])->name('admin.kategori.create');
+    Route::post('/admin/kategori/store', [KategoriController::class, 'store'])->name('admin.kategori.store');
+    Route::get('/admin/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
+    Route::put('/admin/kategori/{id}', [KategoriController::class, 'update'])->name('admin.kategori.update');
+    Route::delete('/admin/kategori/{id}', [KategoriController::class, 'destroy'])->name('admin.kategori.destroy');
 });
 
 require __DIR__ . '/auth.php';

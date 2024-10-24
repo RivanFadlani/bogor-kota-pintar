@@ -14,24 +14,23 @@ class KategoriController extends Controller
     {
         $kategoris = Kategori::latest()->paginate(10);
 
-        return view('admin.kategoris.index', compact('kategoris'));
+        return view('admin.kategori.index', compact('kategoris'));
         //
     }
 
     public function create(): View
     {
-
         return view('admin.kategori.create');
     }
 
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'kategori' => 'required|string|max:50',
+            'kategori' => 'required|string|max:10',
         ]);
 
         Kategori::create([
-            'kategori' => $request->judul,
+            'kategori' => $request->kategori,
         ]);
         return redirect()->route('admin.kategori.index')->with('success', 'Dokumen berhasil ditambahkan!');
     }
@@ -54,7 +53,12 @@ class KategoriController extends Controller
         ]);
 
         // Cari employee berdasarkan ID
-        $dokumens = Kategori::findOrFail($id);
+        $kategoris = Kategori::findOrFail($id);
+
+        // Update data employee
+        $kategoris->update([
+            'kategori' => $request->judul,
+        ]);
 
         // Redirect ke halaman yang diinginkan setelah update
         return redirect()->route('admin.kategori.index')->with('success', 'Employee updated successfully.');
@@ -65,6 +69,6 @@ class KategoriController extends Controller
         $kategoris = Kategori::findOrFail($id);
         $kategoris->delete();
 
-        return redirect()->route('admin.dokumen.index')->with('success', 'Status deleted successfully!');
+        return redirect()->route('admin.kategori.index')->with('success', 'Status deleted successfully!');
     }
 }

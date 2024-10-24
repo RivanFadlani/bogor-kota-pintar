@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Dokumen extends Model
 {
     use HasFactory;
-    protected $table = 'dokumens';
 
     protected $fillable = [
         'judul',
@@ -19,6 +18,6 @@ class Dokumen extends Model
 
     public function kategori()
     {
-        return $this->belongsTo(Kategori::class, 'kategori_id', 'id');
+        return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 }

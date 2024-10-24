@@ -21,44 +21,16 @@
         @endif
 
         <!-- Form untuk menambah dokumen -->
-        <form action="{{ route('admin.quickwin.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
+        <form action="{{ route('admin.kategori.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
             enctype="multipart/form-data">
             @csrf
 
-            <!-- Input untuk Upload Gambar -->
+            <!-- Input untuk Judul -->
             <div class="mb-4">
-                <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
-                <input type="file" name="gambar" id="gambar"
-                    class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}" required>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-                <!-- Input untuk Judul -->
-                <div class="mb-4">
-                    <label for="judul" class="block text-gray-700">Judul</label>
-                    <input type="text" name="judul" id="judul"
-                        class="w-full p-2 border border-gray-300 rounded" value="{{ old('judul') }}" required>
-                    @error('judul')
-                        <span class="bg-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <label for="tahun" class="block text-gray-700">Tahun</label>
-                    <input type="date" name="tahun" id="tahun"
-                        class="w-full p-2 border border-gray-300 rounded" value="{{ old('tahun') }}" required>
-                    @error('tahun')
-                        <span class="bg-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-
-            <!-- Input untuk Deskripsi -->
-            <div class="mb-4">
-                <label for="deskripsi" class="block text-gray-700">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi" id="deskripsi" class="w-full p-2 border border-gray-300 rounded"
-                    value="{{ old('deskripsi') }}" required>
-                @error('deskripsi')
+                <label for="kategori" class="block text-gray-700">kategori</label>
+                <input type="text" name="kategori" id="kategori" class="w-full p-2 border border-gray-300 rounded"
+                    value="{{ old('kategori') }}" required>
+                @error('kategori')
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
             </div>
