@@ -145,14 +145,17 @@
 
     {{-- Program Section Start --}}
     <section id="" class="pl-3 pt-10 pb-32">
-        <div class="w-full">
-            <div class="px-4 sm:mx-7">
-                <h1 class="text-[34px] font-bold mt-5 mb-5 block">
-                    Smart Governance
-                </h1>
-                <img src="imple.jpeg" alt="Image description w-full" />
+        @foreach ($getProgram as $program)
+            <div class="w-full">
+                <div class="px-4 sm:mx-7">
+                    <h1 class="text-[34px] font-bold mt-5 mb-5 block">
+                        {{ $program->judul }}
+                    </h1>
+                    <img src="{{ asset('uploads/ProgramImplementasi/' . $program->gambar) }}"
+                        alt="Image description w-full" />
+                </div>
             </div>
-        </div>
+        @endforeach
     </section>
     {{-- Program Section End --}}
 
