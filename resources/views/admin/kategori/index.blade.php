@@ -17,8 +17,12 @@
                     <tr>
                         <td class="border px-4 py-2">{{ $kategori->kategori }}</td>
                         <td class="border px-4 py-2">
+                            {{-- Edit Button Start --}}
                             <a href="{{ route('admin.kategori.edit', $kategori->id) }}"
                                 class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
+                            {{-- Edit Button End --}}
+
+                            {{-- Delete Form Start --}}
                             <form id="delete-form-{{ $kategori->id }}"
                                 action="{{ route('admin.kategori.destroy', $kategori->id) }}" method="POST"
                                 class="inline-block">
@@ -29,6 +33,7 @@
                                     Hapus
                                 </button>
                             </form>
+                            {{-- Delete Form End --}}
                         </td>
                     </tr>
                     <!-- Modal Konfirmasi Hapus -->

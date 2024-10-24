@@ -284,9 +284,11 @@
                     class="flex-grow w-full py-16 px-10 sm:py-16 sm:px-10 mt-4 flex bg-white rounded-3xl justify-start items-center shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mt-0 md:mb-0 md:mr-16">
                     <div class="w-full flex">
                         <h2 class="text-5xl font-bold mb-3">Visi</h2> <!-- Margin bawah dikurangi -->
-                        <div class="px-6 ms-6 lg:pe-80 border-l-4 text-xl">
-                            Terwujudnya Kota Bogor Sebagai Kota Ramah Keluarga
-                        </div>
+                        @foreach ($visimisi as $vm)
+                            <div class="px-6 ms-6 lg:pe-80 border-l-4 text-xl">
+                                {{ $vm->visi }}
+                            </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -309,11 +311,11 @@
                         class="flex-grow h-min w-full mt-5 py-16 px-10 sm:py-16 sm:px-10 mb-4 flex bg-white rounded-3xl justify-end items-start shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mb-0">
                         <div class="w-full flex">
                             <h2 class="text-5xl pt-2 font-bold mb-3">Misi</h2> <!-- Margin bawah dikurangi -->
-                            <ol class="list-disc ms-6 pl-9 border-l-4 text-xl">
-                                <li>Mewujudkan Kota yang Sehat</li>
-                                <li>Mewujudkan Kota yang Cerdas</li>
-                                <li>Mewujudkan Kota yang Sejahtera</li>
-                            </ol>
+                            @foreach ($visimisi as $vm)
+                                <ol class="list-disc ms-6 pl-9 border-l-4 text-xl">
+                                    {{ $vm->misi }}
+                                </ol>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -770,15 +772,15 @@
     <script>
         // Navbar Fixed
         window.onscroll = function() {
-        const header = document.querySelector('header');
-        const fixedNav = header.offsetTop;
+            const header = document.querySelector('header');
+            const fixedNav = header.offsetTop;
 
-        if (window.pageYOffset > fixedNav) {
-            header.classList.add('navbar-fixed')
-        } else {
-            header.classList.remove('navbar-fixed')
-            header.classList.remove('text-white')
-        }
+            if (window.pageYOffset > fixedNav) {
+                header.classList.add('navbar-fixed')
+            } else {
+                header.classList.remove('navbar-fixed')
+                header.classList.remove('text-white')
+            }
         }
     </script>
 

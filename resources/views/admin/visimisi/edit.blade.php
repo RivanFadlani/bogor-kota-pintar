@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container p-10 mx-auto">
-        <h1 class="text-2xl font-bold mb-4">Tambah Kategori</h1>
+        <h1 class="text-2xl font-bold mb-4">Edit Visi dan Misi</h1>
 
         <!-- Notifikasi kesuksesan -->
         @if (session('success'))
@@ -21,21 +21,31 @@
         @endif
 
         <!-- Kategori Form Start -->
-        <form action="{{ route('admin.kategori.update', $kategoris->id) }}" class="bg-white border-2 p-10 rounded-xl"
+        <form action="{{ route('admin.visimisi.update', $visimisis->id) }}" class="bg-white border-2 p-10 rounded-xl"
             method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            <!-- Input Judul Start -->
+            <!-- Input Visi Start -->
             <div class="mb-4">
-                <label for="kategori" class="block text-gray-700">Kategori</label>
-                <input type="text" name="kategori" id="kategori" class="w-full p-2 border border-gray-300 rounded"
-                    value="{{ old('judul', $kategoris->kategori) }}" required>
+                <label for="visi" class="block text-gray-700">Visi</label>
+                <input type="text" name="visi" id="visi" class="w-full p-2 border border-gray-300 rounded"
+                    value="{{ old('visi', $visimisis->visi) }}" required>
                 @error('judul')
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
             </div>
             <!-- Input Judul End -->
+
+            <!-- Textarea Misi Start -->
+            <div class="mb-4">
+                <label for="misi" class="block text-gray-700">Misi</label>
+                <textarea name="misi" id="misi" class="w-full p-2 border border-gray-300 rounded" required>{{ old('misi', $visimisis->misi) }}</textarea>
+                @error('misi')
+                    <span class="bg-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+            <!-- Textarea Misi End -->
 
             <!-- Tombol Submit -->
             <div>

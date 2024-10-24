@@ -21,20 +21,30 @@
         @endif
 
         <!-- Dokumen Form Start -->
-        <form action="{{ route('admin.kategori.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
+        <form action="{{ route('admin.visimisi.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
             enctype="multipart/form-data">
             @csrf
 
-            <!-- Input Judul Start -->
+            <!-- Input Visi Start -->
             <div class="mb-4">
-                <label for="kategori" class="block text-gray-700">kategori</label>
-                <input type="text" name="kategori" id="kategori" class="w-full p-2 border border-gray-300 rounded"
-                    value="{{ old('kategori') }}" required>
-                @error('kategori')
+                <label for="visi" class="block text-gray-700">Visi</label>
+                <input type="text" name="visi" id="visi" class="w-full p-2 border border-gray-300 rounded"
+                    value="{{ old('visi') }}" required>
+                @error('visi')
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
             </div>
-            <!-- Input Judul End -->
+            <!-- Input Visi End -->
+
+            <!-- Textarea Misi Start -->
+            <div class="mb-4">
+                <label for="misi" class="block text-gray-700">Misi</label>
+                <textarea name="misi" id="misi" class="w-full p-2 border border-gray-300 rounded" required>{{ old('misi') }}</textarea>
+                @error('misi')
+                    <span class="bg-red-500">{{ $message }}</span>
+                @enderror
+            </div>
+            <!-- Textarea Misi End -->
 
             <!-- Tombol Submit -->
             <div>

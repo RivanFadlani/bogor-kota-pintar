@@ -16,15 +16,7 @@ class DokumenController extends Controller
     {
         $dokumens = Dokumen::all();
 
-        // Ambil ID dari kategori masterplan dan powerpoint
-        $masterplanCategory = Kategori::where('kategori', 'masterplan')->first();
-        $powerpointCategory = Kategori::where('kategori', 'powerpoint')->first();
-
-        // Mengambil dokumen berdasarkan kategori
-        $masterplanFiles = Dokumen::where('kategori_id', $masterplanCategory->id)->get();
-        $powerpointFiles = Dokumen::where('kategori_id', $powerpointCategory->id)->get();
-
-        return view('general', compact('dokumens', 'masterplanFiles', 'powerpointFiles'));
+        return view('general', compact('dokumens'));
     }
 
     public function index(): View

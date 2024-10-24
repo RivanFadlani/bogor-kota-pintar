@@ -20,11 +20,12 @@
             </div>
         @endif
 
-        <!-- Form untuk menambah dokumen -->
+        <!-- Dokumen Form Start -->
         <form action="{{ route('admin.dokumen.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
             enctype="multipart/form-data">
             @csrf
 
+            {{-- Input Judul Start --}}
             <div class="mb-4">
                 <label for="judul" class="block text-gray-700">Judul</label>
                 <input type="text" name="judul" id="judul" class="w-full p-2 border border-gray-300 rounded"
@@ -33,15 +34,17 @@
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
             </div>
+            {{-- Input Judul End --}}
 
-            <!-- Input untuk Upload Gambar -->
+            <!-- Input Upload Gambar Start -->
             <div class="mb-4">
                 <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
                 <input type="file" name="gambar" id="gambar"
                     class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}" required>
             </div>
+            <!-- Input Upload Gambar End -->
 
-            <!-- Input untuk URL -->
+            <!-- Input Link Start -->
             <div class="mb-4">
                 <label for="url" class="block text-gray-700">Link</label>
                 <input type="text" name="url" id="deskripsi" class="w-full p-2 border border-gray-300 rounded"
@@ -50,7 +53,9 @@
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
             </div>
+            <!-- Input Link End -->
 
+            {{-- Select Kategori Start --}}
             <div>
                 <label for="kategori_id">Pilih Kategori</label>
                 <select name="kategori_id" id="kategori_id">
@@ -59,11 +64,13 @@
                     @endforeach
                 </select>
             </div>
+            {{-- Select Kategori End --}}
 
             <!-- Tombol Submit -->
             <div>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Dokumen</button>
             </div>
         </form>
+        {{-- Dokumen Form End --}}
     </div>
 </x-app-layout>

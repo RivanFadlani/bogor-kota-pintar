@@ -2,18 +2,21 @@
 
 use App\Models\Kategori;
 use App\Models\Quickwin;
+use App\Models\Visidanmisi;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\QuickwinController;
+use App\Http\Controllers\VisidanmisiController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/general', [DokumenController::class, 'general'])->name('general');
+Route::get('/general', [GeneralController::class, 'general'])->name('general');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -51,6 +54,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
     Route::put('/admin/kategori/{id}', [KategoriController::class, 'update'])->name('admin.kategori.update');
     Route::delete('/admin/kategori/{id}', [KategoriController::class, 'destroy'])->name('admin.kategori.destroy');
+
+    // VISI MISI ROUTE
+    Route::get('/admin/visimisi', [VisidanmisiController::class, 'index'])->name('admin.visimisi.index');
+    Route::get('/admin/visimisi/create', [VisidanmisiController::class, 'create'])->name('admin.visimisi.create');
+    Route::post('/admin/visimisi/store', [VisidanmisiController::class, 'store'])->name('admin.visimisi.store');
+    Route::get('/admin/visimisi/{id}/edit', [VisidanmisiController::class, 'edit'])->name('admin.visimisi.edit');
+    Route::put('/admin/visimisi/{id}', [VisidanmisiController::class, 'update'])->name('admin.visimisi.update');
+    Route::delete('/admin/visimisi/{id}', [VisidanmisiController::class, 'destroy'])->name('admin.visimisi.destroy');
 });
 
 require __DIR__ . '/auth.php';
