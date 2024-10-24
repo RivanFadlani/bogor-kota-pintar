@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/program', function () {
+    return view('programimp');
+});
+
 Route::get('/general', [GeneralController::class, 'general'])->name('general');
 
 Route::get('/dashboard', function () {

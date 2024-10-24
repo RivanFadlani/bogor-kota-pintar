@@ -27,14 +27,24 @@
                     </li>
                     <li><a href="/admin/quickwin" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Quickwins</a>
                     </li>
-                    <li><a href="/admin/dokumen" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dokumen</a>
+
+                    <!-- Dropdown for Dokumen and Kategori Dokumen -->
+                    <li class="relative">
+                        <button
+                            class="block w-full text-left py-2 px-4 text-gray-700 hover:bg-gray-100 focus:outline-none"
+                            id="dokumenDropdown">
+                            Masterplan dan PPT
+                        </button>
+                        <ul class="hidden mt-1 space-y-1 pl-4" id="dropdownMenu">
+                            <li><a href="/admin/dokumen"
+                                    class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dokumen</a></li>
+                            <li><a href="/admin/kategori"
+                                    class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Kategori</a></li>
+                        </ul>
                     </li>
-                    <li><a href="/admin/kategori" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Kategori
-                            Dokumen</a>
-                    </li>
+
                     <li><a href="/admin/visimisi" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Visi dan
-                            Misi</a>
-                    </li>
+                            Misi</a></li>
                 </ul>
             </div>
         </aside>
@@ -58,6 +68,28 @@
             </main>
         </div>
     </div>
+
+    {{-- JS START --}}
+    <script>
+        const dropdownButton = document.getElementById('dokumenDropdown');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownButton.addEventListener('click', () => {
+            // Toggle the hidden class when the button is clicked
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside the menu
+        document.addEventListener('click', (event) => {
+            const isClickInside = dropdownButton.contains(event.target);
+
+            // If clicked outside of dropdown and the menu is open, hide it
+            if (!isClickInside && !dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
+    {{-- JS END --}}
 </body>
 
 </html>
