@@ -25,7 +25,7 @@
                         <td class="border px-4 py-2">{{ $dokumen->url }}</td>
                         <td class="border px-4 py-2">{{ $dokumen->kategori_id }}</td>
                         <td class="border px-4 py-2">
-                            <a href="{{ route('admin.kategori.edit', $dokumen->id) }}"
+                            <a href="{{ route('admin.dokumen.edit', $dokumen->id) }}"
                                 class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
                             <form id="delete-form-{{ $dokumen->id }}"
                                 action="{{ route('admin.kategori.destroy', $dokumen->id) }}" method="POST"

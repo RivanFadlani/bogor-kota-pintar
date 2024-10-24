@@ -16,7 +16,15 @@ class DokumenController extends Controller
     {
         $dokumens = Dokumen::all();
 
-        return view('general', compact('dokumens'));
+        // Ambil ID dari kategori masterplan dan powerpoint
+        $masterplanCategory = Kategori::where('kategori', 'masterplan')->first();
+        $powerpointCategory = Kategori::where('kategori', 'powerpoint')->first();
+
+        // Mengambil dokumen berdasarkan kategori
+        $masterplanFiles = Dokumen::where('kategori_id', $masterplanCategory->id)->get();
+        $powerpointFiles = Dokumen::where('kategori_id', $powerpointCategory->id)->get();
+
+        return view('general', compact('dokumens', 'masterplanFiles', 'powerpointFiles'));
     }
 
     public function index(): View
@@ -65,9 +73,10 @@ class DokumenController extends Controller
     {
         // Cari data employee berdasarkan ID
         $dokumens = Dokumen::findOrFail($id);
+        $kategoris = Kategori::all();
 
         // Kembalikan view edit dengan data employee
-        return view('admin.dokumen.edit', compact('dokumens'));
+        return view('admin.dokumen.edit', compact('dokumens', 'kategoris'));
     }
 
     // Function untuk mengupdate data employee

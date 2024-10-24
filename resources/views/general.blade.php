@@ -590,14 +590,14 @@
                 </div>
             </div>
             <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
-                @foreach ($dokumens as $d)
+                @foreach ($masterplanFiles as $file)
                     <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
-                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $d->judul }}
+                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}
                             </h2>
                             <button class="group mb-5"><span
                                     class="px-4 group-hover:text-primary group-hover:font-semibold"><a
-                                        href="{{ $d->url }}">Lihat Selengkapnya</a>
+                                        href="{{ $file->url }}">Lihat Selengkapnya</a>
                                     ></span></button>
                         </div>
                     </div>
@@ -650,35 +650,19 @@
                     </h2>
                 </div>
             </div>
+
             <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Capaian Program Smart City
-                            Kota Bogor VI 2018</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Selengkapnya
-                                ></span></button>
+                @foreach ($powerpointFiles as $file)
+                    <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                        <div>
+                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
+                            <button class="group mb-5"><span
+                                    class="px-4 group-hover:text-primary group-hover:font-semibold"><a
+                                        href="{{ $file->url }}">Lihat Selengkapnya</a>
+                                    ></span></button>
+                        </div>
                     </div>
-                </div>
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Pointer Evaluasi Gerakan
-                            Menuju 100 Smart City Indonesia Tahun 2021</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Selengkapnya
-                                ></span></button>
-                    </div>
-                </div>
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Buku 1 (satu). Analisis
-                            Strategis
-                            Smart City Kota Bogor</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Lebih Lanjut
-                                ></span></button>
-                    </div>
-                </div>
+                @endforeach
             </div>
             {{-- POWERPOINT END --}}
         </div>
