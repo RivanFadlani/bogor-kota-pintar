@@ -763,6 +763,8 @@
 
     {{-- JS Start --}}
 
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 
     <script>
