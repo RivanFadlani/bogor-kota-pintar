@@ -11,6 +11,14 @@ use Illuminate\Http\RedirectResponse;
 
 class DokumenController extends Controller
 {
+
+    public function general()
+    {
+        $dokumens = Dokumen::all();
+
+        return view('general', compact('dokumens'));
+    }
+
     public function index(): View
     {
         $dokumens = Dokumen::latest()->paginate(10);

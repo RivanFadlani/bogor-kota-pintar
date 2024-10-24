@@ -13,9 +13,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/general', function () {
-    return view('general');
-});
+Route::get('/general', [DokumenController::class, 'general'])->name('general');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

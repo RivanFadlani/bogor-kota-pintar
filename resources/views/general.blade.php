@@ -585,43 +585,27 @@
             <div class="px-4 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">MASTERPLAN
-                        SMART CITY KOTA BOGOR 2017 - 2021
+                        SMART CITY KOTA BOGOR
                     </h2>
                 </div>
             </div>
             <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Capaian Program Smart City
-                            Kota Bogor VI 2018</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Selengkapnya
-                                ></span></button>
+                @foreach ($dokumens as $d)
+                    <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                        <div>
+                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $d->judul }}
+                            </h2>
+                            <button class="group mb-5"><span
+                                    class="px-4 group-hover:text-primary group-hover:font-semibold"><a
+                                        href="{{ $d->url }}">Lihat Selengkapnya</a>
+                                    ></span></button>
+                        </div>
                     </div>
-                </div>
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Pointer Evaluasi Gerakan
-                            Menuju 100 Smart City Indonesia Tahun 2021</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Selengkapnya
-                                ></span></button>
-                    </div>
-                </div>
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Buku 1 (satu). Analisis
-                            Strategis
-                            Smart City Kota Bogor</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Lebih Lanjut
-                                ></span></button>
-                    </div>
-                </div>
+                @endforeach
             </div>
             {{-- MASTERPLAN 2017 - 2021 END --}}
             {{-- MASTERPLAN 2023 - 2027 START --}}
-            <div class="px-4 mt-14 sm:mx-7">
+            {{-- <div class="px-4 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">MASTERPLAN
                         SMART CITY KOTA BOGOR 2023 - 2027
@@ -657,7 +641,7 @@
                                 ></span></button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             {{-- MASTERPLAN 2023 - 2027 END --}}
             {{-- POWERPOINT START --}}
             <div class="px-4 mt-14 sm:mx-7">
@@ -748,33 +732,29 @@
             </div>
 
             <div class="px-4 sm:mx-7 flex flex-wrap gap-3 mt-14 justify-center">
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                    viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
                         d="M12.037 21.998a10.313 10.313 0 0 1-7.168-3.049 9.888 9.888 0 0 1-2.868-7.118 9.947 9.947 0 0 1 3.064-6.949A10.37 10.37 0 0 1 12.212 2h.176a9.935 9.935 0 0 1 6.614 2.564L16.457 6.88a6.187 6.187 0 0 0-4.131-1.566 6.9 6.9 0 0 0-4.794 1.913 6.618 6.618 0 0 0-2.045 4.657 6.608 6.608 0 0 0 1.882 4.723 6.891 6.891 0 0 0 4.725 2.07h.143c1.41.072 2.8-.354 3.917-1.2a5.77 5.77 0 0 0 2.172-3.41l.043-.117H12.22v-3.41h9.678c.075.617.109 1.238.1 1.859-.099 5.741-4.017 9.6-9.746 9.6l-.215-.002Z"
                         clip-rule="evenodd" />
                 </svg>
 
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                    viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
                         d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
                         clip-rule="evenodd" />
                 </svg>
 
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                    viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" />
                 </svg>
 
 
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path fill="currentColor" fill-rule="evenodd"
                         d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
                         clip-rule="evenodd" />
