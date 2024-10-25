@@ -90,7 +90,7 @@
                                 Map</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="#contact"
                                 class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
                         </li>
                         <li>
@@ -117,7 +117,7 @@
                                             Implementasi</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="https://bsw.kotabogor.go.id/"
                                             class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Layanan</a>
                                     </li>
                                 </ul>
@@ -153,7 +153,7 @@
                     <div class="flex justify-center sm:justify-start sm:ps-10">
                         <form class="relative">
                             <input type="text"
-                                class="w-72 pl-10 pr-4 py-2 rounded-full shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                class="w-96 pl-10 pr-4 py-2 rounded-full shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                                 placeholder="Cari...">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
@@ -340,7 +340,7 @@
     <section id="pesertaiga" class="pt-24 pb-32 bg-gradient-to-t from-gradient/30">
         <div class="w-full">
             <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">Peserta IGA 2020</h1>
+                <h1 class="text-[48px] font-bold mb-7 block">Sub Dimensi Smart City</h1>
             </div>
             <!-- button start -->
             <div class="filter-button-group px-4 sm:mx-7 mb-5 flex flex-wrap gap-3">
@@ -571,6 +571,254 @@
         <div class="w-full">
             <div class="px-4 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-7 block">Program Implementasi Smart City</h1>
+
+                <section class="px-12">
+                    <div class="max-w-lg mx-auto relative">
+
+                        <input id="article-01" type="radio" name="slider" class="sr-only peer/01">
+                        <input id="article-02" type="radio" name="slider" class="sr-only peer/02">
+                        <input id="article-03" type="radio" name="slider" class="sr-only peer/03" checked>
+                        <input id="article-04" type="radio" name="slider" class="sr-only peer/04">
+                        <input id="article-05" type="radio" name="slider" class="sr-only peer/05">
+
+                        <div
+                            class="
+                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                            peer-focus-visible/01:[&_article]:ring
+                            peer-focus-visible/01:[&_article]:ring-indigo-300
+                            peer-checked/01:relative
+                            peer-checked/01:z-50
+                            peer-checked/01:translate-x-0
+                            peer-checked/01:scale-100
+                            peer-checked/01:[&>label]:pointer-events-none
+                            peer-checked/02:-translate-x-20
+                            peer-checked/02:scale-[83.75%]
+                            peer-checked/02:z-40
+                            peer-checked/03:-translate-x-40
+                            peer-checked/03:z-30
+                            peer-checked/04:-translate-x-40
+                            peer-checked/04:opacity-0
+                            peer-checked/05:-translate-x-40
+                        ">
+                            <label class="absolute inset-0" for="article-01"><span class="sr-only">Focus on the big
+                                    picture</span></label>
+                            <article class="bg-white p-6 rounded-lg shadow-2xl">
+                                <header class="mb-2">
+                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
+                                        height="44" alt="Icon" />
+                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                                </header>
+                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
+                                    <p>
+                                        Many desktop publishing packages and web page editors now use Pinky as their
+                                        default model text, and a search for more variants will uncover many web sites
+                                        still in their infancy.
+                                    </p>
+                                    <p>
+                                        All the generators tend to repeat predefined chunks as necessary, making this
+                                        the first true generator on the Internet.
+                                    </p>
+                                </div>
+                                <footer class="text-right">
+                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                        more -></a>
+                                </footer>
+                            </article>
+                        </div>
+
+                        <div
+                            class="
+                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                            peer-focus-visible/02:[&_article]:ring
+                            peer-focus-visible/02:[&_article]:ring-indigo-300
+                            peer-checked/01:translate-x-20
+                            peer-checked/01:scale-[83.75%]
+                            peer-checked/01:z-40
+                            peer-checked/02:relative
+                            peer-checked/02:z-50
+                            peer-checked/02:translate-x-0
+                            peer-checked/02:scale-100
+                            peer-checked/02:[&>label]:pointer-events-none
+                            peer-checked/03:-translate-x-20
+                            peer-checked/03:scale-[83.75%]
+                            peer-checked/03:z-40
+                            peer-checked/04:-translate-x-40
+                            peer-checked/04:z-30
+                            peer-checked/05:-translate-x-40
+                            peer-checked/05:opacity-0
+                        ">
+                            <label class="absolute inset-0" for="article-02"><span class="sr-only">Focus on the big
+                                    picture</span></label>
+                            <article class="bg-white p-6 rounded-lg shadow-2xl">
+                                <header class="mb-2">
+                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
+                                        height="44" alt="Icon" />
+                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                                </header>
+                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
+                                    <p>
+                                        Many desktop publishing packages and web page editors now use Pinky as their
+                                        default model text, and a search for more variants will uncover many web sites
+                                        still in their infancy.
+                                    </p>
+                                    <p>
+                                        All the generators tend to repeat predefined chunks as necessary, making this
+                                        the first true generator on the Internet.
+                                    </p>
+                                </div>
+                                <footer class="text-right">
+                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                        more -></a>
+                                </footer>
+                            </article>
+                        </div>
+
+                        <div
+                            class="
+                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                            peer-focus-visible/03:[&_article]:ring
+                            peer-focus-visible/03:[&_article]:ring-indigo-300
+                            peer-checked/01:translate-x-40
+                            peer-checked/01:z-30
+                            peer-checked/02:translate-x-20
+                            peer-checked/02:scale-[83.75%]
+                            peer-checked/02:z-40
+                            peer-checked/03:relative
+                            peer-checked/03:z-50
+                            peer-checked/03:translate-x-0
+                            peer-checked/03:scale-100
+                            peer-checked/03:[&>label]:pointer-events-none
+                            peer-checked/04:-translate-x-20
+                            peer-checked/04:scale-[83.75%]
+                            peer-checked/04:z-40
+                            peer-checked/05:-translate-x-40
+                            peer-checked/05:z-30
+                        ">
+                            <label class="absolute inset-0" for="article-03"><span class="sr-only">Focus on the big
+                                    picture</span></label>
+                            <article class="bg-white p-6 rounded-lg shadow-2xl">
+                                <header class="mb-2">
+                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
+                                        height="44" alt="Icon" />
+                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                                </header>
+                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
+                                    <p>
+                                        Many desktop publishing packages and web page editors now use Pinky as their
+                                        default model text, and a search for more variants will uncover many web sites
+                                        still in their infancy.
+                                    </p>
+                                    <p>
+                                        All the generators tend to repeat predefined chunks as necessary, making this
+                                        the first true generator on the Internet.
+                                    </p>
+                                </div>
+                                <footer class="text-right">
+                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                        more -></a>
+                                </footer>
+                            </article>
+                        </div>
+
+                        <div
+                            class="
+                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                            peer-focus-visible/04:[&_article]:ring
+                            peer-focus-visible/04:[&_article]:ring-indigo-300
+
+                            peer-checked/01:translate-x-40
+                            peer-checked/01:opacity-0
+
+                            peer-checked/02:translate-x-40
+                            peer-checked/02:z-30
+
+                            peer-checked/03:translate-x-20
+                            peer-checked/03:scale-[83.75%]
+                            peer-checked/03:z-40
+
+                            peer-checked/04:relative
+                            peer-checked/04:z-50
+                            peer-checked/04:translate-x-0
+                            peer-checked/04:scale-100
+                            peer-checked/04:[&>label]:pointer-events-none
+
+                            peer-checked/05:-translate-x-20
+                            peer-checked/05:scale-[83.75%]
+                            peer-checked/05:z-40
+                        ">
+                            <label class="absolute inset-0" for="article-04"><span class="sr-only">Focus on the big
+                                    picture</span></label>
+                            <article class="bg-white p-6 rounded-lg shadow-2xl">
+                                <header class="mb-2">
+                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
+                                        height="44" alt="Icon" />
+                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                                </header>
+                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
+                                    <p>
+                                        Many desktop publishing packages and web page editors now use Pinky as their
+                                        default model text, and a search for more variants will uncover many web sites
+                                        still in their infancy.
+                                    </p>
+                                    <p>
+                                        All the generators tend to repeat predefined chunks as necessary, making this
+                                        the first true generator on the Internet.
+                                    </p>
+                                </div>
+                                <footer class="text-right">
+                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                        more -></a>
+                                </footer>
+                            </article>
+                        </div>
+
+                        <div
+                            class="
+                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                            peer-focus-visible/05:[&_article]:ring
+                            peer-focus-visible/05:[&_article]:ring-indigo-300
+                            peer-checked/01:translate-x-40
+                            peer-checked/02:translate-x-40
+                            peer-checked/02:opacity-0
+                            peer-checked/03:translate-x-40
+                            peer-checked/03:z-30
+                            peer-checked/04:translate-x-20
+                            peer-checked/04:scale-[83.75%]
+                            peer-checked/04:z-40
+                            peer-checked/05:relative
+                            peer-checked/05:z-50
+                            peer-checked/05:translate-x-0
+                            peer-checked/05:scale-100
+                            peer-checked/05:[&>label]:pointer-events-none
+                        ">
+                            <label class="absolute inset-0" for="article-05"><span class="sr-only">Focus on the big
+                                    picture</span></label>
+                            <article class="bg-white p-6 rounded-lg shadow-2xl">
+                                <header class="mb-2">
+                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
+                                        height="44" alt="Icon" />
+                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                                </header>
+                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
+                                    <p>
+                                        Many desktop publishing packages and web page editors now use Pinky as their
+                                        default model text, and a search for more variants will uncover many web sites
+                                        still in their infancy.
+                                    </p>
+                                    <p>
+                                        All the generators tend to repeat predefined chunks as necessary, making this
+                                        the first true generator on the Internet.
+                                    </p>
+                                </div>
+                                <footer class="text-right">
+                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                        more -></a>
+                                </footer>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <!-- End: Card slider -->
             </div>
         </div>
     </section>
@@ -693,6 +941,7 @@
     {{-- Road Map Section End --}}
 
     {{-- Footer Start --}}
+
     <section id="contact" class="pt-24 pb-32 bg-primary">
         <div class="w-full">
             <div class="px-4 sm:mx-7 text-center">
@@ -718,29 +967,29 @@
             </div>
 
             <div class="px-4 sm:mx-7 flex flex-wrap gap-3 mt-14 justify-center">
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
                         d="M12.037 21.998a10.313 10.313 0 0 1-7.168-3.049 9.888 9.888 0 0 1-2.868-7.118 9.947 9.947 0 0 1 3.064-6.949A10.37 10.37 0 0 1 12.212 2h.176a9.935 9.935 0 0 1 6.614 2.564L16.457 6.88a6.187 6.187 0 0 0-4.131-1.566 6.9 6.9 0 0 0-4.794 1.913 6.618 6.618 0 0 0-2.045 4.657 6.608 6.608 0 0 0 1.882 4.723 6.891 6.891 0 0 0 4.725 2.07h.143c1.41.072 2.8-.354 3.917-1.2a5.77 5.77 0 0 0 2.172-3.41l.043-.117H12.22v-3.41h9.678c.075.617.109 1.238.1 1.859-.099 5.741-4.017 9.6-9.746 9.6l-.215-.002Z"
                         clip-rule="evenodd" />
                 </svg>
 
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
                         d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
                         clip-rule="evenodd" />
                 </svg>
 
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" />
                 </svg>
 
 
-                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="none" viewBox="0 0 24 24">
                     <path fill="currentColor" fill-rule="evenodd"
                         d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
                         clip-rule="evenodd" />
@@ -755,12 +1004,22 @@
                 </div>
             </div>
 
+            <!-- New section for "Supported by" text and image link -->
+            <div class="px-4 sm:mx-7 mt-5 text-center ">
+                <h3 class="text-white font-semibold mb-3">Supported by</h3>
+                <a href="https://bsw.kotabogor.go.id" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/bsw.png" class="mx-auto w-64 h-auto">
+                </a>
+            </div>
+
             <div class="px-4 sm:mx-7 mt-10 text-center">
-                <h3 class="text-white text-lg">Copyright © 2024 Dinas Komunikasi dan Informatika Kota Bogor. All Right
-                    Reserved</h3>
+                <h3 class="text-white text-lg">Copyright © 2024 Dinas Komunikasi dan Informatika Kota Bogor. All
+                    Right Reserved
+                </h3>
             </div>
         </div>
     </section>
+
     {{-- Footer End --}}
 
     {{-- JS Start --}}
