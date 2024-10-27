@@ -900,7 +900,7 @@
             <div class="px-4 sm:mx-7 flex flex-col gap-x-3 mt-5 text-center">
                 <h2 class="text-white font-semibold text-2xl">Statistik Pengunjung</h2>
                 <div class="flex flex-wrap gap-x-3 text-center justify-center">
-                    <h3 class="text-indigo-400 text-lg">Hari Ini: 25</h3>
+                    <h3 class="text-indigo-400 text-lg">Hari Ini: {{ $visitorCount }}</h3>
                     <h3 class="text-indigo-400 text-lg">Total Pengunjung: 61533</h3>
                 </div>
             </div>
