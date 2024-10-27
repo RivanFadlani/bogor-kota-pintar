@@ -23,10 +23,16 @@ class VisitorServiceProvider extends ServiceProvider
     {
         $this->app['router']->pushMiddlewareToGroup('web', \App\Http\Middleware\TrackVisitors::class);
 
-        View::share(
-            'visitorCount',
+        // Hitung jumlah total pengunjung
+        $totalVisitors = Visitor::count();
 
-            Visitor::count()
-        );
+        // Hitung jumlah pengunjung untuk hari ini
+        $todayVisitors = Visitor::whereDate('visited_date', now()->toDateString())->count();
+
+        // Bagikan data counter ke semua view
+        View::share([
+            'totalVisitors' => $totalVisitors,
+            'todayVisitors' => $todayVisitors,
+        ]);
     }
 }

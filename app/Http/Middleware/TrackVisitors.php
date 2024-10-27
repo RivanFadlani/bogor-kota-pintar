@@ -20,6 +20,7 @@ class TrackVisitors
         Visitor::create([
             'ip_address' => $request->ip(),    // Simpan IP Address pengunjung
             'user_agent' => $request->userAgent(), // Simpan User Agent pengunjung
+            'visited_date' => now()->toDateString(),    // Simpan tanggal kunjungan (YYYY-MM-DD
             'visited_at' => now(),             // Simpan waktu kunjungan
         ]);
 
