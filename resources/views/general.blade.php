@@ -21,113 +21,118 @@
 
 <body>
     {{-- Header Section Start --}}
-    <div class="max-w-2xl lg:max-w-full mx-auto">
+    <header class="w-full p-3 absolute lg:max-w-full mx-auto">
 
-        <nav class="border-gray-200">
-            <div
-                class="w-full px-10 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
-                <!-- Brand logo and title -->
-                <a href="#" class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
-                    <img src="/img/diskominfo.png" alt="" class="w-16">
-                    <span class="self-center text-lg font-semibold whitespace-nowrap">Smart City</span>
-                    <!-- Mobile button (hamburger icon) -->
-                    <button data-collapse-toggle="mobile-menu" type="button"
-                        class="lg:hidden ml-3 text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
-                        aria-controls="mobile-menu-2" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </a>
+        <div class="container">
+            <nav class="w-full border-gray-200 relative">
+                <div
+                    class="w-full px-10 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
+                    <!-- Brand logo and title -->
+                    <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
+                        <img src="/img/diskominfo.png" alt="" class="w-16">
+                        <span class="self-center text-lg font-semibold whitespace-nowrap">Smart City</span>
+                        <!-- Mobile button (hamburger icon) -->
+                        <button data-collapse-toggle="mobile-menu" type="button"
+                            class="lg:hidden ml-3 text-slate-800 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
+                            aria-controls="mobile-menu-2" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </a>
 
-                <!-- Navbar content -->
-                <div class="hidden lg:flex flex-wrap w-full lg:w-auto justify-between lg:flex-row lg:items-center  lg:space-x-4"
-                    id="mobile-menu">
-                    <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
-                        <li>
-                            <a href="#beranda"
-                                class="block lg:inline-block border-b font-semibold text-black lg:text-blue-700 pl-3 pr-4 py-2">Beranda</a>
-                        </li>
-                        <li>
-                            <a href="#dimensi"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
-                        </li>
-                        <li>
-                            <a href="#visidanmisi"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
-                                & Misi</a>
-                        </li>
-                        <li>
-                            <a href="#pesertaiga"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Peserta
-                                IGA</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Quick
-                                Wins</a>
-                        </li>
-                        <li>
-                            <a href="#masterplan"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
-                        </li>
-                        <li>
-                            <a href="#booklet"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
-                        </li>
-                        <li>
-                            <a href="#roadmap"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
-                                Map</a>
-                        </li>
-                        <li>
-                            <a href="#contact"
-                                class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
-                        </li>
-                        <li>
-                            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Dropdown
-                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
-                                </svg></button>
-                            <!-- Dropdown menu -->
-                            <div id="dropdownNavbar"
-                                class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                                <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <a href="#"
-                                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Hasil
-                                            Penilaian</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Program
-                                            Implementasi</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://bsw.kotabogor.go.id/"
-                                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Layanan</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+                    <!-- Navbar content -->
+                    <div class="hidden z-[9999] lg:flex flex-wrap w-full lg:w-auto justify-between lg:flex-row lg:items-center lg:space-x-4"
+                        id="mobile-menu">
+                        <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
+                            <li>
+                                <a href="#beranda"
+                                    class="block woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2">Beranda</a>
+                            </li>
+                            <li>
+                                <a href="#dimensi"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
+                            </li>
+                            <li>
+                                <a href="#visidanmisi"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
+                                    & Misi</a>
+                            </li>
+                            <li>
+                                <a href="#pesertaiga"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Peserta
+                                    IGA</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Quick
+                                    Wins</a>
+                            </li>
+                            <li>
+                                <a href="#masterplan"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
+                            </li>
+                            <li>
+                                <a href="#booklet"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
+                            </li>
+                            <li>
+                                <a href="#roadmap"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
+                                    Map</a>
+                            </li>
+                            <li>
+                                <a href="#contact"
+                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
+                            </li>
+                            <li>
+                                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                                    class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Dropdown
+                                    <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></button>
+                                <!-- Dropdown menu -->
+                                <div id="dropdownNavbar"
+                                    class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
+                                    <ul class="py-1" aria-labelledby="dropdownLargeButton">
+                                        <li>
+                                            <a href="#"
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Hasil
+                                                Penilaian</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Program
+                                                Implementasi</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://bsw.kotabogor.go.id/"
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Layanan</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </div>
+            </nav>
+        </div>
+
+    </header>
 
     {{-- Header Section End --}}
 
@@ -566,272 +571,13 @@
 
     {{-- Peserta IGA Section End --}}
 
-    {{-- Program Implentasi Section Start --}}
-    <section id="quickwins" class="pt-28 pb-28 bg-gradient-to-b from-gradient/30">
-        <div class="w-full">
-            <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">Program Implementasi Smart City</h1>
-
-                <section class="px-12">
-                    <div class="max-w-lg mx-auto relative">
-
-                        <input id="article-01" type="radio" name="slider" class="sr-only peer/01">
-                        <input id="article-02" type="radio" name="slider" class="sr-only peer/02">
-                        <input id="article-03" type="radio" name="slider" class="sr-only peer/03" checked>
-                        <input id="article-04" type="radio" name="slider" class="sr-only peer/04">
-                        <input id="article-05" type="radio" name="slider" class="sr-only peer/05">
-
-                        <div
-                            class="
-                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                            peer-focus-visible/01:[&_article]:ring
-                            peer-focus-visible/01:[&_article]:ring-indigo-300
-                            peer-checked/01:relative
-                            peer-checked/01:z-50
-                            peer-checked/01:translate-x-0
-                            peer-checked/01:scale-100
-                            peer-checked/01:[&>label]:pointer-events-none
-                            peer-checked/02:-translate-x-20
-                            peer-checked/02:scale-[83.75%]
-                            peer-checked/02:z-40
-                            peer-checked/03:-translate-x-40
-                            peer-checked/03:z-30
-                            peer-checked/04:-translate-x-40
-                            peer-checked/04:opacity-0
-                            peer-checked/05:-translate-x-40
-                        ">
-                            <label class="absolute inset-0" for="article-01"><span class="sr-only">Focus on the big
-                                    picture</span></label>
-                            <article class="bg-white p-6 rounded-lg shadow-2xl">
-                                <header class="mb-2">
-                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
-                                        height="44" alt="Icon" />
-                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                                </header>
-                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
-                                    <p>
-                                        Many desktop publishing packages and web page editors now use Pinky as their
-                                        default model text, and a search for more variants will uncover many web sites
-                                        still in their infancy.
-                                    </p>
-                                    <p>
-                                        All the generators tend to repeat predefined chunks as necessary, making this
-                                        the first true generator on the Internet.
-                                    </p>
-                                </div>
-                                <footer class="text-right">
-                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                        more -></a>
-                                </footer>
-                            </article>
-                        </div>
-
-                        <div
-                            class="
-                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                            peer-focus-visible/02:[&_article]:ring
-                            peer-focus-visible/02:[&_article]:ring-indigo-300
-                            peer-checked/01:translate-x-20
-                            peer-checked/01:scale-[83.75%]
-                            peer-checked/01:z-40
-                            peer-checked/02:relative
-                            peer-checked/02:z-50
-                            peer-checked/02:translate-x-0
-                            peer-checked/02:scale-100
-                            peer-checked/02:[&>label]:pointer-events-none
-                            peer-checked/03:-translate-x-20
-                            peer-checked/03:scale-[83.75%]
-                            peer-checked/03:z-40
-                            peer-checked/04:-translate-x-40
-                            peer-checked/04:z-30
-                            peer-checked/05:-translate-x-40
-                            peer-checked/05:opacity-0
-                        ">
-                            <label class="absolute inset-0" for="article-02"><span class="sr-only">Focus on the big
-                                    picture</span></label>
-                            <article class="bg-white p-6 rounded-lg shadow-2xl">
-                                <header class="mb-2">
-                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
-                                        height="44" alt="Icon" />
-                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                                </header>
-                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
-                                    <p>
-                                        Many desktop publishing packages and web page editors now use Pinky as their
-                                        default model text, and a search for more variants will uncover many web sites
-                                        still in their infancy.
-                                    </p>
-                                    <p>
-                                        All the generators tend to repeat predefined chunks as necessary, making this
-                                        the first true generator on the Internet.
-                                    </p>
-                                </div>
-                                <footer class="text-right">
-                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                        more -></a>
-                                </footer>
-                            </article>
-                        </div>
-
-                        <div
-                            class="
-                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                            peer-focus-visible/03:[&_article]:ring
-                            peer-focus-visible/03:[&_article]:ring-indigo-300
-                            peer-checked/01:translate-x-40
-                            peer-checked/01:z-30
-                            peer-checked/02:translate-x-20
-                            peer-checked/02:scale-[83.75%]
-                            peer-checked/02:z-40
-                            peer-checked/03:relative
-                            peer-checked/03:z-50
-                            peer-checked/03:translate-x-0
-                            peer-checked/03:scale-100
-                            peer-checked/03:[&>label]:pointer-events-none
-                            peer-checked/04:-translate-x-20
-                            peer-checked/04:scale-[83.75%]
-                            peer-checked/04:z-40
-                            peer-checked/05:-translate-x-40
-                            peer-checked/05:z-30
-                        ">
-                            <label class="absolute inset-0" for="article-03"><span class="sr-only">Focus on the big
-                                    picture</span></label>
-                            <article class="bg-white p-6 rounded-lg shadow-2xl">
-                                <header class="mb-2">
-                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
-                                        height="44" alt="Icon" />
-                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                                </header>
-                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
-                                    <p>
-                                        Many desktop publishing packages and web page editors now use Pinky as their
-                                        default model text, and a search for more variants will uncover many web sites
-                                        still in their infancy.
-                                    </p>
-                                    <p>
-                                        All the generators tend to repeat predefined chunks as necessary, making this
-                                        the first true generator on the Internet.
-                                    </p>
-                                </div>
-                                <footer class="text-right">
-                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                        more -></a>
-                                </footer>
-                            </article>
-                        </div>
-
-                        <div
-                            class="
-                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                            peer-focus-visible/04:[&_article]:ring
-                            peer-focus-visible/04:[&_article]:ring-indigo-300
-
-                            peer-checked/01:translate-x-40
-                            peer-checked/01:opacity-0
-
-                            peer-checked/02:translate-x-40
-                            peer-checked/02:z-30
-
-                            peer-checked/03:translate-x-20
-                            peer-checked/03:scale-[83.75%]
-                            peer-checked/03:z-40
-
-                            peer-checked/04:relative
-                            peer-checked/04:z-50
-                            peer-checked/04:translate-x-0
-                            peer-checked/04:scale-100
-                            peer-checked/04:[&>label]:pointer-events-none
-
-                            peer-checked/05:-translate-x-20
-                            peer-checked/05:scale-[83.75%]
-                            peer-checked/05:z-40
-                        ">
-                            <label class="absolute inset-0" for="article-04"><span class="sr-only">Focus on the big
-                                    picture</span></label>
-                            <article class="bg-white p-6 rounded-lg shadow-2xl">
-                                <header class="mb-2">
-                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
-                                        height="44" alt="Icon" />
-                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                                </header>
-                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
-                                    <p>
-                                        Many desktop publishing packages and web page editors now use Pinky as their
-                                        default model text, and a search for more variants will uncover many web sites
-                                        still in their infancy.
-                                    </p>
-                                    <p>
-                                        All the generators tend to repeat predefined chunks as necessary, making this
-                                        the first true generator on the Internet.
-                                    </p>
-                                </div>
-                                <footer class="text-right">
-                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                        more -></a>
-                                </footer>
-                            </article>
-                        </div>
-
-                        <div
-                            class="
-                            absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                            peer-focus-visible/05:[&_article]:ring
-                            peer-focus-visible/05:[&_article]:ring-indigo-300
-                            peer-checked/01:translate-x-40
-                            peer-checked/02:translate-x-40
-                            peer-checked/02:opacity-0
-                            peer-checked/03:translate-x-40
-                            peer-checked/03:z-30
-                            peer-checked/04:translate-x-20
-                            peer-checked/04:scale-[83.75%]
-                            peer-checked/04:z-40
-                            peer-checked/05:relative
-                            peer-checked/05:z-50
-                            peer-checked/05:translate-x-0
-                            peer-checked/05:scale-100
-                            peer-checked/05:[&>label]:pointer-events-none
-                        ">
-                            <label class="absolute inset-0" for="article-05"><span class="sr-only">Focus on the big
-                                    picture</span></label>
-                            <article class="bg-white p-6 rounded-lg shadow-2xl">
-                                <header class="mb-2">
-                                    <img class="inline-flex rounded-full shadow mb-3" src="./icon.svg" width="44"
-                                        height="44" alt="Icon" />
-                                    <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                                </header>
-                                <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
-                                    <p>
-                                        Many desktop publishing packages and web page editors now use Pinky as their
-                                        default model text, and a search for more variants will uncover many web sites
-                                        still in their infancy.
-                                    </p>
-                                    <p>
-                                        All the generators tend to repeat predefined chunks as necessary, making this
-                                        the first true generator on the Internet.
-                                    </p>
-                                </div>
-                                <footer class="text-right">
-                                    <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                        more -></a>
-                                </footer>
-                            </article>
-                        </div>
-                    </div>
-                </section>
-                <!-- End: Card slider -->
-            </div>
-        </div>
-    </section>
-
-    {{-- Program Implentasi Section End --}}
-
     {{-- Masterplan Section Start --}}
     <section id="masterplan" class="pt-24 pb-24">
         <div class="w-full">
             <div class="px-4 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-7 block">MasterPlan dan Power Point Smart City</h1>
             </div>
-            {{-- MASTERPLAN 2017 - 2021 START --}}
+            {{-- MASTERPLAN START --}}
             <div class="px-4 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">MASTERPLAN
@@ -847,52 +593,13 @@
                             </h2>
                             <button class="group mb-5"><span
                                     class="px-4 group-hover:text-primary group-hover:font-semibold"><a
-                                        href="{{ $file->url }}">Lihat Selengkapnya</a>
+                                        href="{{ $file->url }}" target="_blank">Lihat Selengkapnya</a>
                                     ></span></button>
                         </div>
                     </div>
                 @endforeach
             </div>
-            {{-- MASTERPLAN 2017 - 2021 END --}}
-            {{-- MASTERPLAN 2023 - 2027 START --}}
-            {{-- <div class="px-4 mt-14 sm:mx-7">
-                <div class="w-full bg-primary rounded-xl">
-                    <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">MASTERPLAN
-                        SMART CITY KOTA BOGOR 2023 - 2027
-                    </h2>
-                </div>
-            </div>
-            <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Capaian Program Smart City
-                            Kota Bogor VI 2018</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Selengkapnya
-                                ></span></button>
-                    </div>
-                </div>
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Pointer Evaluasi Gerakan
-                            Menuju 100 Smart City Indonesia Tahun 2021</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Selengkapnya
-                                ></span></button>
-                    </div>
-                </div>
-                <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
-                    <div>
-                        <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">Buku 1 (satu). Analisis
-                            Strategis
-                            Smart City Kota Bogor</h2>
-                        <button class="group mb-5"><span
-                                class="px-4 group-hover:text-primary group-hover:font-semibold">Lihat Lebih Lanjut
-                                ></span></button>
-                    </div>
-                </div>
-            </div> --}}
-            {{-- MASTERPLAN 2023 - 2027 END --}}
+            {{-- MASTERPLAN END --}}
             {{-- POWERPOINT START --}}
             <div class="px-4 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
@@ -908,7 +615,7 @@
                             <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
                             <button class="group mb-5"><span
                                     class="px-4 group-hover:text-primary group-hover:font-semibold"><a
-                                        href="{{ $file->url }}">Lihat Selengkapnya</a>
+                                        href="{{ $file->url }}" target="_blank">Lihat Selengkapnya</a>
                                     ></span></button>
                         </div>
                     </div>
@@ -920,11 +627,205 @@
     {{-- Masterplan Section End --}}
 
     {{-- Booklet Info Start --}}
-    <section id="booklet" class="pt-24 pb-32">
-        <div class="w-full">
+    <section id="booklet"
+        class="relative min-h-screen flex flex-col justify-center overflow-hidden pb-32 bg-gradient-to-b from-gradient/30">
+        <div class="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
             <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">Booklet Info Smart City</h1>
+                <h1 class="text-[48px] text-center font-bold mb-7 block">Booklet Info Smart City</h1>
             </div>
+            <!-- Card slider -->
+            <section class="px-12">
+                <div class="max-w-xs mx-auto relative">
+
+                    <input id="article-01" type="radio" name="slider" class="sr-only peer/01">
+                    <input id="article-02" type="radio" name="slider" class="sr-only peer/02">
+                    <input id="article-03" type="radio" name="slider" class="sr-only peer/03" checked>
+                    <input id="article-04" type="radio" name="slider" class="sr-only peer/04">
+                    <input id="article-05" type="radio" name="slider" class="sr-only peer/05">
+
+                    <div
+                        class="
+                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                        peer-focus-visible/01:[&_article]:ring
+                        peer-focus-visible/01:[&_article]:ring-indigo-300
+                        peer-checked/01:relative
+                        peer-checked/01:z-50
+                        peer-checked/01:translate-x-0
+                        peer-checked/01:scale-100
+                        peer-checked/01:[&>label]:pointer-events-none
+                        peer-checked/02:-translate-x-20
+                        peer-checked/02:scale-[83.75%]
+                        peer-checked/02:z-40
+                        peer-checked/03:-translate-x-40
+                        peer-checked/03:z-30
+                        peer-checked/04:-translate-x-40
+                        peer-checked/04:opacity-0
+                        peer-checked/05:-translate-x-40
+                    ">
+                        <label class="absolute inset-0" for="article-01"><span class="sr-only">Focus on the big
+                                picture</span></label>
+                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
+                            <header class="mb-2">
+                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
+                                    alt="Icon" />
+                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                            </header>
+                            <footer class="text-right">
+                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                    more -></a>
+                            </footer>
+                        </article>
+                    </div>
+
+                    <div
+                        class="
+                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                        peer-focus-visible/02:[&_article]:ring
+                        peer-focus-visible/02:[&_article]:ring-indigo-300
+                        peer-checked/01:translate-x-20
+                        peer-checked/01:scale-[83.75%]
+                        peer-checked/01:z-40
+                        peer-checked/02:relative
+                        peer-checked/02:z-50
+                        peer-checked/02:translate-x-0
+                        peer-checked/02:scale-100
+                        peer-checked/02:[&>label]:pointer-events-none
+                        peer-checked/03:-translate-x-20
+                        peer-checked/03:scale-[83.75%]
+                        peer-checked/03:z-40
+                        peer-checked/04:-translate-x-40
+                        peer-checked/04:z-30
+                        peer-checked/05:-translate-x-40
+                        peer-checked/05:opacity-0
+                    ">
+                        <label class="absolute inset-0" for="article-02"><span class="sr-only">Focus on the big
+                                picture</span></label>
+                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
+                            <header class="mb-2">
+                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
+                                    alt="Icon" />
+                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                            </header>
+                            <footer class="text-right">
+                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                    more -></a>
+                            </footer>
+                        </article>
+                    </div>
+
+                    <div
+                        class="
+                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                        peer-focus-visible/03:[&_article]:ring
+                        peer-focus-visible/03:[&_article]:ring-indigo-300
+                        peer-checked/01:translate-x-40
+                        peer-checked/01:z-30
+                        peer-checked/02:translate-x-20
+                        peer-checked/02:scale-[83.75%]
+                        peer-checked/02:z-40
+                        peer-checked/03:relative
+                        peer-checked/03:z-50
+                        peer-checked/03:translate-x-0
+                        peer-checked/03:scale-100
+                        peer-checked/03:[&>label]:pointer-events-none
+                        peer-checked/04:-translate-x-20
+                        peer-checked/04:scale-[83.75%]
+                        peer-checked/04:z-40
+                        peer-checked/05:-translate-x-40
+                        peer-checked/05:z-30
+                    ">
+                        <label class="absolute inset-0" for="article-03"><span class="sr-only">Focus on the big
+                                picture</span></label>
+                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
+                            <header class="mb-2">
+                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
+                                    alt="Icon" />
+                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                            </header>
+                            <footer class="text-right">
+                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                    more -></a>
+                            </footer>
+                        </article>
+                    </div>
+
+                    <div
+                        class="
+                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                        peer-focus-visible/04:[&_article]:ring
+                        peer-focus-visible/04:[&_article]:ring-indigo-300
+
+                        peer-checked/01:translate-x-40
+                        peer-checked/01:opacity-0
+
+                        peer-checked/02:translate-x-40
+                        peer-checked/02:z-30
+
+                        peer-checked/03:translate-x-20
+                        peer-checked/03:scale-[83.75%]
+                        peer-checked/03:z-40
+
+                        peer-checked/04:relative
+                        peer-checked/04:z-50
+                        peer-checked/04:translate-x-0
+                        peer-checked/04:scale-100
+                        peer-checked/04:[&>label]:pointer-events-none
+
+                        peer-checked/05:-translate-x-20
+                        peer-checked/05:scale-[83.75%]
+                        peer-checked/05:z-40
+                    ">
+                        <label class="absolute inset-0" for="article-04"><span class="sr-only">Focus on the big
+                                picture</span></label>
+                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
+                            <header class="mb-2">
+                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
+                                    alt="Icon" />
+                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                            </header>
+                            <footer class="text-right">
+                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                    more -></a>
+                            </footer>
+                        </article>
+                    </div>
+
+                    <div
+                        class="
+                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
+                        peer-focus-visible/05:[&_article]:ring
+                        peer-focus-visible/05:[&_article]:ring-indigo-300
+                        peer-checked/01:translate-x-40
+                        peer-checked/02:translate-x-40
+                        peer-checked/02:opacity-0
+                        peer-checked/03:translate-x-40
+                        peer-checked/03:z-30
+                        peer-checked/04:translate-x-20
+                        peer-checked/04:scale-[83.75%]
+                        peer-checked/04:z-40
+                        peer-checked/05:relative
+                        peer-checked/05:z-50
+                        peer-checked/05:translate-x-0
+                        peer-checked/05:scale-100
+                        peer-checked/05:[&>label]:pointer-events-none
+                    ">
+                        <label class="absolute inset-0" for="article-05"><span class="sr-only">Focus on the big
+                                picture</span></label>
+                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
+                            <header class="mb-2">
+                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
+                                    alt="Icon" />
+                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
+                            </header>
+                            <footer class="text-right">
+                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
+                                    more -></a>
+                            </footer>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!-- End: Card slider -->
         </div>
     </section>
     {{-- Booklet Info End --}}
@@ -1035,11 +936,13 @@
             const fixedNav = header.offsetTop;
 
             if (window.pageYOffset > fixedNav) {
-                header.classList.add('navbar-fixed')
+                header.classList.add('navbar-fixed', 'hitam')
             } else {
-                header.classList.remove('navbar-fixed')
+                header.classList.remove('navbar-fixed', 'hitam')
                 header.classList.remove('text-white')
             }
+
+
         }
     </script>
 
