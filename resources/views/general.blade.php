@@ -185,93 +185,22 @@
             </div>
             <div class="flex flex-wrap gap-6 px-4 sm:mx-7">
                 {{-- card 1 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
+                @foreach ($dimensis as $dimensi)
+                    <div
+                        class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
+                        <div
+                            class="block w-full items-center mx-auto overflow-hidden md:w-32 md:h-full h-32 bg-primary">
+                            <img src="{{ asset('uploads/dimensi/' . $dimensi->gambar) }}" alt="dokumen"
+                                class="w-24 py-7 px-5 mx-auto">
+                        </div>
+                        <div class="p-4 w-full">
+                            <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
+                                {{ $dimensi->judul }}</h4>
+                            <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">
+                                {!! $dimensi->deskripsi !!}</p>
+                        </div>
                     </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Governance</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Layanan
-                            Publik, Transparansi, Keamanan,
-                            Ketertiban Umum <span class="font-semibold">E-Menanduk, Mall Pelayanan Publik Graha
-                                Tiyasa</span></p>
-                    </div>
-                </div>
-                {{-- card 2 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Branding</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Penataan
-                            Wajah Kota dan Pemasaran Potensi
-                            Daerah Secara Lokal, Nasional dan Global
-                            <span class="font-semibold">100% Bogor Pisan, Bogor Berlari</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 3 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Economy</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Peluang
-                            Usaha, Sumber Daya, Permodalan
-                            <span class="font-semibold">Pengembangan (Sistem Layanan Perizinan)
-                                SMART, Manajemen Inovasi Daerah (IGA)</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 4 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Living</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Tersedianya
-                            Lingkungan Tempat Tinggal yang
-                            Layak Tinggal, Nyaman, dan Efisien.
-                            <span class="font-semibold">Simpus di 26 Puskesmas, e-SIR</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 5 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Society</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Ekosistem
-                            Sosio-Teknis Masyarakat yang Humanis, Dinamis, Produktif, Komunikatif dan Interaktif
-                            <span class="font-semibold">Inovasi Keselamatan Publik, Sibadra</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 6 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Branding</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Penataan
-                            Wajah Kota dan Pemasaran Potensi
-                            Daerah Secara Lokal, Nasional dan Global
-                            <span class="font-semibold">100% Bogor Pisan, Bogor Berlari</span>
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
