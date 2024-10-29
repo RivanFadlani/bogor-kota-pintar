@@ -114,8 +114,9 @@
                                                 Penilaian</a>
                                         </li>
                                         <li>
-                                            <a href="#"
-                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Program
+                                            <a href="/programimp"
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                                target="_blank">Program
                                                 Implementasi</a>
                                         </li>
                                         <li>

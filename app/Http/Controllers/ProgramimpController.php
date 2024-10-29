@@ -56,25 +56,39 @@ class ProgramimpController extends Controller
     }
 
     // Function untuk mengupdate data employee
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        // Validasi input
+        // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
             'judul' => 'required|string|max:50',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        // Cari employee berdasarkan ID
+        // Cari quickwin berdasarkan ID
         $programimps = Programimp::findOrFail($id);
 
-        // Update data employee
-        $programimps->update([
-            'judul' => $request->judul,
-            'gambar' => $filename ?? '',
-        ]);
+        // Cek apakah ada file gambar baru yang diunggah
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($programimps->gambar && file_exists(public_path('uploads/ProgramImplementasi/' . $programimps->gambar))) {
+                unlink(public_path('uploads/ProgramImplementasi/' . $programimps->gambar));
+            }
+
+            // Simpan gambar baru
+            $file = $request->file('gambar');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/ProgramImplementasi/'), $filename);
+
+            // Update nama file gambar pada model
+            $programimps->gambar = $filename;
+        }
+
+        // Update data quickwin lainnya
+        $programimps->judul = $request->judul;
+        $programimps->save();
 
         // Redirect ke halaman yang diinginkan setelah update
-        return redirect()->route('admin.programimp.index')->with('success', 'Employee updated successfully.');
+        return redirect()->route('admin.programimp.index')->with('success', 'Dokumen berhasil diperbarui.');
     }
 
     public function destroy($id)
