@@ -120,7 +120,8 @@
                                         </li>
                                         <li>
                                             <a href="https://bsw.kotabogor.go.id/"
-                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Layanan</a>
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                                target="_blank">Layanan</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -137,7 +138,7 @@
     {{-- Header Section End --}}
 
     {{-- Hero Section Start --}}
-    <section id="home" class="overflow-hidden">
+    <section id="beranda" class="overflow-hidden">
         <div class="container">
             <div class="w-screen h-[700px] bg-cover rounded-bl-[150px]"
                 style="background-image: url(/img/bogor-wahyu-priyanto.jpg)">
@@ -318,7 +319,7 @@
                             <h2 class="text-5xl pt-2 font-bold mb-3">Misi</h2> <!-- Margin bawah dikurangi -->
                             @foreach ($visimisi as $vm)
                                 <ol class="list-disc ms-6 pl-9 border-l-4 text-xl">
-                                    {{ $vm->misi }}
+                                    {!! $vm->misi !!}
                                 </ol>
                             @endforeach
                         </div>
