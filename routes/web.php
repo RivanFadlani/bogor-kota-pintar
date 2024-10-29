@@ -1,17 +1,19 @@
 <?php
 
+use App\Models\Dimensi;
 use App\Models\Kategori;
 use App\Models\Quickwin;
 use App\Models\Visidanmisi;
+use App\Http\Controllers\ProgramPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DimensiController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\ProgramimpController;
-use App\Http\Controllers\ProgramPage;
 use App\Http\Controllers\QuickwinController;
+use App\Http\Controllers\ProgramimpController;
 use App\Http\Controllers\VisidanmisiController;
 
 Route::get('/', function () {
@@ -73,6 +75,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/programimp/{id}/edit', [ProgramimpController::class, 'edit'])->name('admin.programimp.edit');
     Route::put('/admin/programimp/{id}', [ProgramimpController::class, 'update'])->name('admin.programimp.update');
     Route::delete('/admin/programimp/{id}', [ProgramimpController::class, 'destroy'])->name('admin.programimp.destroy');
+
+    // DIMENSI ROUTE
+    Route::get('/admin/dimensi', [DimensiController::class, 'index'])->name('admin.dimensi.index');
+    Route::get('/admin/dimensi/create', [DimensiController::class, 'create'])->name('admin.dimensi.create');
+    Route::post('/admin/dimensi/store', [DimensiController::class, 'store'])->name('admin.dimensi.store');
+    Route::get('/admin/dimensi/{id}/edit', [DimensiController::class, 'edit'])->name('admin.dimensi.edit');
+    Route::put('/admin/dimensi/{id}', [DimensiController::class, 'update'])->name('admin.dimensi.update');
+    Route::delete('/admin/dimensi/{id}', [DimensiController::class, 'destroy'])->name('admin.dimensi.destroy');
 });
 
 require __DIR__ . '/auth.php';

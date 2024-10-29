@@ -50,6 +50,8 @@
                             Misi</a></li>
                     <li><a href="/admin/programimp" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Program
                             Implementasi</a></li>
+                    <li><a href="/admin/dimensi" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dimensi</a>
+                    </li>
                 </ul>
             </div>
         </aside>
