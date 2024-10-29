@@ -58,8 +58,8 @@
                                     <div class="flex justify-end mt-4">
                                         <button type="button" class="mr-2 px-4 py-2 bg-gray-300 rounded"
                                             onclick="closeModal()">Batal</button>
-                                        <form id="delete-form-{{ $dokumen->id }}"
-                                            action="{{ route('admin.dokumen.destroy', $dokumen->id) }}" method="POST"
+                                        <form id="delete-form-{{ $booklet->id }}"
+                                            action="{{ route('admin.booklet.destroy', $booklet->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('DELETE')
