@@ -13,7 +13,7 @@
                 <thead>
                     <tr>
                         <th class="px-4 py-2 bg-slate-100 text-start border">Judul</th>
-                        <th class="px-4 py-2 bg-slate-100 text-start border">Deskripsi</th>
+                        <th class="px-4 py-2 w-[50%] bg-slate-100 text-start border">Deskripsi</th>
                         <th class="px-4 py-2 bg-slate-100 text-start border">Gambar</th>
                         <th class="px-4 py-2 bg-slate-100 text-start border">Aksi</th>
                     </tr>
