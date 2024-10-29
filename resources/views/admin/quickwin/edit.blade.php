@@ -29,9 +29,14 @@
             <!-- Input Upload Gambar Start -->
             <div class="mb-4">
                 <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
-                <input type="file" name="gambar" id="gambar" class="w-full p-2 border border-gray-300 rounded"
-                    value="{{ old('gambar', $quickwins->gambar) }}" required>
+                <input type="file" name="gambar" id="gambar" class="w-full p-2 border border-gray-300 rounded">
+
+                <!-- Menampilkan nama file lama -->
+                @if ($quickwins->gambar)
+                    <p class="text-gray-500 mt-2">File saat ini: {{ $quickwins->gambar }}</p>
+                @endif
             </div>
+
             <!-- Input Upload Gambar End -->
 
             <div class="grid grid-cols-2 gap-4">

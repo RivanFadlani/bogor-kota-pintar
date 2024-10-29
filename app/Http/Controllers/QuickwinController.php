@@ -13,7 +13,7 @@ class QuickwinController extends Controller
 {
     public function index(): view
     {
-        $quickwins = Quickwin::paginate(3);
+        $quickwins = Quickwin::orderBy('created_at', 'desc')->get();
 
         return view('admin.quickwin.index', compact('quickwins'));
         //
@@ -60,31 +60,45 @@ class QuickwinController extends Controller
         return view('admin.quickwin.edit', compact('quickwins'));
     }
 
-    // Function untuk mengupdate data employee
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        // Validasi input
+        // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // jadikan gambar nullable
             'judul' => 'required|string|max:50',
             'deskripsi' => 'required|string|max:50',
             'tahun' => 'required|date|before_or_equal:today'
         ]);
 
-        // Cari employee berdasarkan ID
+        // Cari quickwin berdasarkan ID
         $quickwins = Quickwin::findOrFail($id);
 
-        // Update data employee
-        $quickwins->update([
-            'gambar' => $filename ?? '',
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'tahun' => $request->tahun
-        ]);
+        // Cek apakah ada file gambar baru yang diunggah
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($quickwins->gambar && file_exists(public_path('uploads/quickwin/' . $quickwins->gambar))) {
+                unlink(public_path('uploads/quickwin/' . $quickwins->gambar));
+            }
+
+            // Simpan gambar baru
+            $file = $request->file('gambar');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/quickwin/'), $filename);
+
+            // Update nama file gambar pada model
+            $quickwins->gambar = $filename;
+        }
+
+        // Update data quickwin lainnya
+        $quickwins->judul = $request->judul;
+        $quickwins->deskripsi = $request->deskripsi;
+        $quickwins->tahun = $request->tahun;
+        $quickwins->save();
 
         // Redirect ke halaman yang diinginkan setelah update
-        return redirect()->route('admin.quickwin.index')->with('success', 'Employee updated successfully.');
+        return redirect()->route('admin.quickwin.index')->with('success', 'Dokumen berhasil diperbarui.');
     }
+
 
     public function destroy($id)
     {

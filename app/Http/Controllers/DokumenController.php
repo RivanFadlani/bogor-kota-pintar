@@ -14,18 +14,18 @@ class DokumenController extends Controller
 
     public function general()
     {
-        $dokumens = Dokumen::all();
+        $dokumens = Dokumen::orderBy('created_at', 'desc')->get();
 
         return view('general', compact('dokumens'));
     }
 
-    public function index(): View
+    // App\Http\Controllers\Admin\DokumenController.php
+    public function index()
     {
-        $dokumens = Dokumen::latest()->paginate(10);
-
+        $dokumens = Dokumen::with('kategori')->get(); // Memuat relasi kategori
         return view('admin.dokumen.index', compact('dokumens'));
-        //
     }
+
 
     public function create(): View
     {
@@ -72,29 +72,43 @@ class DokumenController extends Controller
     }
 
     // Function untuk mengupdate data employee
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        // Validasi input
+        // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'judul' => 'required|string|max:50',
             'url' => 'required|url',
-            'kategori_id' => 'required|exist:kategoris,id'
+            'kategori_id' => 'required'
         ]);
 
-        // Cari employee berdasarkan ID
+        // Cari quickwin berdasarkan ID
         $dokumens = Dokumen::findOrFail($id);
 
-        // Update data employee
-        $dokumens->update([
-            'gambar' => $filename ?? '',
-            'judul' => $request->judul,
-            'url' => $request->url,
-            'kategori_id' => $request->kategori_id
-        ]);
+        // Cek apakah ada file gambar baru yang diunggah
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($dokumens->gambar && file_exists(public_path('uploads/dokumen/' . $dokumens->gambar))) {
+                unlink(public_path('uploads/dokumen/' . $dokumens->gambar));
+            }
+
+            // Simpan gambar baru
+            $file = $request->file('gambar');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/dokumen/'), $filename);
+
+            // Update nama file gambar pada model
+            $dokumens->gambar = $filename;
+        }
+
+        // Update data quickwin lainnya
+        $dokumens->judul = $request->judul;
+        $dokumens->url = $request->url;
+        $dokumens->kategori_id = $request->kategori_id;
+        $dokumens->save();
 
         // Redirect ke halaman yang diinginkan setelah update
-        return redirect()->route('admin.dokumen.index')->with('success', 'Employee updated successfully.');
+        return redirect()->route('admin.dokumen.index')->with('success', 'Dokumen berhasil diperbarui.');
     }
 
     public function destroy($id)

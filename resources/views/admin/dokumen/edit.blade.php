@@ -21,7 +21,7 @@
         @endif
 
         <!-- Dokumen Form Start -->
-        <form action="{{ route('admin.quickwin.update', $dokumens->id) }}" class="bg-white border-2 p-10 rounded-xl"
+        <form action="{{ route('admin.dokumen.update', $dokumens->id) }}" class="bg-white border-2 p-10 rounded-xl"
             method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -41,8 +41,14 @@
             <div class="mb-4">
                 <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
                 <input type="file" name="gambar" id="gambar" class="w-full p-2 border border-gray-300 rounded"
-                    value="{{ old('gambar', $dokumens->gambar) }}" required>
+                    value="{{ old('gambar', $dokumens->gambar) }}">
+
+                <!-- Menampilkan nama file lama -->
+                @if ($dokumens->gambar)
+                    <p class="text-gray-500 mt-2">File saat ini: {{ $dokumens->gambar }}</p>
+                @endif
             </div>
+
             <!-- Input Upload Gambar End -->
 
             <!-- Input Link Start -->

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('judul');
             $table->string('gambar');
             $table->string('url');
+            // view
             $table->foreignId('kategori_id');
             $table->timestamps();
         });

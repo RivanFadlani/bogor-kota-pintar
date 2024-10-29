@@ -9,6 +9,8 @@ use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\ProgramimpController;
+use App\Http\Controllers\ProgramPage;
 use App\Http\Controllers\QuickwinController;
 use App\Http\Controllers\VisidanmisiController;
 
@@ -17,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/general', [GeneralController::class, 'general'])->name('general');
+Route::get('/programimp', [ProgramPage::class, 'program'])->name('programimp');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -62,6 +65,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/visimisi/{id}/edit', [VisidanmisiController::class, 'edit'])->name('admin.visimisi.edit');
     Route::put('/admin/visimisi/{id}', [VisidanmisiController::class, 'update'])->name('admin.visimisi.update');
     Route::delete('/admin/visimisi/{id}', [VisidanmisiController::class, 'destroy'])->name('admin.visimisi.destroy');
+
+    // PROGRAM IMPLEMENTASI ROUTE
+    Route::get('/admin/programimp', [ProgramimpController::class, 'index'])->name('admin.programimp.index');
+    Route::get('/admin/programimp/create', [ProgramimpController::class, 'create'])->name('admin.programimp.create');
+    Route::post('/admin/programimp/store', [ProgramimpController::class, 'store'])->name('admin.programimp.store');
+    Route::get('/admin/programimp/{id}/edit', [ProgramimpController::class, 'edit'])->name('admin.programimp.edit');
+    Route::put('/admin/programimp/{id}', [ProgramimpController::class, 'update'])->name('admin.programimp.update');
+    Route::delete('/admin/programimp/{id}', [ProgramimpController::class, 'destroy'])->name('admin.programimp.destroy');
 });
 
 require __DIR__ . '/auth.php';
