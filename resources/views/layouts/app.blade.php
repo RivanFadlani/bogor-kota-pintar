@@ -52,6 +52,8 @@
                             Implementasi</a></li>
                     <li><a href="/admin/dimensi" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Dimensi</a>
                     </li>
+                    <li><a href="/admin/booklet" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Booklet</a>
+                    </li>
                 </ul>
             </div>
         </aside>

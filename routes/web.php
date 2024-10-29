@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Booklet;
 use App\Models\Dimensi;
 use App\Models\Kategori;
 use App\Models\Quickwin;
@@ -7,6 +8,7 @@ use App\Models\Visidanmisi;
 use App\Http\Controllers\ProgramPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookletController;
 use App\Http\Controllers\DimensiController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GeneralController;
@@ -83,6 +85,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dimensi/{id}/edit', [DimensiController::class, 'edit'])->name('admin.dimensi.edit');
     Route::put('/admin/dimensi/{id}', [DimensiController::class, 'update'])->name('admin.dimensi.update');
     Route::delete('/admin/dimensi/{id}', [DimensiController::class, 'destroy'])->name('admin.dimensi.destroy');
+
+    // BOOKLET ROUTE
+    Route::get('/admin/booklet', [BookletController::class, 'index'])->name('admin.booklet.index');
+    Route::get('/admin/booklet/create', [BookletController::class, 'create'])->name('admin.booklet.create');
+    Route::post('/admin/booklet/store', [BookletController::class, 'store'])->name('admin.booklet.store');
+    Route::get('/admin/booklet/{id}/edit', [BookletController::class, 'edit'])->name('admin.booklet.edit');
+    Route::put('/admin/booklet/{id}', [BookletController::class, 'update'])->name('admin.booklet.update');
+    Route::delete('/admin/booklet/{id}', [BookletController::class, 'destroy'])->name('admin.booklet.destroy');
 });
 
 require __DIR__ . '/auth.php';

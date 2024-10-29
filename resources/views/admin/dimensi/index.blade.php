@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container p-10 mx-auto mt-10">
+    <div class="container px-10 mx-auto mt-10">
         <div class="bg-white border border-gray-300 rounded-xl shadow-lg p-5">
             <h1 class="text-2xl font-bold mb-4">Daftar Dimensi</h1>
 
