@@ -4,6 +4,7 @@ use App\Models\Booklet;
 use App\Models\Dimensi;
 use App\Models\Kategori;
 use App\Models\Quickwin;
+use App\Models\Subdimensi;
 use App\Models\Visidanmisi;
 use App\Http\Controllers\ProgramPage;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\QuickwinController;
 use App\Http\Controllers\ProgramimpController;
+use App\Http\Controllers\SubdimensiController;
 use App\Http\Controllers\VisidanmisiController;
 
 Route::get('/', function () {
@@ -93,6 +95,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/booklet/{id}/edit', [BookletController::class, 'edit'])->name('admin.booklet.edit');
     Route::put('/admin/booklet/{id}', [BookletController::class, 'update'])->name('admin.booklet.update');
     Route::delete('/admin/booklet/{id}', [BookletController::class, 'destroy'])->name('admin.booklet.destroy');
+
+    // SUBDIMENSI ROUTE
+    Route::get('/admin/subdimensi', [SubdimensiController::class, 'index'])->name('admin.subdimensi.index');
+    Route::get('/admin/subdimensi/create', [SubdimensiController::class, 'create'])->name('admin.subdimensi.create');
+    Route::post('/admin/subdimensi/store', [SubdimensiController::class, 'store'])->name('admin.subdimensi.store');
+    Route::get('/admin/subdimensi/{id}/edit', [SubdimensiController::class, 'edit'])->name('admin.subdimensi.edit');
+    Route::put('/admin/subdimensi/{id}', [SubdimensiController::class, 'update'])->name('admin.subdimensi.update');
+    Route::delete('/admin/subdimensi/{id}', [SubdimensiController::class, 'destroy'])->name('admin.subdimensi.destroy');
 });
 
 require __DIR__ . '/auth.php';
