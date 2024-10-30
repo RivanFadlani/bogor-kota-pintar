@@ -185,93 +185,22 @@
             </div>
             <div class="flex flex-wrap gap-6 px-4 sm:mx-7">
                 {{-- card 1 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
+                @foreach ($dimensis as $dimensi)
+                    <div
+                        class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
+                        <div
+                            class="block w-full items-center mx-auto overflow-hidden md:w-32 md:h-full h-32 bg-primary">
+                            <img src="{{ asset('uploads/dimensi/' . $dimensi->gambar) }}" alt="dokumen"
+                                class="w-24 py-7 px-5 mx-auto">
+                        </div>
+                        <div class="p-4 w-full">
+                            <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
+                                {{ $dimensi->judul }}</h4>
+                            <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">
+                                {!! $dimensi->deskripsi !!}</p>
+                        </div>
                     </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Governance</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Layanan
-                            Publik, Transparansi, Keamanan,
-                            Ketertiban Umum <span class="font-semibold">E-Menanduk, Mall Pelayanan Publik Graha
-                                Tiyasa</span></p>
-                    </div>
-                </div>
-                {{-- card 2 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Branding</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Penataan
-                            Wajah Kota dan Pemasaran Potensi
-                            Daerah Secara Lokal, Nasional dan Global
-                            <span class="font-semibold">100% Bogor Pisan, Bogor Berlari</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 3 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Economy</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Peluang
-                            Usaha, Sumber Daya, Permodalan
-                            <span class="font-semibold">Pengembangan (Sistem Layanan Perizinan)
-                                SMART, Manajemen Inovasi Daerah (IGA)</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 4 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Living</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Tersedianya
-                            Lingkungan Tempat Tinggal yang
-                            Layak Tinggal, Nyaman, dan Efisien.
-                            <span class="font-semibold">Simpus di 26 Puskesmas, e-SIR</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 5 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Society</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Ekosistem
-                            Sosio-Teknis Masyarakat yang Humanis, Dinamis, Produktif, Komunikatif dan Interaktif
-                            <span class="font-semibold">Inovasi Keselamatan Publik, Sibadra</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 6 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Branding</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Penataan
-                            Wajah Kota dan Pemasaran Potensi
-                            Daerah Secara Lokal, Nasional dan Global
-                            <span class="font-semibold">100% Bogor Pisan, Bogor Berlari</span>
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -336,7 +265,6 @@
                 <!-- Video di bawah card -->
                 <video class="w-full rounded-lg mt-10" autoplay controls>
                     <source src="" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
         </div>
@@ -355,216 +283,30 @@
                     class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
                     <span class="active group-hover:text-white">Semua</span>
                 </button>
-                <button data-filter=".dpmptsp"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DPMPTSP</span>
-                </button>
-                <button data-filter=".bpksdm"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">BPKSDM</span>
-                </button>
-                <button data-filter=".dishub"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DISHUB</span>
-                </button>
-                <button data-filter=".kesra"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">KESRA</span>
-                </button>
-                <button data-filter=".dinkes"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DINKES</span>
-                </button>
-                <button data-filter=".bapenda"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">BAPENDA</span>
-                </button>
-                <button data-filter=".disdukcapil"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DISDUKCAPIL</span>
-                </button>
-                <button data-filter=".dinsos"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DINSOS</span>
-                </button>
+                @foreach ($dimensiList as $dimensi)
+                    <button data-filter=".{{ strtolower($dimensi) }}"
+                        class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
+                        <span class="group-hover:text-white">{{ $dimensi }}</span>
+                    </button>
+                @endforeach
             </div>
             <!-- button end -->
 
             <!-- card start -->
             <div id="product-list" class="w-full px-2 sm:px-8 flex flex-wrap">
-                <div
-                    class="dpmptsp bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DPMPTSP)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
+                @foreach ($subdimensis as $subdimensi)
+                    <div
+                        class="{{ strtolower($subdimensi->dimensi) }} bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
+                        <h1 class="text-xl font-bold mb-2">({{ $subdimensi->dimensi }})</h1>
+                        <h2 class="text-lg mb-4">{{ $subdimensi->sub }}</h2>
+                        <p class="text-sm mb-6">{!! $subdimensi->deskripsi !!}</p>
+                        <div class="flex justify-end">
+                            <div class="bg-white rounded-full p-3">
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dpmptsp bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DPMPTSP)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="bpksdm bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(BPKSDM)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dishub bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DISHUB)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="kesra bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(KESRA)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dinkes bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DINKES)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="bapenda bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(BAPENDA)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="disdukcapil bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DISDUKCAPIL)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dinsos bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DINSOS)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="dpmptsp bg-primary/0 text-white m-2 p-6 w-[465px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                </div>
+                @endforeach
                 <!-- Card lainnya -->
             </div>
             <!-- card end -->

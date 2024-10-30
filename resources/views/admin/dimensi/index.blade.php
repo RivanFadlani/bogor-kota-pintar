@@ -1,48 +1,46 @@
 <x-app-layout>
     <div class="container px-10 mx-auto mt-10">
         <div class="bg-white border border-gray-300 rounded-xl shadow-lg p-5">
-            <h1 class="text-2xl font-bold mb-4">Daftar Dokumen</h1>
+            <h1 class="text-2xl font-bold mb-4">Daftar Dimensi</h1>
 
-            <a href="{{ route('admin.dokumen.create') }}"
-                class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">Tambah Dokumen</a>
+            <a href="{{ route('admin.dimensi.create') }}"
+                class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">Tambah Dimensi</a>
 
             <div class="w-full h-[0.1px] border-b-2 border-gray-300 border-dashed mb-4"></div>
 
             <table class="min-w-full rounded-xl bg-white border border-gray-300 overflow-hidden display"
-                id="dokumenTable">
+                id="dimensiTable">
                 <thead>
                     <tr>
                         <th class="px-4 py-2 bg-slate-100 text-start border">Judul</th>
+                        <th class="px-4 py-2 w-[50%] bg-slate-100 text-start border">Deskripsi</th>
                         <th class="px-4 py-2 bg-slate-100 text-start border">Gambar</th>
-                        <th class="px-4 py-2 bg-slate-100 text-start border">Link</th>
-                        <th class="px-4 py-2 bg-slate-100 text-start border">Kategori</th>
                         <th class="px-4 py-2 bg-slate-100 text-start border">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dokumens as $dokumen)
+                    @foreach ($dimensis as $dimensi)
                         <tr>
-                            <td class="border px-4 py-2">{{ $dokumen->judul }}</td>
+                            <td class="border px-4 py-2">{{ $dimensi->judul }}</td>
+                            <td class="border px-4 py-2">{{ $dimensi->deskripsi }}</td>
                             <td class="px-4 py-2 border">
-                                <img src="{{ asset('uploads/dokumen/' . $dokumen->gambar) }}" alt="dokumen"
+                                <img src="{{ asset('uploads/dimensi/' . $dimensi->gambar) }}" alt="dokumen"
                                     class="w-24">
                             </td>
-                            <td class="border px-4 py-2">{{ $dokumen->url }}</td>
-                            <td class="border px-4 py-2">{{ $dokumen->kategori->kategori }}</td>
                             <td class="border px-4 py-2">
                                 {{-- Edit Button Start --}}
-                                <a href="{{ route('admin.dokumen.edit', $dokumen->id) }}"
+                                <a href="{{ route('admin.dimensi.edit', $dimensi->id) }}"
                                     class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
                                 {{-- Edit Button End --}}
 
                                 {{-- Delete Form Start --}}
-                                <form id="delete-form-{{ $dokumen->id }}"
-                                    action="{{ route('admin.kategori.destroy', $dokumen->id) }}" method="POST"
+                                <form id="delete-form-{{ $dimensi->id }}"
+                                    action="{{ route('admin.dimensi.destroy', $dimensi->id) }}" method="POST"
                                     class="inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" class="px-4 py-2 bg-red-600 text-white rounded"
-                                        onclick="openModal('{{ route('admin.kategori.destroy', $dokumen->id) }}')">
+                                        onclick="openModal('{{ route('admin.dimensi.destroy', $dimensi->id) }}')">
                                         Hapus
                                     </button>
                                 </form>
@@ -60,8 +58,8 @@
                                     <div class="flex justify-end mt-4">
                                         <button type="button" class="mr-2 px-4 py-2 bg-gray-300 rounded"
                                             onclick="closeModal()">Batal</button>
-                                        <form id="delete-form-{{ $dokumen->id }}"
-                                            action="{{ route('admin.dokumen.destroy', $dokumen->id) }}" method="POST"
+                                        <form id="delete-form-{{ $dimensi->id }}"
+                                            action="{{ route('admin.dimensi.destroy', $dimensi->id) }}" method="POST"
                                             class="inline">
                                             @csrf
                                             @method('DELETE')
@@ -102,12 +100,12 @@
 
         $(document).ready(function() {
             // Hapus inisialisasi DataTable jika sudah ada sebelumnya
-            if ($.fn.DataTable.isDataTable('#dokumenTable')) {
-                $('#dokumenTable').DataTable().destroy();
+            if ($.fn.DataTable.isDataTable('#dimensiTable')) {
+                $('#dimensiTable').DataTable().destroy();
             }
 
             // Inisialisasi DataTable kembali
-            $('#dokumenTable').DataTable({
+            $('#dimensiTable').DataTable({
                 paging: true,
                 pageLength: 5, // Menentukan jumlah maksimal baris per halaman
                 lengthMenu: [10, 25, 50, 100] // Opsi jumlah baris per halaman
