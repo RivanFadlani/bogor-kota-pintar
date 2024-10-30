@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Video;
 use App\Models\Booklet;
 use App\Models\Dimensi;
 use App\Models\Kategori;
@@ -9,6 +10,7 @@ use App\Models\Visidanmisi;
 use App\Http\Controllers\ProgramPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\BookletController;
 use App\Http\Controllers\DimensiController;
 use App\Http\Controllers\DokumenController;
@@ -103,6 +105,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/subdimensi/{id}/edit', [SubdimensiController::class, 'edit'])->name('admin.subdimensi.edit');
     Route::put('/admin/subdimensi/{id}', [SubdimensiController::class, 'update'])->name('admin.subdimensi.update');
     Route::delete('/admin/subdimensi/{id}', [SubdimensiController::class, 'destroy'])->name('admin.subdimensi.destroy');
+
+    // VIDEO ROUTE
+    Route::get('/admin/video', [VideoController::class, 'index'])->name('admin.video.index');
+    Route::get('/admin/video/create', [VideoController::class, 'create'])->name('admin.video.create');
+    Route::post('/admin/video/store', [VideoController::class, 'store'])->name('admin.video.store');
+    Route::get('/admin/video/{id}/edit', [VideoController::class, 'edit'])->name('admin.video.edit');
+    Route::put('/admin/video/{id}', [VideoController::class, 'update'])->name('admin.video.update');
+    Route::delete('/admin/video/{id}', [VideoController::class, 'destroy'])->name('admin.video.destroy');
 });
 
 require __DIR__ . '/auth.php';
