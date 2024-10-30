@@ -3,7 +3,7 @@
         <div class="bg-white border border-gray-300 rounded-xl shadow-lg p-5">
             <h1 class="text-2xl font-bold mb-4">Daftar Sub Dimensi</h1>
 
-            <a href="{{ route('admin.dimensi.create') }}"
+            <a href="{{ route('admin.subdimensi.create') }}"
                 class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block">Tambah Sub Dimensi</a>
 
             <div class="w-full h-[0.1px] border-b-2 border-gray-300 border-dashed mb-4"></div>
@@ -23,15 +23,15 @@
                     @foreach ($subdimensis as $subdimensi)
                         <tr>
                             <td class="border px-4 py-2">{{ $subdimensi->dimensi }}</td>
-                            <td class="border W-[20%] px-4 py-2">{{ $subdimensi->sub }}</td>
-                            <td class="border px-4 py-2">{{ $subdimensi->deskripsi }}</td>
+                            <td class="border w-[20%] px-4 py-2">{{ $subdimensi->sub }}</td>
+                            <td class="border w-[30%] px-4 py-2">{{ $subdimensi->deskripsi }}</td>
                             <td class="px-4 py-2 border">
                                 <img src="{{ asset('uploads/subdimensi/' . $subdimensi->gambar) }}" alt="dokumen"
                                     class="w-24">
                             </td>
                             <td class="border px-4 py-2">
                                 {{-- Edit Button Start --}}
-                                <a href="{{ route('admin.subdimensi.edit', $dimensi->id) }}"
+                                <a href="{{ route('admin.subdimensi.edit', $subdimensi->id) }}"
                                     class="px-4 py-2 bg-blue-600 text-white rounded">Edit</a> |
                                 {{-- Edit Button End --}}
 
