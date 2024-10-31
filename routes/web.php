@@ -55,6 +55,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/admin/quickwin/{id}', [QuickwinController::class, 'destroy'])->name('admin.quickwin.destroy');
 
     //DOKUMEN ROUTE
+    Route::get('/data/{id}', [DokumenController::class, 'getDataById']);
     Route::get('/admin/dokumen', [DokumenController::class, 'index'])->name('admin.dokumen.index');
     Route::get('/admin/dokumen/create', [DokumenController::class, 'create'])->name('admin.dokumen.create');
     Route::post('/admin/dokumen/store', [DokumenController::class, 'store'])->name('admin.dokumen.store');

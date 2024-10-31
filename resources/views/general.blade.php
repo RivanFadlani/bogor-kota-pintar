@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
@@ -348,16 +349,28 @@
                 @foreach ($masterplanFiles as $file)
                     <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
-                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}
-                            </h2>
-                            <button class="group mb-5"><span
-                                    class="px-4 group-hover:text-primary group-hover:font-semibold"><a
-                                        href="{{ $file->url }}" target="_blank">Lihat Selengkapnya</a>
-                                    ></span></button>
+                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
+
+                            <div class="flex justify-between">
+                                <!-- Tombol View -->
+                                <button class="group mb-5 view-data" data-id="{{ $file->id }}"
+                                    data-url="{{ $file->url }}">
+                                    <span class="px-4 group-hover:text-primary group-hover:font-semibold">
+                                        Lihat Selengkapnya
+                                    </span>
+                                </button>
+
+                                <!-- Tempat menampilkan jumlah dilihat -->
+                                <div class="px-4">
+                                    <p id="data-views-{{ $file->id }}">Dilihat: {{ $file->dilihat }}</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach
             </div>
+
             {{-- MASTERPLAN END --}}
             {{-- POWERPOINT START --}}
             <div class="px-4 mt-14 sm:mx-7">
@@ -372,10 +385,22 @@
                     <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
                             <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
-                            <button class="group mb-5"><span
-                                    class="px-4 group-hover:text-primary group-hover:font-semibold"><a
-                                        href="{{ $file->url }}" target="_blank">Lihat Selengkapnya</a>
-                                    ></span></button>
+
+                            <div class="flex justify-between">
+                                <!-- Tombol View -->
+                                <button class="group mb-5 view-data" data-id="{{ $file->id }}"
+                                    data-url="{{ $file->url }}">
+                                    <span class="px-4 group-hover:text-primary group-hover:font-semibold">
+                                        Lihat Selengkapnya
+                                    </span>
+                                </button>
+
+                                <!-- Tempat menampilkan jumlah dilihat -->
+                                <div class="px-4">
+                                    <p id="data-views-{{ $file->id }}">Dilihat: {{ $file->dilihat }}</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach
@@ -659,8 +684,8 @@
             <div class="px-4 sm:mx-7 flex flex-col gap-x-3 mt-5 text-center">
                 <h2 class="text-white font-semibold text-2xl">Statistik Pengunjung</h2>
                 <div class="flex flex-wrap gap-x-3 text-center justify-center">
-                    <h3 class="text-indigo-400 text-lg">Hari Ini: {{ $todayVisitors }}</h3>
-                    <h3 class="text-indigo-400 text-lg">Total Pengunjung: {{ $totalVisitors }}</h3>
+                    {{-- <h3 class="text-indigo-400 text-lg">Hari Ini: {{ $todayVisitors }}</h3> --}}
+                    {{-- <h3 class="text-indigo-400 text-lg">Total Pengunjung: {{ $totalVisitors }}</h3> --}}
                 </div>
             </div>
 
@@ -688,6 +713,36 @@
 
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 
+    <!-- Script AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Event click pada tombol view-data
+            $('.view-data').click(function(event) {
+                event.preventDefault(); // Mencegah halaman melakukan redirect secara langsung
+
+                // Ambil ID dan URL dari tombol yang diklik
+                let dataId = $(this).data('id');
+                let targetUrl = $(this).data('url');
+
+                // Panggil fungsi getDataById() menggunakan AJAX
+                $.ajax({
+                    url: `/data/${dataId}`, // Route ke fungsi getDataById di Controller
+                    type: 'GET',
+                    success: function(response) {
+                        // Update tampilan jumlah "Dilihat" pada elemen yang sesuai
+                        $(`#data-views-${dataId}`).text('Dilihat: ' + response.dilihat);
+
+                        // Arahkan pengguna ke URL yang telah ditentukan setelah AJAX selesai
+                        window.location.href = targetUrl;
+                    },
+                    error: function(error) {
+                        console.log("Terjadi kesalahan:", error);
+                    }
+                });
+            });
+        });
+    </script>
     <script>
         // Navbar Fixed
         window.onscroll = function() {
