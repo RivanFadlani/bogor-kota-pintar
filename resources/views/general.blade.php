@@ -9,7 +9,7 @@
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="/css/pagedone.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
@@ -263,9 +263,24 @@
         <div class="w-full h-full">
             <div class="px-4 sm:mx-7">
                 <!-- Video di bawah card -->
-                <video class="w-full rounded-lg mt-10" autoplay controls>
-                    <source src="" type="video/mp4">
-                </video>
+                @foreach ($videos as $video)
+                    <div class="video-item">
+                        @if (!is_null($video->judul) && $video->judul !== '')
+                            <h2 class="text-5xl font-bold mb-7 block page-title text-center">{{ $video->judul }}</h2>
+                        @endif
+                        @if ($video->getYouTubeEmbedUrl())
+                            <iframe src="{{ $video->getYouTubeEmbedUrl() }}"
+                                class="aspect-video w-full h-full lg:w-[80%] lg:h-[80%] rounded-xl mx-auto"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        @else
+                            <p>Link video tidak valid atau tidak bisa di-embed.</p>
+                        @endif
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </section>
