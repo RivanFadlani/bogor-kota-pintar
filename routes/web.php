@@ -19,6 +19,7 @@ use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PenilaianPage;
 use App\Http\Controllers\QuickwinController;
 use App\Http\Controllers\ProgramimpController;
 use App\Http\Controllers\SubdimensiController;
@@ -30,6 +31,7 @@ Route::get('/', function () {
 
 Route::get('/general', [GeneralController::class, 'general'])->name('general');
 Route::get('/programimp', [ProgramPage::class, 'program'])->name('programimp');
+Route::get('/penilaian', [PenilaianPage::class, 'penilaian'])->name('penilaian');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
