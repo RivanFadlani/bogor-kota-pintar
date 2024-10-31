@@ -11,6 +11,18 @@ use Illuminate\Http\RedirectResponse;
 
 class DokumenController extends Controller
 {
+    public function getDataById($id)
+    {
+        // Ambil data berdasarkan ID yang diklik
+        $data = Dokumen::findOrFail($id);
+
+        // Update field "dilihat" dengan menambahkan 1 pada nilai sebelumnya
+        $data->dilihat += 1;
+        $data->save();
+
+        // Kembalikan data yang telah diperbarui
+        return response()->json($data);
+    }
 
     public function general()
     {
