@@ -3,6 +3,7 @@
 use App\Models\Video;
 use App\Models\Booklet;
 use App\Models\Dimensi;
+use App\Models\Roadmap;
 use App\Models\Kategori;
 use App\Models\Quickwin;
 use App\Models\Subdimensi;
@@ -16,6 +17,7 @@ use App\Http\Controllers\DimensiController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\QuickwinController;
 use App\Http\Controllers\ProgramimpController;
@@ -113,6 +115,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/video/{id}/edit', [VideoController::class, 'edit'])->name('admin.video.edit');
     Route::put('/admin/video/{id}', [VideoController::class, 'update'])->name('admin.video.update');
     Route::delete('/admin/video/{id}', [VideoController::class, 'destroy'])->name('admin.video.destroy');
+
+    // ROADMAP ROUTE
+    Route::get('/admin/roadmap', [RoadmapController::class, 'index'])->name('admin.roadmap.index');
+    Route::get('/admin/roadmap/create', [RoadmapController::class, 'create'])->name('admin.roadmap.create');
+    Route::post('/admin/roadmap/store', [RoadmapController::class, 'store'])->name('admin.roadmap.store');
+    Route::get('/admin/roadmap/{id}/edit', [RoadmapController::class, 'edit'])->name('admin.roadmap.edit');
+    Route::put('/admin/roadmap/{id}', [RoadmapController::class, 'update'])->name('admin.roadmap.update');
+    Route::delete('/admin/roadmap/{id}', [RoadmapController::class, 'destroy'])->name('admin.roadmap.destroy');
 });
 
 require __DIR__ . '/auth.php';

@@ -270,8 +270,8 @@
                         @endif
                         @if ($video->getYouTubeEmbedUrl())
                             <iframe src="{{ $video->getYouTubeEmbedUrl() }}"
-                                class="aspect-video w-[80%] h-[80%] rounded-xl mx-auto" title="YouTube video player"
-                                frameborder="0"
+                                class="aspect-video w-full h-full lg:w-[80%] lg:h-[80%] rounded-xl mx-auto"
+                                title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
                             </iframe>

@@ -59,6 +59,8 @@
                     </li>
                     <li><a href="/admin/video" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Video</a>
                     </li>
+                    <li><a href="/admin/roadmap" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Road Map</a>
+                    </li>
                 </ul>
             </div>
         </aside>
