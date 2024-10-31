@@ -684,8 +684,8 @@
             <div class="px-4 sm:mx-7 flex flex-col gap-x-3 mt-5 text-center">
                 <h2 class="text-white font-semibold text-2xl">Statistik Pengunjung</h2>
                 <div class="flex flex-wrap gap-x-3 text-center justify-center">
-                    {{-- <h3 class="text-indigo-400 text-lg">Hari Ini: {{ $todayVisitors }}</h3> --}}
-                    {{-- <h3 class="text-indigo-400 text-lg">Total Pengunjung: {{ $totalVisitors }}</h3> --}}
+                    <h3 class="text-indigo-400 text-lg">Hari Ini: {{ $todayVisitors }}</h3>
+                    <h3 class="text-indigo-400 text-lg">Total Pengunjung: {{ $totalVisitors }}</h3>
                 </div>
             </div>
 
@@ -733,8 +733,8 @@
                         // Update tampilan jumlah "Dilihat" pada elemen yang sesuai
                         $(`#data-views-${dataId}`).text('Dilihat: ' + response.dilihat);
 
-                        // Arahkan pengguna ke URL yang telah ditentukan setelah AJAX selesai
-                        window.location.href = targetUrl;
+                        // Arahkan pengguna ke URL yang telah ditentukan di tab baru
+                        window.open(targetUrl, '_blank');
                     },
                     error: function(error) {
                         console.log("Terjadi kesalahan:", error);
