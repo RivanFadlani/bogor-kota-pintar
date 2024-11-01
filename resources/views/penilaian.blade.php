@@ -158,12 +158,31 @@
     {{-- Program Section Start --}}
     <section id="" class="pl-3 pt-10 pb-32">
         <div class="w-full">
-            <div class="px-4 sm:mx-7 gap-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                <div class="w-full h-32 p-5 shadow-lg rounded-xl bg-white border border-slate-200">
-                    <div class="bg-primary/25 w-full h-8 rounded-lg border border-primary text-center items-center">
-                        Hasil Nilai</div>
+            {{-- Gallery Start --}}
+            <div class="px-4 sm:mx-7 grid">
+                <h2 class="text-5xl font-bold">10 Penghargaan Rating Informasi Digital dan Kota Cerdas Indonesia Kota
+                    Bogor Tahun 2021</h2>
+                <div class="grid grid-cols-3">
+                    <div>
+                        <img src="/img/penilaian1.jpeg" alt="hahy">
+                    </div>
+                    <div>
+                        <img src="/img/penilaian2.jpeg" alt="hahy">
+                    </div>
+                    <div>
+                        <img src="/img/penilaian1.jpeg" alt="hahy">
+                    </div>
+                    <div>
+                        <img src="/img/penilaian2.jpeg" alt="hahy">
+                    </div>
+                    <div>
+                        <img src="/img/penilaian2.jpeg" alt="hahy">
+                    </div>
+
                 </div>
+
             </div>
+            {{-- Gallery End --}}
         </div>
     </section>
     {{-- Program Section End --}}

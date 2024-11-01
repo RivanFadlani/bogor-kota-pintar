@@ -160,7 +160,7 @@
 
                     <div class="flex justify-center sm:justify-start sm:ps-10">
                         <form class="relative">
-                            <input type="text"
+                            <input type="text" id="searchInput"
                                 class="w-96 pl-10 pr-4 py-2 rounded-full shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                                 placeholder="Cari...">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -179,7 +179,7 @@
     {{-- Hero Section End --}}
 
     {{-- Dimensi Section Start --}}
-    <section id="dimensi" class="pt-36 pb-32">
+    <section id="content1" class="pt-36 pb-32 content">
         <div class="w-full">
             <div class="px-4 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-5 block">Dimensi</h1>
@@ -208,7 +208,7 @@
     {{-- Dimensi Section End --}}
 
     {{-- Visi dan Misi Section Start --}}
-    <section id="visimisi" class="pt-24 bg-gradient-to-t from-gradient/30 lg:px-8">
+    <section id="content2" class="pt-24 bg-gradient-to-t from-gradient/30 lg:px-8 content">
         <div class="w-full h-full">
             <div class="px-4 sm:mx-7 text-center">
                 <h1 class="text-[48px] font-bold mb-7 block">Visi dan Misi</h1>
@@ -287,8 +287,8 @@
     </section>
     {{-- Visi dan Misi Section End --}}
 
-    {{-- Peserta IGA Section Start --}}
-    <section id="pesertaiga" class="pt-24 pb-32 bg-gradient-to-t from-gradient/30">
+    {{-- Sub Dimensi Section Start --}}
+    <section id="content3" class="pt-24 pb-32 bg-gradient-to-t from-gradient/30 content">
         <div class="w-full">
             <div class="px-4 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-7 block">Sub Dimensi Smart City</h1>
@@ -328,11 +328,10 @@
             <!-- card end -->
         </div>
     </section>
-
-    {{-- Peserta IGA Section End --}}
+    {{-- Sub Dimensi Section End --}}
 
     {{-- Masterplan Section Start --}}
-    <section id="masterplan" class="pt-24 pb-24">
+    <section id="content4" class="pt-24 pb-24 content">
         <div class="w-full">
             <div class="px-4 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-7 block">MasterPlan dan Power Point Smart City</h1>
@@ -411,8 +410,8 @@
     {{-- Masterplan Section End --}}
 
     {{-- Booklet Info Start --}}
-    <section id="booklet"
-        class="relative min-h-screen flex flex-col justify-center overflow-hidden pb-32 bg-gradient-to-b from-gradient/30">
+    <section id="content5"
+        class="relative min-h-screen flex flex-col justify-center overflow-hidden pb-32 bg-gradient-to-b from-gradient/30 content">
         <div class="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
             <div class="px-4 sm:mx-7">
                 <h1 class="text-[48px] text-center font-bold mb-7 block">Booklet Info Smart City</h1>
@@ -615,12 +614,18 @@
     {{-- Booklet Info End --}}
 
     {{-- Road Map Section Start --}}
-    <section id="roadmap" class="pt-24 pb-32">
+    <section id="cintent6" class="pt-24 pb-32 content">
         <div class="w-full">
             <div class="px-4 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-7 block">Road Map Jangka Menengah E-Gov dan Smart City</h1>
             </div>
-            <div class="px-4 sm:mx-7"></div>
+            @foreach ($roadmaps as $rm)
+                <div class="px-4 sm:mx-7">
+                    <div class="w-full p-5 shadow-lg border border-gray-300 rounded-xl">
+                        <img src="{{ asset('uploads/roadmap/' . $rm->gambar) }}" alt="dokumen" class="w-full">
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
     {{-- Road Map Section End --}}
@@ -743,6 +748,27 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $("#searchInput").on("input", function() {
+                const query = $(this).val().toLowerCase();
+                if (query) {
+                    let found = false;
+
+                    $(".content").each(function() {
+                        if ($(this).text().toLowerCase().includes(query) && !found) {
+                            $("html, body").animate({
+                                scrollTop: $(this).offset().top
+                            }, 600); // 600 ms untuk efek smooth scroll
+                            found = true;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
     <script>
         // Navbar Fixed
         window.onscroll = function() {
