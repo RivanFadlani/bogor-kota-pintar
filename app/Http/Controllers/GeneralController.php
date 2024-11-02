@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booklet;
 use App\Models\Dimensi;
 use App\Models\Dokumen;
 use App\Models\Kategori;
@@ -22,6 +23,7 @@ class GeneralController extends Controller
         $subdimensis = Subdimensi::all();
         $videos = Video::all();
         $roadmaps = Roadmap::all();
+        $booklets = Booklet::all();
 
         $dimensiList = Subdimensi::distinct('dimensi')->pluck('dimensi');
 
@@ -34,6 +36,6 @@ class GeneralController extends Controller
         $powerpointFiles = Dokumen::where('kategori_id', $powerpointCategory->id)->get();
 
         // Kirim data ke view
-        return view('general', compact('dokumen', 'visimisi', 'dimensis', 'subdimensis', 'dimensiList', 'videos', 'roadmaps', 'masterplanFiles', 'powerpointFiles'));
+        return view('general', compact('dokumen', 'visimisi', 'dimensis', 'subdimensis', 'dimensiList', 'videos', 'roadmaps', 'booklets', 'masterplanFiles', 'powerpointFiles'));
     }
 }
