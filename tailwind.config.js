@@ -22,6 +22,9 @@ export default {
                 gradient: "#646FD4",
                 dark: "#111827",
             },
+            screens: {
+                xs: "480px", // Menambahkan breakpoint xs
+            },
         },
     },
 
