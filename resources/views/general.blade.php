@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- class="scroll-smooth" -->
+<html lang="en" class="scroll-smooth"> <!-- class="scroll-smooth" -->
 
 <head>
     <meta charset="UTF-8">
@@ -61,34 +61,29 @@
                                     class="block woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2">Beranda</a>
                             </li>
                             <li>
-                                <a href="#dimensi"
+                                <a href="#content1"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
                             </li>
                             <li>
-                                <a href="#visidanmisi"
+                                <a href="#content2"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
                                     & Misi</a>
                             </li>
                             <li>
-                                <a href="#pesertaiga"
+                                <a href="#content3"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Peserta
                                     IGA</a>
                             </li>
                             <li>
-                                <a href="#"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Quick
-                                    Wins</a>
-                            </li>
-                            <li>
-                                <a href="#masterplan"
+                                <a href="#content4"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
                             </li>
                             <li>
-                                <a href="#booklet"
+                                <a href="#content5"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
                             </li>
                             <li>
-                                <a href="#roadmap"
+                                <a href="#content6"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
                                     Map</a>
                             </li>
@@ -290,11 +285,11 @@
     {{-- Sub Dimensi Section Start --}}
     <section id="content3" class="pt-24 pb-32 bg-gradient-to-t from-gradient/30 content">
         <div class="w-full">
-            <div class="px-4 sm:mx-7">
+            <div class="px-4 lg:px-24 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-7 block">Sub Dimensi Smart City</h1>
             </div>
             <!-- button start -->
-            <div class="filter-button-group px-4 sm:mx-7 mb-5 flex flex-wrap gap-3">
+            <div class="filter-button-group px-4 lg:px-24 sm:mx-7 mb-5 flex flex-wrap gap-3">
                 <button data-filter="*"
                     class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
                     <span class="active group-hover:text-white">Semua</span>
@@ -309,14 +304,14 @@
             <!-- button end -->
 
             <!-- card start -->
-            <div id="product-list" class="w-full px-2 sm:px-8 flex flex-wrap">
+            <div id="product-list" class="w-full px-2  sm:px-8 lg:px-28 flex flex-wrap">
                 @foreach ($subdimensis as $subdimensi)
                     <div
-                        class="{{ strtolower($subdimensi->dimensi) }} bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
+                        class="{{ strtolower($subdimensi->dimensi) }} relative bg-primary text-white m-2 p-6 rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
                         <h1 class="text-xl font-bold mb-2">({{ $subdimensi->dimensi }})</h1>
                         <h2 class="text-lg mb-4">{{ $subdimensi->sub }}</h2>
                         <p class="text-sm mb-6">{!! $subdimensi->deskripsi !!}</p>
-                        <div class="flex justify-end">
+                        <div class="flex absolute bottom-5 right-5">
                             <div class="bg-white rounded-full p-3">
 
                             </div>
@@ -333,18 +328,18 @@
     {{-- Masterplan Section Start --}}
     <section id="content4" class="pt-24 pb-24 content">
         <div class="w-full">
-            <div class="px-4 sm:mx-7">
+            <div class="px-4 lg:px-24 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-7 block">MasterPlan dan Power Point Smart City</h1>
             </div>
             {{-- MASTERPLAN START --}}
-            <div class="px-4 mt-14 sm:mx-7">
+            <div class="px-4 lg:px-24 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">MASTERPLAN
                         SMART CITY KOTA BOGOR
                     </h2>
                 </div>
             </div>
-            <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
+            <div class="px-4 lg:px-24 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
                 @foreach ($masterplanFiles as $file)
                     <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
@@ -372,14 +367,14 @@
 
             {{-- MASTERPLAN END --}}
             {{-- POWERPOINT START --}}
-            <div class="px-4 mt-14 sm:mx-7">
+            <div class="px-4 lg:px-24 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">POWERPOINT
                     </h2>
                 </div>
             </div>
 
-            <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
+            <div class="px-4 lg:px-24 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
                 @foreach ($powerpointFiles as $file)
                     <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
@@ -751,19 +746,20 @@
 
     <script>
         $(document).ready(function() {
-            $("#searchInput").on("input", function() {
-                const query = $(this).val().toLowerCase();
-                if (query) {
-                    let found = false;
+            $("#searchInput").on("keydown", function(event) {
+                if (event.key === "Enter") { // Menggunakan 'Enter' agar lebih universal
+                    event.preventDefault(); // Mencegah submit form default
+                    const query = $(this).val().toLowerCase();
+                    if (query) {
+                        let found = false;
 
-                    $(".content").each(function() {
-                        if ($(this).text().toLowerCase().includes(query) && !found) {
-                            $("html, body").animate({
-                                scrollTop: $(this).offset().top
-                            }, 600); // 600 ms untuk efek smooth scroll
-                            found = true;
-                        }
-                    });
+                        $(".content").each(function() {
+                            if ($(this).text().toLowerCase().includes(query) && !found) {
+                                $(window).scrollTop($(this).offset().top);
+                                found = true;
+                            }
+                        });
+                    }
                 }
             });
         });
