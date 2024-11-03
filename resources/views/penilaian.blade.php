@@ -156,36 +156,85 @@
     {{-- Hero Section End --}}
 
     {{-- Program Section Start --}}
-    <section id="" class="pl-3 pt-10 pb-32">
+    <section id="" class="pl-3 pt-10 pb-10">
         <div class="w-full">
-            {{-- Gallery Start --}}
-            <div class="px-4 sm:mx-7 grid">
-                <h2 class="text-5xl font-bold">10 Penghargaan Rating Informasi Digital dan Kota Cerdas Indonesia Kota
-                    Bogor Tahun 2021</h2>
-                <div class="grid grid-cols-3">
-                    <div>
-                        <img src="/img/penilaian1.jpeg" alt="hahy">
-                    </div>
-                    <div>
-                        <img src="/img/penilaian2.jpeg" alt="hahy">
-                    </div>
-                    <div>
-                        <img src="/img/penilaian1.jpeg" alt="hahy">
-                    </div>
-                    <div>
-                        <img src="/img/penilaian2.jpeg" alt="hahy">
-                    </div>
-                    <div>
-                        <img src="/img/penilaian2.jpeg" alt="hahy">
-                    </div>
+            <div class="px-4 lg:px-24 sm:mx-7">
+                <div class="bg-white border border-gray-300 shadow-xl p-6 rounded-2xl">
+                    <h2 class="page-title text-primary text-5xl font-bold mb-7 text-center">
+                        Hasil Nilai Smart City
+                    </h2>
 
+                    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-3">
+                        @foreach ($penilaians as $penilaian)
+                            <!-- Card 1 -->
+                            <div
+                                class="bg-gradient-to-r from-primary to-slate-300 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-300">
+                                <div class="flex items-center bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
+                                    <div class="flex-1">
+                                        <h3 class="text-xl font-bold text-white mb-2">
+                                            {{ $penilaian->judul }}
+                                        </h3>
+                                        <div class="text-white/80 text-sm">
+                                            Hasil Nilai
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center ml-6">
+                                        <div
+                                            class="bg-white rounded-full w-24 h-24 flex items-center justify-center shadow-lg">
+                                            <div class="text-center">
+                                                <div
+                                                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                                                    {{ $penilaian->nilai }}
+                                                </div>
+                                                <div class="text-xs text-gray-500 mt-1">
+                                                    Nilai
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
 
             </div>
-            {{-- Gallery End --}}
+
+
         </div>
     </section>
     {{-- Program Section End --}}
+
+    <section class="pl-3 pt-10 pb-32">
+        {{-- Gallery Start --}}
+        <div class="px-4 lg:px-24 mb-7 sm:mx-7">
+            @foreach ($sertifikats as $sertifikat)
+                <h2 class="text-5xl font-bold mb-7">{{ $sertifikat->judul }}</h2>
+            @endforeach
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                @foreach ($sertifikats as $sertifikat)
+                    <div class="rounded-2xl h-fit shadow-xl overflow-hidden hover:-translate-y-1 transition-transform">
+                        <img src="{{ asset('uploads/sertifikat/' . $sertifikat->gambar) }}"
+                            alt="{{ $sertifikat->judul }}">
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+        {{-- Gallery End --}}
+
+        {{-- Kategori Start --}}
+        <div class="px-4 lg:px-24 sm:mx-7">
+
+            <div class=" w-full h-full p-10 bg-white border border-gray-300 shadow-xl rounded-2xl">
+                @foreach ($sertifikats as $sertifikat)
+                    <div class="w-full mb-5 py-3 px-7 border border-gray-300 rounded-xl bg-slate-100">
+                        {{ $sertifikat->kategori }}</div>
+                @endforeach
+            </div>
+        </div>
+        {{-- Kategori End --}}
+    </section>
 
     {{-- JS START --}}
     <script src="public/js/pagedone.js"></script>
