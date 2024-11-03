@@ -27,7 +27,7 @@ class ProgramimpController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|max:50',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -61,7 +61,7 @@ class ProgramimpController extends Controller
         // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
             'judul' => 'required|string|max:50',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         // Cari quickwin berdasarkan ID

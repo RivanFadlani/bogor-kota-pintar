@@ -43,7 +43,7 @@
                     <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
                     <input type="file" name="gambar" id="gambar"
                         class="w-full p-2 border border-gray-300 rounded">
-
+                    <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
                     <!-- Menampilkan nama file lama -->
                     @if ($roadmaps->gambar)
                         <p class="text-gray-500 mt-2">File saat ini: {{ $roadmaps->gambar }}</p>

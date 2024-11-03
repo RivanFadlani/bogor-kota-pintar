@@ -32,7 +32,7 @@ class SubdimensiController extends Controller
             'dimensi' => 'required|string|max:50',
             'sub' => 'required|string|max:50',
             'deskripsi' => 'required|string|max:255',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024'
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -70,7 +70,7 @@ class SubdimensiController extends Controller
             'dimensi' => 'required|string|max:50',
             'sub' => 'required|string|max:50',
             'deskripsi' => 'required|string|max:255',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024'
         ]);
 
         // Cari quickwin berdasarkan ID
