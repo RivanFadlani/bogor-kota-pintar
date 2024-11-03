@@ -38,14 +38,14 @@
                                 </a>
                             </li> --}}
 
-                            <!-- Quickwins -->
+                            {{-- <!-- Quickwins -->
                             <li>
                                 <a href="{{ route('admin.quickwin.index') }}"
                                     class="block p-3 rounded-lg transition-colors duration-200
                                    {{ request()->routeIs('admin.quickwin.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Quickwins
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <!-- Masterplan dan PPT Dropdown -->
                             <li class="relative" x-data="{ open: false }">
@@ -138,7 +138,7 @@
                             <li>
                                 <a href="{{ route('admin.roadmap.index') }}"
                                     class="block p-3 rounded-lg transition-colors duration-200
-                                   {{ request()->routeIs('admin.roadmap') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                   {{ request()->routeIs('admin.roadmap.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Road Map
                                 </a>
                             </li>
@@ -180,6 +180,14 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin.navigasi.index') }}"
+                                    class="block p-3 rounded-lg transition-colors duration-200
+                                   {{ request()->routeIs('admin.navigasi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                    Navigasi
+                                </a>
                             </li>
                         </ul>
                     </nav>

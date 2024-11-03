@@ -51,7 +51,7 @@ class DokumenController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
             'judul' => 'required|string|max:50',
             'url' => 'required|url',
             'kategori_id' => 'required'
@@ -90,7 +90,7 @@ class DokumenController extends Controller
     {
         // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
             'judul' => 'required|string|max:50',
             'url' => 'required|url',
             'kategori_id' => 'required'

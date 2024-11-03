@@ -30,7 +30,7 @@ class DimensiController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|max:50',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
             'deskripsi' => 'required|string|max:255',
         ]);
 
@@ -66,7 +66,7 @@ class DimensiController extends Controller
         // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
             'judul' => 'required|string|max:50',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
             'deskripsi' => 'required|string|max:255',
         ]);
 

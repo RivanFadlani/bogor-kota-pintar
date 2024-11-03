@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container p-10 mx-auto">
-        <h1 class="text-2xl font-bold mb-4">Tambah Booklet</h1>
+        <h1 class="text-2xl font-bold mb-4">Tambah Navigasi</h1>
 
         <!-- Notifikasi kesuksesan -->
         @if (session('success'))
@@ -21,29 +21,20 @@
         @endif
 
         <!-- Dokumen Form Start -->
-        <form action="{{ route('admin.booklet.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
+        <form action="{{ route('admin.navigasi.store') }}" class="bg-white border-2 p-10 rounded-xl" method="POST"
             enctype="multipart/form-data">
             @csrf
 
             {{-- Input Judul Start --}}
             <div class="mb-4">
-                <label for="judul" class="block text-gray-700">Judul</label>
-                <input type="text" name="judul" id="judul" class="w-full p-2 border border-gray-300 rounded"
-                    value="{{ old('judul') }}" required>
-                @error('judul')
+                <label for="nav" class="block text-gray-700">Navigasi</label>
+                <input type="text" name="nav" id="nav" class="w-full p-2 border border-gray-300 rounded"
+                    value="{{ old('nav') }}" required>
+                @error('nav')
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
             </div>
             {{-- Input Judul End --}}
-
-            <!-- Input Upload Gambar Start -->
-            <div class="mb-4">
-                <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
-                <input type="file" name="gambar" id="gambar"
-                    class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}" required>
-                <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
-            </div>
-            <!-- Input Upload Gambar End -->
 
             <!-- Input Link Start -->
             <div class="mb-4">
@@ -58,7 +49,7 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Booklet</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Dokumen</button>
             </div>
         </form>
         {{-- Dokumen Form End --}}

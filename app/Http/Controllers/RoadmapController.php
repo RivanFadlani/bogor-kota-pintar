@@ -30,7 +30,7 @@ class RoadmapController extends Controller
     {
         $request->validate([
             'judul' => 'nullable|string',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024'
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -64,7 +64,7 @@ class RoadmapController extends Controller
         // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
             'judul' => 'nullable|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024'
         ]);
 
         // Cari quickwin berdasarkan ID
