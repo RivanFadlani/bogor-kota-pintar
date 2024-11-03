@@ -72,14 +72,14 @@
                                     <li>
                                         <a href="{{ route('admin.dokumen.index') }}"
                                             class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200
-                                           {{ request()->routeIs('admin.dokumen') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                           {{ request()->routeIs('admin.dokumen.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Dokumen
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('admin.kategori.index') }}"
                                             class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200
-                                           {{ request()->routeIs('admin.kategori') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                           {{ request()->routeIs('admin.kategori.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Kategori
                                         </a>
                                     </li>
@@ -143,7 +143,7 @@
                                 </a>
                             </li>
 
-                            <!-- Masterplan dan PPT Dropdown -->
+                            <!-- Penilaian dan Sertifikat Dropdown -->
                             <li class="relative" x-data="{ open: false }">
                                 <button @click="open = !open" @click.away="open = false"
                                     class="w-full flex items-center justify-between p-3 rounded-lg text-left transition-colors duration-200
@@ -166,24 +166,17 @@
                                     x-transition:leave-start="opacity-100 transform scale-100"
                                     x-transition:leave-end="opacity-0 transform scale-95" style="display: none;">
                                     <li>
-                                        <a href="{{ route('admin.dokumen.index') }}"
+                                        <a href="{{ route('admin.penilaian.index') }}"
                                             class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200
-                                           {{ request()->routeIs('admin.dokumen') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                           {{ request()->routeIs('admin.penilaian.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Penilaian
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('admin.kategori.index') }}"
+                                        <a href="{{ route('admin.sertifikat.index') }}"
                                             class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200
-                                           {{ request()->routeIs('admin.kategori') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                           {{ request()->routeIs('admin.sertifikat.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Sertifikat Penghargaan
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.kategori.index') }}"
-                                            class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200
-                                           {{ request()->routeIs('admin.kategori') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
-                                            Kategori
                                         </a>
                                     </li>
                                 </ul>
