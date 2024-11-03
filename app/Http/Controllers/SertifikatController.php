@@ -13,7 +13,7 @@ class SertifikatController extends Controller
     public function index(Request $request)
     {
         $sertifikatAdm = Sertifikat::latest()->paginate(5); // 10 items per page
-        return view('admin.booklet.index', compact('sertifikatAdm'));
+        return view('admin.sertifikat.index', compact('sertifikatAdm'));
     }
 
     public function create(): View

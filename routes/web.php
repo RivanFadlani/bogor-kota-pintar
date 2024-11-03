@@ -138,7 +138,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/admin/penilaian/{id}', [PenilaianController::class, 'update'])->name('admin.penilaian.update');
     Route::delete('/admin/penilaian/{id}', [PenilaianController::class, 'destroy'])->name('admin.penilaian.destroy');
 
-    // PENILAIAN ROUTE
+    // SERTIFIKAT ROUTE
     Route::get('/admin/sertifikat', [SertifikatController::class, 'index'])->name('admin.sertifikat.index');
     Route::get('/admin/sertifikat/create', [SertifikatController::class, 'create'])->name('admin.sertifikat.create');
     Route::post('/admin/sertifikat/store', [SertifikatController::class, 'store'])->name('admin.sertifikat.store');
