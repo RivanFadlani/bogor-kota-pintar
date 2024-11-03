@@ -24,18 +24,20 @@ class DokumenController extends Controller
         return response()->json($data);
     }
 
-    public function general()
-    {
-        $dokumens = Dokumen::orderBy('created_at', 'desc')->get();
+    // public function general()
+    // {
+    //     $dokumens = Dokumen::orderBy('created_at', 'desc')->get();
 
-        return view('general', compact('dokumens'));
-    }
+    //     return view('general', compact('dokumens'));
+    // }
 
     // App\Http\Controllers\Admin\DokumenController.php
     public function index()
     {
         $dokumens = Dokumen::with('kategori')->get(); // Memuat relasi kategori
-        return view('admin.dokumen.index', compact('dokumens'));
+        $dokumenAdm = Dokumen::latest()->paginate(5); // 10 items per page
+
+        return view('admin.dokumen.index', compact('dokumens', 'dokumenAdm'));
     }
 
 

@@ -12,9 +12,9 @@ class ProgramimpController extends Controller
 {
     public function index(): View
     {
-        $programimps = Programimp::latest()->paginate(10);
+        $programAdm = Programimp::latest()->paginate(5);
 
-        return view('admin.programimp.index', compact('programimps'));
+        return view('admin.programimp.index', compact('programAdm'));
         //
     }
 

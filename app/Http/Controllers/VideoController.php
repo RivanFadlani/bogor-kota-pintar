@@ -13,8 +13,9 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Video::orderBy('created_at', 'desc')->get();
+        $videoAdm = Video::latest()->paginate(5); // 10 items per page
 
-        return view('admin.video.index', compact('videos'));
+        return view('admin.video.index', compact('videos', 'videoAdm'));
     }
 
 

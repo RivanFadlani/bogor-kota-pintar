@@ -10,10 +10,11 @@ use Illuminate\Http\RedirectResponse;
 
 class BookletController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $booklets = Booklet::orderBy('created_at', 'desc')->get();
-        return view('admin.booklet.index', compact('booklets'));
+        $bookletAdm = Booklet::latest()->paginate(5); // 10 items per page
+        return view('admin.booklet.index', compact('booklets', 'bookletAdm'));
     }
 
     public function create(): View

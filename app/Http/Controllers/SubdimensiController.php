@@ -13,8 +13,9 @@ class SubdimensiController extends Controller
     public function index()
     {
         $subdimensis = Subdimensi::orderBy('created_at', 'desc')->get();
+        $subdimensiAdm = Subdimensi::latest()->paginate(5); // 10 items per page
 
-        return view('admin.subdimensi.index', compact('subdimensis'));
+        return view('admin.subdimensi.index', compact('subdimensis', 'subdimensiAdm'));
     }
 
 

@@ -9,18 +9,18 @@ use Illuminate\Http\RedirectResponse;
 
 class VisidanmisiController extends Controller
 {
-    public function general()
-    {
-        $visimisis = Visidanmisi::all();
+    // public function general()
+    // {
+    //     $visimisis = Visidanmisi::all();
 
-        return view('general', compact('visimisis'));
-    }
+    //     return view('general', compact('visimisis'));
+    // }
 
     public function index(): View
     {
-        $visimisis = Visidanmisi::latest()->paginate(10);
+        $visimisiAdm = Visidanmisi::latest()->paginate(5); // 10 items per page
 
-        return view('admin.visimisi.index', compact('visimisis'));
+        return view('admin.visimisi.index', compact('visimisiAdm'));
         //
     }
 
