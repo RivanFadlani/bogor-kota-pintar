@@ -19,9 +19,12 @@ use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PenilaianPage;
+use App\Http\Controllers\PenilianController;
 use App\Http\Controllers\QuickwinController;
 use App\Http\Controllers\ProgramimpController;
+use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\SubdimensiController;
 use App\Http\Controllers\VisidanmisiController;
 
@@ -126,6 +129,22 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/roadmap/{id}/edit', [RoadmapController::class, 'edit'])->name('admin.roadmap.edit');
     Route::put('/admin/roadmap/{id}', [RoadmapController::class, 'update'])->name('admin.roadmap.update');
     Route::delete('/admin/roadmap/{id}', [RoadmapController::class, 'destroy'])->name('admin.roadmap.destroy');
+
+    // PENILAIAN ROUTE
+    Route::get('/admin/penilaian', [PenilaianController::class, 'index'])->name('admin.penilaian.index');
+    Route::get('/admin/penilaian/create', [PenilaianController::class, 'create'])->name('admin.penilaian.create');
+    Route::post('/admin/penilaian/store', [PenilaianController::class, 'store'])->name('admin.penilaian.store');
+    Route::get('/admin/penilaian/{id}/edit', [PenilaianController::class, 'edit'])->name('admin.penilaian.edit');
+    Route::put('/admin/penilaian/{id}', [PenilaianController::class, 'update'])->name('admin.penilaian.update');
+    Route::delete('/admin/penilaian/{id}', [PenilaianController::class, 'destroy'])->name('admin.penilaian.destroy');
+
+    // PENILAIAN ROUTE
+    Route::get('/admin/sertifikat', [SertifikatController::class, 'index'])->name('admin.sertifikat.index');
+    Route::get('/admin/sertifikat/create', [SertifikatController::class, 'create'])->name('admin.sertifikat.create');
+    Route::post('/admin/sertifikat/store', [SertifikatController::class, 'store'])->name('admin.sertifikat.store');
+    Route::get('/admin/sertifikat/{id}/edit', [SertifikatController::class, 'edit'])->name('admin.sertifikat.edit');
+    Route::put('/admin/sertifikat/{id}', [SertifikatController::class, 'update'])->name('admin.sertifikat.update');
+    Route::delete('/admin/sertifikat/{id}', [SertifikatController::class, 'destroy'])->name('admin.sertifikat.destroy');
 });
 
 require __DIR__ . '/auth.php';
