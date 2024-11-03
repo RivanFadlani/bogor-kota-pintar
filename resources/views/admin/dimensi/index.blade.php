@@ -282,7 +282,7 @@
         function openDeleteModal(bookletId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
-            form.action = `/admin/booklet/${bookletId}`;
+            form.action = `/admin/dimensi/${dimensiId}`;
             modal.classList.remove('hidden');
         }
 

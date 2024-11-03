@@ -285,7 +285,7 @@
         function openDeleteModal(bookletId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
-            form.action = `/admin/booklet/${bookletId}`;
+            form.action = `/admin/programimp/${programimpId}`;
             modal.classList.remove('hidden');
         }
 
@@ -318,7 +318,7 @@
         // Sort table columns
         document.querySelectorAll('th').forEach(header => {
             header.addEventListener('click', function() {
-                const table = document.getElementById('bookletTable');
+                const table = document.getElementById('programTable');
                 const rows = Array.from(table.querySelectorAll('tbody tr'));
                 const index = Array.from(this.parentElement.children).indexOf(this);
                 const isNumeric = !isNaN(rows[0].children[index].textContent);
