@@ -27,7 +27,7 @@
         <div class="container">
             <nav class="w-full border-gray-200 relative">
                 <div
-                    class="w-full px-10 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
+                    class="w-full px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
                     <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
@@ -201,7 +201,7 @@
     <section id="content2" class="pt-24 bg-gradient-to-t from-gradient/30 lg:px-8 content">
         <div class="w-full h-full">
             <div class="px-4 lg:px-24 sm:mx-7 text-center">
-                <h1 class="text-[48px] font-bold mb-7 block">Visi dan Misi</h1>
+                <h1 class="text-[48px] font-bold mb-7 block page-title">Visi dan Misi</h1>
             </div>
 
             <!-- Flex container untuk gambar di kanan dan card Visi di kiri -->
@@ -261,7 +261,7 @@
                         @endif
                         @if ($video->getYouTubeEmbedUrl())
                             <iframe src="{{ $video->getYouTubeEmbedUrl() }}"
-                                class="aspect-video w-full h-full lg:w-[80%] lg:h-[80%] rounded-xl mx-auto"
+                                class="aspect-video w-full h-full lg:w-[87%] lg:h-[87%] rounded-xl mx-auto"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
@@ -404,7 +404,7 @@
         class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-b from-gradient/30 content">
         <div class="w-full max-w-7xl mx-auto px-4 md:px-6 py-24">
             <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] text-center font-bold mb-7 block">Booklet Info Smart City</h1>
+                <h1 class="text-[48px] text-center font-bold mb-7 block page-title">Booklet Info Smart City</h1>
             </div>
             <!-- Card slider -->
             <div class="relative w-full max-w-7xl overflow-hidden">
@@ -412,10 +412,10 @@
                     @foreach ($booklets as $card)
                         <div class="flex-shrink-0 w-full xs:w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 group">
                             <div
-                                class="bg-white rounded-lg border border-gray-300 shadow-lg p-3 flex flex-col items-center w-full relative overflow-hidden">
+                                class="bg-white rounded-tl-lg rounded-tr-3xl rounded-br-lg rounded-bl-3xl border border-gray-300 shadow-lg flex flex-col items-center w-full relative overflow-hidden">
 
                                 <!-- Gambar dengan efek zoom dan overlay -->
-                                <div class="relative overflow-hidden w-full h-[360px] rounded-md">
+                                <div class="relative overflow-hidden w-full h-[400px]">
                                     <img src="{{ asset('uploads/booklet/' . $card->gambar) }}"
                                         alt="{{ $card->judul }}"
                                         class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110">
@@ -425,10 +425,9 @@
                                 </div>
 
                                 <!-- Judul dan tombol -->
-                                <h1 class="text-lg font-bold pt-5 my-4">{{ $card->judul }}</h1>
+                                <h1 class="text-lg text-primary font-bold pt-1 my-4">{{ $card->judul }}</h1>
                                 <a href="{{ $card->url }}"
-                                    class="bg-primary text-white px-4 py-2 rounded transition duration-300 hover:bg-blue-800 absolute bottom-20">Learn
-                                    More</a>
+                                    class="bg-primary text-white px-4 py-2 rounded transition duration-300 hover:bg-blue-800 absolute bottom-12">Selengkapnya</a>
                             </div>
                         </div>
                     @endforeach
@@ -454,7 +453,7 @@
     <section id="content6" class="pt-24 pb-32 content">
         <div class="w-full">
             <div class="px-4 lg:px-24 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">Road Map Jangka Menengah E-Gov dan Smart City</h1>
+                <h1 class="text-[48px] font-bold mb-7 block text-center page-title">Road Map</h1>
             </div>
             @foreach ($roadmaps as $rm)
                 <div class="px-4 lg:px-24 sm:mx-7">
