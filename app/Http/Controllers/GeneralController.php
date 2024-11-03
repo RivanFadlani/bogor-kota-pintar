@@ -6,6 +6,7 @@ use App\Models\Booklet;
 use App\Models\Dimensi;
 use App\Models\Dokumen;
 use App\Models\Kategori;
+use App\Models\Navigasi;
 use App\Models\Programimp;
 use App\Models\Roadmap;
 use App\Models\Subdimensi;
@@ -24,6 +25,7 @@ class GeneralController extends Controller
         $videos = Video::all();
         $roadmaps = Roadmap::all();
         $booklets = Booklet::all();
+        $navigasis = Navigasi::all();
 
         $dimensiList = Subdimensi::distinct('dimensi')->pluck('dimensi');
 
@@ -36,6 +38,6 @@ class GeneralController extends Controller
         $powerpointFiles = Dokumen::where('kategori_id', $powerpointCategory->id)->get();
 
         // Kirim data ke view
-        return view('general', compact('dokumen', 'visimisi', 'dimensis', 'subdimensis', 'dimensiList', 'videos', 'roadmaps', 'booklets', 'masterplanFiles', 'powerpointFiles'));
+        return view('general', compact('dokumen', 'visimisi', 'dimensis', 'subdimensis', 'dimensiList', 'videos', 'roadmaps', 'booklets', 'navigasis', 'masterplanFiles', 'powerpointFiles'));
     }
 }

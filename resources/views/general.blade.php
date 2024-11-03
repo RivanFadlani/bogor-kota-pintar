@@ -115,6 +115,13 @@
                                                 class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
                                                 target="_blank">Layanan</a>
                                         </li>
+                                        @foreach ($navigasis as $navigasi)
+                                            <li>
+                                                <a href="{{ $navigasi->url }}"
+                                                    class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                                    target="_blank">{{ $navigasi->nav }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </li>
@@ -172,7 +179,7 @@
     <section id="content1" class="pt-36 pb-32 content">
         <div class="w-full">
             <div class="px-4 lg:px-24 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-5 block">Dimensi</h1>
+                <h1 class="text-[48px] font-bold mb-5 text-primary block">Dimensi</h1>
             </div>
             <div class="flex flex-wrap gap-6 px-4 lg:px-24 sm:mx-7">
                 {{-- card 1 --}}
@@ -201,7 +208,7 @@
     <section id="content2" class="pt-24 bg-gradient-to-t from-gradient/30 lg:px-8 content">
         <div class="w-full h-full">
             <div class="px-4 lg:px-24 sm:mx-7 text-center">
-                <h1 class="text-[48px] font-bold mb-7 block page-title">Visi dan Misi</h1>
+                <h1 class="text-[48px] font-bold mb-7 block text-primary page-title">Visi dan Misi</h1>
             </div>
 
             <!-- Flex container untuk gambar di kanan dan card Visi di kiri -->
@@ -281,7 +288,7 @@
     <section id="content3" class="pt-24 pb-32 bg-gradient-to-t from-gradient/30 content">
         <div class="w-full">
             <div class="px-4 lg:px-24 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">Sub Dimensi Smart City</h1>
+                <h1 class="text-[48px] font-bold mb-7 text-primary block">Sub Dimensi Smart City</h1>
             </div>
             <!-- button start -->
             <div class="filter-button-group px-4 lg:px-24 sm:mx-7 mb-5 flex flex-wrap gap-3">
@@ -324,7 +331,7 @@
     <section id="content4" class="pt-24 pb-24 content">
         <div class="w-full">
             <div class="px-4 lg:px-24 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">MasterPlan dan Power Point Smart City</h1>
+                <h1 class="text-[48px] font-bold mb-7 text-primary block">MasterPlan dan Power Point Smart City</h1>
             </div>
             {{-- MASTERPLAN START --}}
             <div class="px-4 lg:px-24 mt-14 sm:mx-7">
@@ -404,7 +411,8 @@
         class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-b from-gradient/30 content">
         <div class="w-full max-w-7xl mx-auto px-4 md:px-6 py-24">
             <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] text-center font-bold mb-7 block page-title">Booklet Info Smart City</h1>
+                <h1 class="text-[48px] text-center font-bold mb-7 text-primary block page-title">Booklet Info Smart
+                    City</h1>
             </div>
             <!-- Card slider -->
             <div class="relative w-full max-w-7xl overflow-hidden">
@@ -453,7 +461,7 @@
     <section id="content6" class="pt-24 pb-32 content">
         <div class="w-full">
             <div class="px-4 lg:px-24 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block text-center page-title">Road Map</h1>
+                <h1 class="text-[48px] font-bold mb-7 text-primary block text-center page-title">Road Map</h1>
             </div>
             @foreach ($roadmaps as $rm)
                 <div class="px-4 lg:px-24 sm:mx-7">

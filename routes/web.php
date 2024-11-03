@@ -19,6 +19,7 @@ use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\NavigasiController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PenilaianPage;
 use App\Http\Controllers\PenilianController;
@@ -145,6 +146,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/sertifikat/{id}/edit', [SertifikatController::class, 'edit'])->name('admin.sertifikat.edit');
     Route::put('/admin/sertifikat/{id}', [SertifikatController::class, 'update'])->name('admin.sertifikat.update');
     Route::delete('/admin/sertifikat/{id}', [SertifikatController::class, 'destroy'])->name('admin.sertifikat.destroy');
+
+    // SERTIFIKAT ROUTE
+    Route::get('/admin/navigasi', [NavigasiController::class, 'index'])->name('admin.navigasi.index');
+    Route::get('/admin/navigasi/create', [NavigasiController::class, 'create'])->name('admin.navigasi.create');
+    Route::post('/admin/navigasi/store', [NavigasiController::class, 'store'])->name('admin.navigasi.store');
+    Route::get('/admin/navigasi/{id}/edit', [NavigasiController::class, 'edit'])->name('admin.navigasi.edit');
+    Route::put('/admin/navigasi/{id}', [NavigasiController::class, 'update'])->name('admin.navigasi.update');
+    Route::delete('/admin/navigasi/{id}', [NavigasiController::class, 'destroy'])->name('admin.navigasi.destroy');
 });
 
 require __DIR__ . '/auth.php';
