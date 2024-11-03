@@ -26,11 +26,12 @@
                     </div>
                     <div class="flex items-center">
                         <span class="mr-2 text-sm text-gray-600">Tampilkan</span>
-                        <select id="perPage" onchange="changePerPage(this)">
-                            <option value="10">10 per page</option>
-                            <option value="25">25 per page</option>
-                            <option value="50">50 per page</option>
-                            <option value="100">100 per page</option>
+                        <select id="entriesPerPage"
+                            class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="10">10</option>
+                            <option value="3">3</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
                         </select>
                         <span class="ml-2 text-sm text-gray-600">entries</span>
                     </div>
@@ -279,12 +280,6 @@
             // Update pagination if needed
             // You might want to implement a more sophisticated pagination system here
         });
-
-        function changePerPage(select) {
-            const searchParams = new URLSearchParams(window.location.search);
-            searchParams.set('per_page', select.value);
-            window.location.search = searchParams.toString();
-        }
 
         // Delete Modal Functions
         function openDeleteModal(bookletId) {

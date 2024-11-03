@@ -12,7 +12,6 @@ class BookletController extends Controller
 {
     public function index(Request $request)
     {
-        $perPage = $request->input('per_page', 10); // default 10
         $booklets = Booklet::orderBy('created_at', 'desc')->get();
         $bookletAdm = Booklet::latest()->paginate(5); // 10 items per page
         return view('admin.booklet.index', compact('booklets', 'bookletAdm'));

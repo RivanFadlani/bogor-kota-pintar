@@ -13,8 +13,9 @@ class DimensiController extends Controller
     public function index()
     {
         $dimensis = Dimensi::orderBy('created_at', 'desc')->get();
+        $dimensiAdm = Dimensi::latest()->paginate(5); // 10 items per page
 
-        return view('admin.dimensi.index', compact('dimensis'));
+        return view('admin.dimensi.index', compact('dimensis', 'dimensiAdm'));
     }
 
 
