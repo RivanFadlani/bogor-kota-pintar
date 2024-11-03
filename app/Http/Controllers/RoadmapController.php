@@ -13,8 +13,9 @@ class RoadmapController extends Controller
     public function index()
     {
         $roadmaps = Roadmap::orderBy('created_at', 'desc')->get();
+        $roadmapAdm = Roadmap::latest()->paginate(5); // 10 items per page
 
-        return view('admin.roadmap.index', compact('roadmaps'));
+        return view('admin.roadmap.index', compact('roadmaps', 'roadmapAdm'));
     }
 
 
