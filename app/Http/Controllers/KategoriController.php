@@ -13,8 +13,9 @@ class KategoriController extends Controller
     public function index(): View
     {
         $kategoris = Kategori::latest()->paginate(10);
+        $kategoriAdm = Kategori::latest()->paginate(5);
 
-        return view('admin.kategori.index', compact('kategoris'));
+        return view('admin.kategori.index', compact('kategoris', 'kategoriAdm'));
         //
     }
 
