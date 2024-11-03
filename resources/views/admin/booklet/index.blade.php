@@ -285,7 +285,7 @@
         function openDeleteModal(bookletId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
-            form.action = `/admin/programimp/${programimpId}`;
+            form.action = `/admin/booklet/${bookletId}`;
             modal.classList.remove('hidden');
         }
 

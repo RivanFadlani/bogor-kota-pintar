@@ -279,7 +279,7 @@
         });
 
         // Delete Modal Functions
-        function openDeleteModal(bookletId) {
+        function openDeleteModal(dimensiId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
             form.action = `/admin/dimensi/${dimensiId}`;

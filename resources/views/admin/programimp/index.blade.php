@@ -274,10 +274,10 @@
         });
 
         // Delete Modal Functions
-        function openDeleteModal(bookletId) {
+        function openDeleteModal(programimpId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
-            form.action = `/admin/booklet/${bookletId}`;
+            form.action = `/admin/programimp/${programimpId}`;
             modal.classList.remove('hidden');
         }
 
