@@ -52,7 +52,7 @@ class DokumenController extends Controller
     {
         $request->validate([
             'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
-            'judul' => 'required|string|max:50',
+            'judul' => 'required|string|max:100',
             'url' => 'required|url',
             'kategori_id' => 'required'
         ]);
@@ -91,7 +91,7 @@ class DokumenController extends Controller
         // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
-            'judul' => 'required|string|max:50',
+            'judul' => 'required|string|max:100',
             'url' => 'required|url',
             'kategori_id' => 'required'
         ]);

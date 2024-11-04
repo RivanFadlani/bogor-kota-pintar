@@ -52,7 +52,7 @@
                         </button>
                     </a>
 
-                    <!-- Navbar content -->
+                    <!-- Navbar content start -->
                     <div class="hidden z-[9999] lg:flex flex-wrap w-full lg:w-auto justify-between lg:flex-row lg:items-center lg:space-x-4"
                         id="mobile-menu">
                         <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
@@ -100,7 +100,7 @@
                                     class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
                                     <ul class="py-1" aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <a href="#"
+                                            <a href="/penilaian"
                                                 class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Hasil
                                                 Penilaian</a>
                                         </li>
@@ -128,6 +128,7 @@
                         </ul>
 
                     </div>
+                    <!-- Navbar content end -->
                 </div>
             </nav>
         </div>
@@ -185,11 +186,11 @@
                 {{-- card 1 --}}
                 @foreach ($dimensis as $dimensi)
                     <div
-                        class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
+                        class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl hover:-translate-y-1 transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
                         <div
                             class="block w-full items-center mx-auto overflow-hidden md:w-32 md:h-full h-32 bg-primary">
                             <img src="{{ asset('uploads/dimensi/' . $dimensi->gambar) }}" alt="dokumen"
-                                class="w-24 py-7 px-5 mx-auto">
+                                class="w-24 py-7 px-5 mx-auto items-center">
                         </div>
                         <div class="p-4 w-full">
                             <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
@@ -264,7 +265,8 @@
                 @foreach ($videos as $video)
                     <div class="video-item">
                         @if (!is_null($video->judul) && $video->judul !== '')
-                            <h2 class="text-5xl font-bold mb-7 block page-title text-center">{{ $video->judul }}</h2>
+                            <h2 class="text-5xl font-bold mb-7 block text-primary page-title text-center">
+                                {{ $video->judul }}</h2>
                         @endif
                         @if ($video->getYouTubeEmbedUrl())
                             <iframe src="{{ $video->getYouTubeEmbedUrl() }}"
@@ -309,13 +311,14 @@
             <div id="product-list" class="w-full px-2  sm:px-8 lg:px-28 flex flex-wrap">
                 @foreach ($subdimensis as $subdimensi)
                     <div
-                        class="{{ strtolower($subdimensi->dimensi) }} relative bg-primary text-white m-2 p-6 rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
+                        class="{{ strtolower($subdimensi->dimensi) }} relative bg-primary text-white m-2 p-6 hover:-translate-y-1 transition-all rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
                         <h1 class="text-xl font-bold mb-2">({{ $subdimensi->dimensi }})</h1>
                         <h2 class="text-lg mb-4">{{ $subdimensi->sub }}</h2>
                         <p class="text-sm mb-6">{!! $subdimensi->deskripsi !!}</p>
                         <div class="flex absolute bottom-5 right-5">
                             <div class="bg-white rounded-full p-3">
-
+                                <img src="{{ asset('uploads/subdimensi/' . $subdimensi->gambar) }}"
+                                    alt="{{ $subdimensi->dimensi }}" class="w-10">
                             </div>
                         </div>
                     </div>
@@ -435,7 +438,8 @@
                                 <!-- Judul dan tombol -->
                                 <h1 class="text-lg text-primary font-bold pt-1 my-4">{{ $card->judul }}</h1>
                                 <a href="{{ $card->url }}"
-                                    class="bg-primary text-white px-4 py-2 rounded transition duration-300 hover:bg-blue-800 absolute bottom-12">Selengkapnya</a>
+                                    class="bg-primary text-white px-4 py-2 rounded transition duration-300 hover:bg-blue-800 absolute bottom-12"
+                                    target="_blank">Selengkapnya</a>
                             </div>
                         </div>
                     @endforeach

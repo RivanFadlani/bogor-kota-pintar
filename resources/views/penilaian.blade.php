@@ -47,7 +47,7 @@
                         </button>
                     </a>
 
-                    <!-- Navbar content -->
+                    <!-- Navbar content start -->
                     <div class="hidden z-[9999] lg:flex flex-wrap w-full lg:w-auto justify-between lg:flex-row lg:items-center lg:space-x-4"
                         id="mobile-menu">
                         <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
@@ -66,16 +66,6 @@
                             </li>
                             <li>
                                 <a href="/general"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Peserta
-                                    IGA</a>
-                            </li>
-                            <li>
-                                <a href="/general"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Quick
-                                    Wins</a>
-                            </li>
-                            <li>
-                                <a href="/general"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
                             </li>
                             <li>
@@ -88,7 +78,7 @@
                                     Map</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="#contact"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
                             </li>
                             <li>
@@ -105,7 +95,7 @@
                                     class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
                                     <ul class="py-1" aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <a href="#"
+                                            <a href="/penilaian"
                                                 class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Hasil
                                                 Penilaian</a>
                                         </li>
@@ -120,12 +110,20 @@
                                                 class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
                                                 target="_blank">Layanan</a>
                                         </li>
+                                        @foreach ($navigasis as $navigasi)
+                                            <li>
+                                                <a href="{{ $navigasi->url }}"
+                                                    class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                                    target="_blank">{{ $navigasi->nav }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </li>
                         </ul>
 
                     </div>
+                    <!-- Navbar content end -->
                 </div>
             </nav>
         </div>
@@ -168,7 +166,7 @@
                         @foreach ($penilaians as $penilaian)
                             <!-- Card 1 -->
                             <div
-                                class="bg-gradient-to-r from-primary to-slate-300 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-300">
+                                class="bg-gradient-to-r from-primary to-gray-400 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-300">
                                 <div class="flex items-center bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
                                     <div class="flex-1">
                                         <h3 class="text-xl font-bold text-white mb-2">
@@ -183,7 +181,7 @@
                                             class="bg-white rounded-full w-24 h-24 flex items-center justify-center shadow-lg">
                                             <div class="text-center">
                                                 <div
-                                                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                                                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
                                                     {{ $penilaian->nilai }}
                                                 </div>
                                                 <div class="text-xs text-gray-500 mt-1">
@@ -235,6 +233,88 @@
         </div>
         {{-- Kategori End --}}
     </section>
+
+    {{-- Footer Start --}}
+
+    <section id="contact" class="pt-24 pb-32 bg-primary">
+        <div class="w-full">
+            <div class="px-4 sm:mx-7 text-center">
+                <h1 class="text-3xl font-semibold text-white">Smart City Kota Bogor</h1>
+            </div>
+            <div class="px-4 sm:mx-7 grid grid-cols-1 gap-x-3 md:grid-cols-2 lg:grid-cols-4 mt-14 justify-center">
+                <div class="telp text-center grid">
+                    <h2 class="text-white text-2xl font-medium mb-1">Telp</h2>
+                    <h3 class="text-indigo-400 text-lg">+62251 - 8321075</h3>
+                </div>
+                <div class="email text-center grid">
+                    <h2 class="text-white text-2xl font-medium mb-1">Email - Informasi</h2>
+                    <h3 class="text-indigo-400 text-lg">bag.humas@kotabogor.go.id</h3>
+                </div>
+                <div class="email text-center grid">
+                    <h2 class="text-white text-2xl font-medium mb-1">Email - Admin</h2>
+                    <h3 class="text-indigo-400 text-lg">kominfo@kotabogor.go.id</h3>
+                </div>
+                <div class="email text-center grid">
+                    <h2 class="text-white text-2xl font-medium mb-1">Website - Pengaduan</h2>
+                    <h3 class="text-indigo-400 text-lg">sibadra.kotabogor.go.id</h3>
+                </div>
+            </div>
+
+            <div class="px-4 sm:mx-7 flex flex-wrap gap-3 mt-14 justify-center">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                        d="M12.037 21.998a10.313 10.313 0 0 1-7.168-3.049 9.888 9.888 0 0 1-2.868-7.118 9.947 9.947 0 0 1 3.064-6.949A10.37 10.37 0 0 1 12.212 2h.176a9.935 9.935 0 0 1 6.614 2.564L16.457 6.88a6.187 6.187 0 0 0-4.131-1.566 6.9 6.9 0 0 0-4.794 1.913 6.618 6.618 0 0 0-2.045 4.657 6.608 6.608 0 0 0 1.882 4.723 6.891 6.891 0 0 0 4.725 2.07h.143c1.41.072 2.8-.354 3.917-1.2a5.77 5.77 0 0 0 2.172-3.41l.043-.117H12.22v-3.41h9.678c.075.617.109 1.238.1 1.859-.099 5.741-4.017 9.6-9.746 9.6l-.215-.002Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                        d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" />
+                </svg>
+
+
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="none" viewBox="0 0 24 24">
+                    <path fill="currentColor" fill-rule="evenodd"
+                        d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                        clip-rule="evenodd" />
+                </svg>
+            </div>
+
+            <div class="px-4 sm:mx-7 flex flex-col gap-x-3 mt-5 text-center">
+                <h2 class="text-white font-semibold text-2xl">Statistik Pengunjung</h2>
+                <div class="flex flex-wrap gap-x-3 text-center justify-center">
+                    <h3 class="text-indigo-400 text-lg">Hari Ini: {{ $todayVisitors }}</h3>
+                    <h3 class="text-indigo-400 text-lg">Total Pengunjung: {{ $totalVisitors }}</h3>
+                </div>
+            </div>
+
+            <!-- New section for "Supported by" text and image link -->
+            <div class="px-4 sm:mx-7 mt-5 text-center ">
+                <h3 class="text-white font-semibold mb-3">Supported by</h3>
+                <a href="https://bsw.kotabogor.go.id" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/bsw.png" class="mx-auto w-64 h-auto">
+                </a>
+            </div>
+
+            <div class="px-4 sm:mx-7 mt-10 text-center">
+                <h3 class="text-white text-lg">Copyright © 2024 Dinas Komunikasi dan Informatika Kota Bogor. All
+                    Right Reserved
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    {{-- Footer End --}}
 
     {{-- JS START --}}
     <script src="public/js/pagedone.js"></script>
