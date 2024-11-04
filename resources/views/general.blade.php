@@ -88,7 +88,7 @@
                             </li>
                             <li>
                                 <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                    class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Dropdown
+                                    class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Lainnya
                                     <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -150,11 +150,11 @@
                         class="text-3xl font-semibold text-white text-center mb-5 sm:text-start sm:ps-10 lg:text-[40px]">
                         Kota Bogor
                     </h2>
-                    <p class="text-base font-semibold text-slate-300 text-center mb-5 px-10 sm:text-start sm:ps-10">
-                        Lorem
-                        ipsum
-                        dolor sit amet,
-                        consectetur adipisicing elit. Minima, corporis.</p>
+                    <p
+                        class="text-base font-semibold w-[700px] text-slate-300 text-center mb-5 px-10 sm:text-start sm:ps-10">
+                        Menyediakan informasi terkini mengenai layanan Pemerintah dan Agenda Pemerintah yang akan
+                        mempermudah akses informasi bagi Masyarakat, sehingga transparansi data Pemerintah bisa
+                        tercapai.</p>
 
                     <div class="flex justify-center sm:justify-start sm:ps-10">
                         <form class="relative">
@@ -311,7 +311,7 @@
             <div id="product-list" class="w-full px-2  sm:px-8 lg:px-28 flex flex-wrap">
                 @foreach ($subdimensis as $subdimensi)
                     <div
-                        class="{{ strtolower($subdimensi->dimensi) }} relative bg-primary text-white m-2 p-6 hover:-translate-y-1 transition-all rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
+                        class="{{ strtolower($subdimensi->dimensi) }} relative bg-primary text-white m-2 p-6 hover:-translate-y-1 transition-all duration-500 rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
                         <h1 class="text-xl font-bold mb-2">({{ $subdimensi->dimensi }})</h1>
                         <h2 class="text-lg mb-4">{{ $subdimensi->sub }}</h2>
                         <p class="text-sm mb-6">{!! $subdimensi->deskripsi !!}</p>
