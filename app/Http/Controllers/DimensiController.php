@@ -6,16 +6,24 @@ use App\Models\Dimensi;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class DimensiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $dimensis = Dimensi::orderBy('created_at', 'desc')->get();
-        $dimensiAdm = Dimensi::latest()->paginate(5); // 10 items per page
+        $query = $request->input('query'); // Ambil input pencarian dari request
 
-        return view('admin.dimensi.index', compact('dimensis', 'dimensiAdm'));
+        // DB = nama table
+        $items = DB::table('dimensis')
+            ->where('judul', 'like', '%' . $query . '%')
+            ->orWhere('deskripsi', 'like', '%' . $query . '%')
+            ->orderBy('created_at', 'desc') // Urutkan dari yang terbaru
+            ->paginate(5) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.dimensi.index', compact('items', 'query')); // Kirim data ke view
     }
 
 

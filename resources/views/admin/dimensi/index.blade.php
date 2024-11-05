@@ -15,14 +15,20 @@
                 </div>
                 <div class="mt-4 flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
                     <div class="relative">
-                        <input type="text" id="tableSearch" placeholder="Cari Dimensi..."
-                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                        <div class="absolute left-3 top-2.5">
-                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
+                        <form action="{{ route('admin.dimensi.index') }}" method="GET" class="flex">
+                            <input type="text" name="query" value="{{ old('query', $query) }}"
+                                placeholder="Cari Dimensi..."
+                                class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <div class="absolute left-3 top-2.5">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                            <button type="submit"
+                                class="w-full h-full ms-2 px-5 py-2 rounded-lg bg-blue-600 text-white">Cari</button>
+                        </form>
                     </div>
                     <div class="flex items-center">
                         <span class="mr-2 text-sm text-gray-600">Tampilkan</span>
@@ -67,7 +73,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($dimensiAdm as $dimensi)
+                            @foreach ($items as $dimensi)
                                 <tr class="hover:bg-gray-50 transition-colors">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                         {{ $dimensi->judul }}
@@ -78,7 +84,7 @@
                                             onclick="openImageModal(this.src)">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $dimensi->deskripsi }}
+                                        {!! $dimensi->deskripsi !!}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                                         <a href="{{ route('admin.dimensi.edit', $dimensi->id) }}"
@@ -126,7 +132,7 @@
                             </div>
                             <div>
                                 <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
-                                    {{ $dimensiAdm->links() }}
+                                    {{ $items->links() }}
                                 </div>
                             </div>
                         </div>
