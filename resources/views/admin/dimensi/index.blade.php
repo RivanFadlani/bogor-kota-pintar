@@ -31,6 +31,10 @@
                                 class="w-full h-full ms-2 px-5 py-2 rounded-lg bg-blue-600 text-white">Cari</button>
                         </form>
                         {{-- search form end --}}
+                        @if ($query)
+                            <p class="font-medium mt-3">Hasil dari: {{ $query }}</p>
+                            <!-- Menampilkan teks hasil pencarian -->
+                        @endif
                     </div>
                     <div class="flex items-center">
                         <span class="mr-2 text-sm text-gray-600">Tampilkan</span>
@@ -134,7 +138,7 @@
                             </div>
                             <div>
                                 <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
-                                    {{ $items->links() }}
+                                    {{ $items->appends(['query' => $query])->links() }}
                                 </div>
                             </div>
                         </div>

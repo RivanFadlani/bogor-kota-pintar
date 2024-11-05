@@ -6,16 +6,39 @@ use Illuminate\View\View;
 use App\Models\Programimp;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class ProgramimpController extends Controller
 {
-    public function index(): View
-    {
-        $programAdm = Programimp::latest()->paginate(5);
+    protected $allowedPerPage = [5, 10, 25, 50];
 
-        return view('admin.programimp.index', compact('programAdm'));
-        //
+    public function index(Request $request): View
+    {
+        $sortField = $request->query('sort_by', 'judul');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 10);
+        $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 10;
+        }
+
+        // DB = nama table
+        $items = DB::table('programimps')
+            ->where('judul', 'like', '%' . $query . '%')
+            ->orderBy($sortField, $sortDirection) // Urutkan dari yang terbaru
+            ->paginate($perPage) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.programimp.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
     public function create(): View

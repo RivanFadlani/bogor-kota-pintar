@@ -6,17 +6,23 @@ use App\Models\Kategori;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class KategoriController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $kategoris = Kategori::latest()->paginate(10);
-        $kategoriAdm = Kategori::latest()->paginate(5);
+        $query = $request->input('query'); // Ambil input pencarian dari request
 
-        return view('admin.kategori.index', compact('kategoris', 'kategoriAdm'));
-        //
+        // DB = nama table
+        $items = DB::table('kategoris')
+            ->where('kategori', 'like', '%' . $query . '%')
+            ->orderBy('created_at', 'desc') // Urutkan dari yang terbaru
+            ->paginate(5) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.kategori.index', compact('items', 'query')); // Kirim data ke view
     }
 
     public function create(): View

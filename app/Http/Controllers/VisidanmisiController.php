@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visidanmisi;
 use Illuminate\View\View;
+use App\Models\Visidanmisi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class VisidanmisiController extends Controller
@@ -16,12 +17,19 @@ class VisidanmisiController extends Controller
     //     return view('general', compact('visimisis'));
     // }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $visimisiAdm = Visidanmisi::latest()->paginate(5); // 10 items per page
+        $query = $request->input('query'); // Ambil input pencarian dari request
 
-        return view('admin.visimisi.index', compact('visimisiAdm'));
-        //
+        // DB = nama table
+        $items = DB::table('visidanmisis')
+            ->where('visi', 'like', '%' . $query . '%')
+            ->orWhere('misi', 'like', '%' . $query . '%')
+            ->orderBy('created_at', 'desc') // Urutkan dari yang terbaru
+            ->paginate(5) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.visimisi.index', compact('items', 'query')); // Kirim data ke view
     }
 
     public function create(): View
