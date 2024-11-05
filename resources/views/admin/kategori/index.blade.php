@@ -37,15 +37,27 @@
                         @endif
                     </div>
                     <div class="flex items-center">
-                        <span class="mr-2 text-sm text-gray-600">Tampilkan</span>
-                        <select id="entriesPerPage"
-                            class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="10">10</option>
-                            <option value="3">3</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                        </select>
-                        <span class="ml-2 text-sm text-gray-600">entries</span>
+                        {{-- entries per page start --}}
+                        <div class="flex items-center">
+                            <form method="GET" action="{{ route('admin.kategori.index') }}"
+                                class="flex items-center space-x-2">
+                                <label for="per_page" class="text-sm font-medium text-gray-700">Show</label>
+                                <select name="per_page" id="per_page" onchange="this.form.submit()"
+                                    class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    @foreach ($allowedPerPage as $value)
+                                        <option value="{{ $value }}" {{ $perPage == $value ? 'selected' : '' }}>
+                                            {{ $value }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <span class="text-sm text-gray-700">entries</span>
+
+                                <!-- Preserve existing sort parameters -->
+                                <input type="hidden" name="sort_by" value="{{ $sortField }}">
+                                <input type="hidden" name="direction" value="{{ $sortDirection }}">
+                            </form>
+                        </div>
+                        {{-- entries per page end --}}
                     </div>
                 </div>
             </div>
@@ -56,17 +68,39 @@
                     <table class="min-w-full divide-y divide-gray-200" id="kategoriTable">
                         <thead>
                             <tr class="bg-gray-50">
+                                {{-- ascending descending start --}}
                                 <th
-                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition">
-                                    <div class="flex items-center">
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <a href="{{ route('admin.kategori.index', [
+                                        'sort_by' => 'kategori',
+                                        'direction' => $sortField === 'kategori' && $sortDirection === 'asc' ? 'desc' : 'asc',
+                                        'per_page' => $perPage,
+                                    ]) }}"
+                                        class="group inline-flex items-center gap-x-2 hover:text-blue-600">
                                         Kategori
-                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-                                        </svg>
-                                    </div>
+                                        <span class="inline-flex flex-col items-center">
+                                            @if ($sortField === 'kategori')
+                                                @if ($sortDirection === 'asc')
+                                                    <svg class="w-3 h-3 text-blue-600" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M12 5l8 8H4z" />
+                                                    </svg>
+                                                @else
+                                                    <svg class="w-3 h-3 text-blue-600" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M12 19l-8-8h16z" />
+                                                    </svg>
+                                                @endif
+                                            @else
+                                                <svg class="w-3 h-3 text-gray-400 group-hover:text-blue-600"
+                                                    viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 5l8 8H4z" />
+                                                </svg>
+                                            @endif
+                                        </span>
+                                    </a>
                                 </th>
+                                {{-- ascending descending end --}}
                                 <th
                                     class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Aksi</th>
@@ -123,9 +157,24 @@
                                 </p>
                             </div>
                             <div>
-                                <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
-                                    {{ $items->appends(['query' => $query])->links() }}
+                                {{-- Paginate Start --}}
+
+                                <!-- Pagination -->
+                                <div class="mt-4">
+                                    {{ $items->appends([
+                                            'sort_by' => $sortField,
+                                            'direction' => $sortDirection,
+                                            'per_page' => $perPage,
+                                        ])->links() }}
                                 </div>
+
+                                <!-- Showing entries info -->
+                                <div class="mt-4 text-sm text-gray-600">
+                                    Showing {{ $items->firstItem() ?? 0 }} to {{ $items->lastItem() ?? 0 }} of
+                                    {{ $items->total() }} entries
+                                </div>
+
+                                {{-- Paginate End --}}
                             </div>
                         </div>
                     </div>

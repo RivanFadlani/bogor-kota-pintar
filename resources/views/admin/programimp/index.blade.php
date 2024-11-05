@@ -67,7 +67,8 @@
                         <thead>
                             <tr class="bg-gray-50">
                                 {{-- ascending descending start --}}
-                                <th class="px-6 py-3">
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     <a href="{{ route('admin.programimp.index', [
                                         'sort_by' => 'judul',
                                         'direction' => $sortField === 'judul' && $sortDirection === 'asc' ? 'desc' : 'asc',
@@ -163,6 +164,8 @@
                                 </p>
                             </div>
                             <div>
+                                {{-- Paginate Start --}}
+
                                 <!-- Pagination -->
                                 <div class="mt-4">
                                     {{ $items->appends([
@@ -177,6 +180,8 @@
                                     Showing {{ $items->firstItem() ?? 0 }} to {{ $items->lastItem() ?? 0 }} of
                                     {{ $items->total() }} entries
                                 </div>
+
+                                {{-- Paginate End --}}
                             </div>
                         </div>
                     </div>

@@ -11,18 +11,34 @@ use Illuminate\Http\RedirectResponse;
 
 class KategoriController extends Controller
 {
+    protected $allowedPerPage = [5, 10, 25, 50];
+
     public function index(Request $request): View
     {
+        $sortField = $request->query('sort_by', 'kategori');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
         $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
 
         // DB = nama table
         $items = DB::table('kategoris')
             ->where('kategori', 'like', '%' . $query . '%')
-            ->orderBy('created_at', 'desc') // Urutkan dari yang terbaru
-            ->paginate(5) // Pagination
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage) // Pagination
             ->appends(['query' => $query]);
 
-        return view('admin.kategori.index', compact('items', 'query')); // Kirim data ke view
+        return view('admin.kategori.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
     public function create(): View

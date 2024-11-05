@@ -31,10 +31,19 @@ class DokumenController extends Controller
     //     return view('general', compact('dokumens'));
     // }
 
+    protected $allowedPerPage = [5, 10, 25, 50];
+
     // App\Http\Controllers\Admin\DokumenController.php
     public function index(Request $request)
     {
+        $sortField = $request->query('sort_by', 'judul');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
         $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
 
         // Query dengan pagination dan pencarian
         $items = Dokumen::with('kategori')
@@ -45,9 +54,17 @@ class DokumenController extends Controller
                         $q->where('kategori', 'like', '%' . $query . '%'); // Pencarian berdasarkan nama kategori
                     });
             })
-            ->paginate(5); // Pagination dengan 10 item per halaman
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage); // Pagination
 
-        return view('admin.dokumen.index', compact('items', 'query'));
+        return view('admin.dokumen.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
 

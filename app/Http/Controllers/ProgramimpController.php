@@ -17,17 +17,17 @@ class ProgramimpController extends Controller
     {
         $sortField = $request->query('sort_by', 'judul');
         $sortDirection = $request->query('direction', 'asc');
-        $perPage = (int) $request->query('per_page', 10);
+        $perPage = (int) $request->query('per_page', 5);
         $query = $request->input('query'); // Ambil input pencarian dari request
 
         if (!in_array($perPage, $this->allowedPerPage)) {
-            $perPage = 10;
+            $perPage = 5;
         }
 
         // DB = nama table
         $items = DB::table('programimps')
             ->where('judul', 'like', '%' . $query . '%')
-            ->orderBy($sortField, $sortDirection) // Urutkan dari yang terbaru
+            ->orderBy($sortField, $sortDirection) // asc, desc
             ->paginate($perPage) // Pagination
             ->appends(['query' => $query]);
 
