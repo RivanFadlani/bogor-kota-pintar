@@ -15,6 +15,7 @@
                 </div>
                 <div class="mt-4 flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
                     <div class="relative">
+                        {{-- search form start --}}
                         <form action="{{ route('admin.dimensi.index') }}" method="GET" class="flex">
                             <input type="text" name="query" value="{{ old('query', $query) }}"
                                 placeholder="Cari Dimensi..."
@@ -29,6 +30,7 @@
                             <button type="submit"
                                 class="w-full h-full ms-2 px-5 py-2 rounded-lg bg-blue-600 text-white">Cari</button>
                         </form>
+                        {{-- search form end --}}
                     </div>
                     <div class="flex items-center">
                         <span class="mr-2 text-sm text-gray-600">Tampilkan</span>

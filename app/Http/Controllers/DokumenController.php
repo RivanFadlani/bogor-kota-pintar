@@ -32,12 +32,22 @@ class DokumenController extends Controller
     // }
 
     // App\Http\Controllers\Admin\DokumenController.php
-    public function index()
+    public function index(Request $request)
     {
-        $dokumens = Dokumen::with('kategori')->get(); // Memuat relasi kategori
-        $dokumenAdm = Dokumen::latest()->paginate(5); // 10 items per page
+        $query = $request->input('query'); // Ambil input pencarian dari request
 
-        return view('admin.dokumen.index', compact('dokumens', 'dokumenAdm'));
+        // Query dengan pagination dan pencarian
+        $items = Dokumen::with('kategori')
+            ->when($query, function ($q) use ($query) {
+                $q->where('judul', 'like', '%' . $query . '%')
+                    ->orWhere('url', 'like', '%' . $query . '%')
+                    ->orWhereHas('kategori', function ($q) use ($query) {
+                        $q->where('kategori', 'like', '%' . $query . '%'); // Pencarian berdasarkan nama kategori
+                    });
+            })
+            ->paginate(5); // Pagination dengan 10 item per halaman
+
+        return view('admin.dokumen.index', compact('items', 'query'));
     }
 
 
