@@ -38,9 +38,10 @@
 
             <!-- Input Upload Gambar Start -->
             <div class="mb-4">
-                <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
+                <label for="gambar" class="block text-gray-700">Upload Gambar (Thumbnail):</label>
                 <input type="file" name="gambar" id="gambar"
                     class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}" required>
+                <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
             </div>
             <!-- Input Upload Gambar End -->
 

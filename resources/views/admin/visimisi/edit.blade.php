@@ -40,7 +40,7 @@
             <!-- Textarea Misi Start -->
             <div class="mb-4">
                 <label for="misi" class="block text-gray-700">Misi</label>
-                <textarea name="misi" id="misi" class="w-full p-2 border border-gray-300 rounded" required>{{ old('misi', $visimisis->misi) }}</textarea>
+                <textarea name="misi" id="misi" class="w-full p-2 border border-gray-300 rounded ckeditor" required>{{ old('misi', $visimisis->misi) }}</textarea>
                 @error('misi')
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
@@ -53,4 +53,5 @@
             </div>
         </form>
         {{-- Kategori Form End --}}
+        <script src="/ckeditor/ckeditor.js"></script>
 </x-app-layout>

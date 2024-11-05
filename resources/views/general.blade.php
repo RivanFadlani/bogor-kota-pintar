@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- class="scroll-smooth" -->
+<html lang="en" class="scroll-smooth"> <!-- class="scroll-smooth" -->
 
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,10 @@
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="/css/pagedone.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
@@ -26,7 +27,7 @@
         <div class="container">
             <nav class="w-full border-gray-200 relative">
                 <div
-                    class="w-full px-10 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
+                    class="w-full px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
                     <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
@@ -51,7 +52,7 @@
                         </button>
                     </a>
 
-                    <!-- Navbar content -->
+                    <!-- Navbar content start -->
                     <div class="hidden z-[9999] lg:flex flex-wrap w-full lg:w-auto justify-between lg:flex-row lg:items-center lg:space-x-4"
                         id="mobile-menu">
                         <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
@@ -60,34 +61,24 @@
                                     class="block woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2">Beranda</a>
                             </li>
                             <li>
-                                <a href="#dimensi"
+                                <a href="#content1"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
                             </li>
                             <li>
-                                <a href="#visidanmisi"
+                                <a href="#content2"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
                                     & Misi</a>
                             </li>
                             <li>
-                                <a href="#pesertaiga"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Peserta
-                                    IGA</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Quick
-                                    Wins</a>
-                            </li>
-                            <li>
-                                <a href="#masterplan"
+                                <a href="#content4"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
                             </li>
                             <li>
-                                <a href="#booklet"
+                                <a href="#content5"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
                             </li>
                             <li>
-                                <a href="#roadmap"
+                                <a href="#content6"
                                     class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
                                     Map</a>
                             </li>
@@ -97,7 +88,7 @@
                             </li>
                             <li>
                                 <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                    class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Dropdown
+                                    class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Lainnya
                                     <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -109,25 +100,35 @@
                                     class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
                                     <ul class="py-1" aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <a href="#"
+                                            <a href="/penilaian"
                                                 class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Hasil
                                                 Penilaian</a>
                                         </li>
                                         <li>
-                                            <a href="#"
-                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Program
+                                            <a href="/programimp"
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                                target="_blank">Program
                                                 Implementasi</a>
                                         </li>
                                         <li>
                                             <a href="https://bsw.kotabogor.go.id/"
-                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Layanan</a>
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                                target="_blank">Layanan</a>
                                         </li>
+                                        @foreach ($navigasis as $navigasi)
+                                            <li>
+                                                <a href="{{ $navigasi->url }}"
+                                                    class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                                    target="_blank">{{ $navigasi->nav }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </li>
                         </ul>
 
                     </div>
+                    <!-- Navbar content end -->
                 </div>
             </nav>
         </div>
@@ -137,27 +138,27 @@
     {{-- Header Section End --}}
 
     {{-- Hero Section Start --}}
-    <section id="home" class="overflow-hidden">
+    <section id="beranda" class="overflow-hidden">
         <div class="container">
             <div class="w-screen h-[700px] bg-cover rounded-bl-[150px]"
                 style="background-image: url(/img/bogor-wahyu-priyanto.jpg)">
                 <div
-                    class="w-full h-full bg-gradient-to-t from-primary rounded-bl-[150px] self-center p-10 px-4 relative">
+                    class="w-full h-full bg-gradient-to-t from-primary rounded-bl-[150px] self-center p-10 px-4 lg:px-24 relative">
                     <h1 class="text-5xl font-bold text-white text-center mt-40 sm:text-start sm:ps-10 lg:text-[80px]">
                         Smart City</h1>
                     <h2
                         class="text-3xl font-semibold text-white text-center mb-5 sm:text-start sm:ps-10 lg:text-[40px]">
                         Kota Bogor
                     </h2>
-                    <p class="text-base font-semibold text-slate-300 text-center mb-5 px-10 sm:text-start sm:ps-10">
-                        Lorem
-                        ipsum
-                        dolor sit amet,
-                        consectetur adipisicing elit. Minima, corporis.</p>
+                    <p
+                        class="text-base font-semibold w-[700px] text-slate-300 text-center mb-5 px-10 sm:text-start sm:ps-10">
+                        Menyediakan informasi terkini mengenai layanan Pemerintah dan Agenda Pemerintah yang akan
+                        mempermudah akses informasi bagi Masyarakat, sehingga transparansi data Pemerintah bisa
+                        tercapai.</p>
 
                     <div class="flex justify-center sm:justify-start sm:ps-10">
                         <form class="relative">
-                            <input type="text"
+                            <input type="text" id="searchInput"
                                 class="w-96 pl-10 pr-4 py-2 rounded-full shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                                 placeholder="Cari...">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -176,117 +177,46 @@
     {{-- Hero Section End --}}
 
     {{-- Dimensi Section Start --}}
-    <section id="dimensi" class="pt-36 pb-32">
+    <section id="content1" class="pt-36 pb-32 content">
         <div class="w-full">
-            <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-5 block">Dimensi</h1>
+            <div class="px-4 lg:px-24 sm:mx-7">
+                <h1 class="text-[48px] font-bold mb-5 text-primary block">Dimensi</h1>
             </div>
-            <div class="flex flex-wrap gap-6 px-4 sm:mx-7">
+            <div class="flex flex-wrap gap-6 px-4 lg:px-24 sm:mx-7">
                 {{-- card 1 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
+                @foreach ($dimensis as $dimensi)
+                    <div
+                        class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl hover:-translate-y-1 transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
+                        <div
+                            class="block w-full items-center mx-auto overflow-hidden md:w-32 md:h-full h-32 bg-primary">
+                            <img src="{{ asset('uploads/dimensi/' . $dimensi->gambar) }}" alt="dokumen"
+                                class="w-24 py-7 px-5 mx-auto items-center">
+                        </div>
+                        <div class="p-4 w-full">
+                            <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
+                                {{ $dimensi->judul }}</h4>
+                            <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">
+                                {!! $dimensi->deskripsi !!}</p>
+                        </div>
                     </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Governance</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Layanan
-                            Publik, Transparansi, Keamanan,
-                            Ketertiban Umum <span class="font-semibold">E-Menanduk, Mall Pelayanan Publik Graha
-                                Tiyasa</span></p>
-                    </div>
-                </div>
-                {{-- card 2 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Branding</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Penataan
-                            Wajah Kota dan Pemasaran Potensi
-                            Daerah Secara Lokal, Nasional dan Global
-                            <span class="font-semibold">100% Bogor Pisan, Bogor Berlari</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 3 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Economy</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Peluang
-                            Usaha, Sumber Daya, Permodalan
-                            <span class="font-semibold">Pengembangan (Sistem Layanan Perizinan)
-                                SMART, Manajemen Inovasi Daerah (IGA)</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 4 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Living</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Tersedianya
-                            Lingkungan Tempat Tinggal yang
-                            Layak Tinggal, Nyaman, dan Efisien.
-                            <span class="font-semibold">Simpus di 26 Puskesmas, e-SIR</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 5 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Society</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Ekosistem
-                            Sosio-Teknis Masyarakat yang Humanis, Dinamis, Produktif, Komunikatif dan Interaktif
-                            <span class="font-semibold">Inovasi Keselamatan Publik, Sibadra</span>
-                        </p>
-                    </div>
-                </div>
-                {{-- card 6 --}}
-                <div
-                    class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
-                    <div class="block w-full overflow-hidden md:w-32 md:h-full h-32 bg-primary">
-                    </div>
-                    <div class="p-4 w-full">
-                        <h4 class="text-lg font-bold text-dark mb-2 capitalize transition-all duration-500">
-                            Smart Branding</h4>
-                        <p class="text-sm font-normal text-gray-800 transition-all duration-500 leading-5">Penataan
-                            Wajah Kota dan Pemasaran Potensi
-                            Daerah Secara Lokal, Nasional dan Global
-                            <span class="font-semibold">100% Bogor Pisan, Bogor Berlari</span>
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
     {{-- Dimensi Section End --}}
 
     {{-- Visi dan Misi Section Start --}}
-    <section id="visimisi" class="pt-24 bg-gradient-to-t from-gradient/30 lg:px-8">
+    <section id="content2" class="pt-24 bg-gradient-to-t from-gradient/30 lg:px-8 content">
         <div class="w-full h-full">
-            <div class="px-4 sm:mx-7 text-center">
-                <h1 class="text-[48px] font-bold mb-7 block">Visi dan Misi</h1>
+            <div class="px-4 lg:px-24 sm:mx-7 text-center">
+                <h1 class="text-[48px] font-bold mb-7 block text-primary page-title">Visi dan Misi</h1>
             </div>
 
             <!-- Flex container untuk gambar di kanan dan card Visi di kiri -->
-            <div class="flex flex-col md:flex-row md:items-center px-4 sm:mx-7 lg:mx-auto">
+            <div class="flex flex-col md:flex-row md:items-center px-4 lg:px-24 sm:mx-7 lg:mx-auto">
                 <!-- Card Visi (lebar full) -->
                 <div
-                    class="flex-grow w-full py-16 px-10 sm:py-16 sm:px-10 mt-4 flex bg-white rounded-3xl justify-start items-center shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mt-0 md:mb-0 md:mr-16">
+                    class="flex-grow w-full py-16 px-10 sm:py-16 sm:px-10 mt-4 flex bg-white rounded-3xl justify-start items-center shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mt-0 md:mb-0 lg:mr-16">
                     <div class="w-full flex">
                         <h2 class="text-5xl font-bold mb-3">Visi</h2> <!-- Margin bawah dikurangi -->
                         @foreach ($visimisi as $vm)
@@ -299,16 +229,16 @@
 
                 <!-- Gambar di sebelah kanan card Visi -->
                 <img src="/img/Visi.png" alt="visimisi"
-                    class="h-full mb-4 hidden pt-7 md:block sm:w-96 mx-auto md:mx-0">
+                    class="h-full mb-4 hidden pt-7 md:w-72 md:hidden lg:w-[calc(30%-12px)] lg:block mx-auto md:mx-0">
                 <!-- Gambar tetap disebelah kanan -->
             </div>
 
             <!-- Flex container untuk gambar di kiri dan card Misi di kanan serta video -->
-            <div class="flex flex-col md:flex-col md:items-start px-4 sm:mx-7 lg:mx-auto">
+            <div class="flex flex-col md:flex-col md:items-start px-4 lg:px-24 sm:mx-7 lg:mx-auto">
                 <div class="flex flex-col md:flex-row w-full">
                     <!-- Gambar di sebelah kiri card Misi -->
                     <img src="/img/Visi.png" alt="visimisi"
-                        class="h-full mb-4 hidden md:block sm:w-96 md:mr-8 lg:mr-16 mx-auto md:mx-0">
+                        class="h-full mb-4 hidden md:w-72 md:hidden lg:w-[calc(30%-12px)] lg:block md:mr-8 lg:mr-16 mx-auto md:mx-0">
                     <!-- Gambar tetap disebelah kiri -->
 
                     <!-- Card Misi (height menyesuaikan isi) -->
@@ -318,7 +248,7 @@
                             <h2 class="text-5xl pt-2 font-bold mb-3">Misi</h2> <!-- Margin bawah dikurangi -->
                             @foreach ($visimisi as $vm)
                                 <ol class="list-disc ms-6 pl-9 border-l-4 text-xl">
-                                    {{ $vm->misi }}
+                                    {!! $vm->misi !!}
                                 </ol>
                             @endforeach
                         </div>
@@ -332,291 +262,144 @@
         <div class="w-full h-full">
             <div class="px-4 sm:mx-7">
                 <!-- Video di bawah card -->
-                <video class="w-full rounded-lg mt-10" autoplay controls>
-                    <source src="" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                @foreach ($videos as $video)
+                    <div class="video-item">
+                        @if (!is_null($video->judul) && $video->judul !== '')
+                            <h2 class="text-5xl font-bold mb-7 block text-primary page-title text-center">
+                                {{ $video->judul }}</h2>
+                        @endif
+                        @if ($video->getYouTubeEmbedUrl())
+                            <iframe src="{{ $video->getYouTubeEmbedUrl() }}"
+                                class="aspect-video w-full h-full lg:w-[87%] lg:h-[87%] rounded-xl mx-auto"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        @else
+                            <p>Link video tidak valid atau tidak bisa di-embed.</p>
+                        @endif
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </section>
     {{-- Visi dan Misi Section End --}}
 
-    {{-- Peserta IGA Section Start --}}
-    <section id="pesertaiga" class="pt-24 pb-32 bg-gradient-to-t from-gradient/30">
+    {{-- Sub Dimensi Section Start --}}
+    <section id="content3" class="pt-24 pb-32 bg-gradient-to-t from-gradient/30 content">
         <div class="w-full">
-            <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">Sub Dimensi Smart City</h1>
+            <div class="px-4 lg:px-24 sm:mx-7">
+                <h1 class="text-[48px] font-bold mb-7 text-primary block">Sub Dimensi Smart City</h1>
             </div>
             <!-- button start -->
-            <div class="filter-button-group px-4 sm:mx-7 mb-5 flex flex-wrap gap-3">
+            <div class="filter-button-group px-4 lg:px-24 sm:mx-7 mb-5 flex flex-wrap gap-3">
                 <button data-filter="*"
                     class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
                     <span class="active group-hover:text-white">Semua</span>
                 </button>
-                <button data-filter=".dpmptsp"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DPMPTSP</span>
-                </button>
-                <button data-filter=".bpksdm"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">BPKSDM</span>
-                </button>
-                <button data-filter=".dishub"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DISHUB</span>
-                </button>
-                <button data-filter=".kesra"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">KESRA</span>
-                </button>
-                <button data-filter=".dinkes"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DINKES</span>
-                </button>
-                <button data-filter=".bapenda"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">BAPENDA</span>
-                </button>
-                <button data-filter=".disdukcapil"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DISDUKCAPIL</span>
-                </button>
-                <button data-filter=".dinsos"
-                    class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
-                    <span class="group-hover:text-white">DINSOS</span>
-                </button>
+                @foreach ($dimensiList as $dimensi)
+                    <button data-filter=".{{ strtolower($dimensi) }}"
+                        class="bg-transparent group hover:bg-primary text-primary font-semibold py-2 px-4 border border-primary rounded-lg shadow">
+                        <span class="group-hover:text-white">{{ $dimensi }}</span>
+                    </button>
+                @endforeach
             </div>
             <!-- button end -->
 
             <!-- card start -->
-            <div id="product-list" class="w-full px-2 sm:px-8 flex flex-wrap">
-                <div
-                    class="dpmptsp bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DPMPTSP)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
+            <div id="product-list" class="w-full px-2  sm:px-8 lg:px-28 flex flex-wrap">
+                @foreach ($subdimensis as $subdimensi)
+                    <div
+                        class="{{ strtolower($subdimensi->dimensi) }} relative bg-primary text-white m-2 p-6 hover:-translate-y-1 transition-all duration-500 rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
+                        <h1 class="text-xl font-bold mb-2">({{ $subdimensi->dimensi }})</h1>
+                        <h2 class="text-lg mb-4">{{ $subdimensi->sub }}</h2>
+                        <p class="text-sm mb-6">{!! $subdimensi->deskripsi !!}</p>
+                        <div class="flex absolute bottom-5 right-5">
+                            <div class="bg-white rounded-full p-3">
+                                <img src="{{ asset('uploads/subdimensi/' . $subdimensi->gambar) }}"
+                                    alt="{{ $subdimensi->dimensi }}" class="w-10">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dpmptsp bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DPMPTSP)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="bpksdm bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(BPKSDM)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dishub bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DISHUB)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="kesra bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(KESRA)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dinkes bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DINKES)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="bapenda bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(BAPENDA)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="disdukcapil bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DISDUKCAPIL)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card lainnya -->
-                <div
-                    class="dinsos bg-primary text-white m-2 p-6 rounded-lg shadow-lg w-[450px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                    <h1 class="text-xl font-bold mb-2">(DINSOS)</h1>
-                    <h2 class="text-lg mb-4">Tanda Tangan Elektronik</h2>
-                    <p class="text-sm mb-6">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis rem reiciendis beatae quam,
-                        earum porro quod iure praesentium laboriosam ipsa quae maiores voluptatibus! Corporis.
-                    </p>
-                    <div class="flex justify-end">
-                        <div class="bg-white rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2l4-4m0-5a9 9 0 1 0 0 18a9 9 0 0 0 0-18z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="dpmptsp bg-primary/0 text-white m-2 p-6 w-[465px] sm:w-[540px] md:w-[620px] lg:w-[calc(30%-12px)]">
-                </div>
+                @endforeach
                 <!-- Card lainnya -->
             </div>
             <!-- card end -->
         </div>
     </section>
-
-    {{-- Peserta IGA Section End --}}
+    {{-- Sub Dimensi Section End --}}
 
     {{-- Masterplan Section Start --}}
-    <section id="masterplan" class="pt-24 pb-24">
+    <section id="content4" class="pt-24 pb-24 content">
         <div class="w-full">
-            <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">MasterPlan dan Power Point Smart City</h1>
+            <div class="px-4 lg:px-24 sm:mx-7">
+                <h1 class="text-[48px] font-bold mb-7 text-primary block">MasterPlan dan Power Point Smart City</h1>
             </div>
             {{-- MASTERPLAN START --}}
-            <div class="px-4 mt-14 sm:mx-7">
+            <div class="px-4 lg:px-24 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">MASTERPLAN
                         SMART CITY KOTA BOGOR
                     </h2>
                 </div>
             </div>
-            <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
+            <div class="px-4 lg:px-24 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
                 @foreach ($masterplanFiles as $file)
                     <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
-                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}
-                            </h2>
-                            <button class="group mb-5"><span
-                                    class="px-4 group-hover:text-primary group-hover:font-semibold"><a
-                                        href="{{ $file->url }}" target="_blank">Lihat Selengkapnya</a>
-                                    ></span></button>
+                            <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
+
+                            <div class="flex justify-between">
+                                <!-- Tombol View -->
+                                <button class="group mb-5 view-data" data-id="{{ $file->id }}"
+                                    data-url="{{ $file->url }}">
+                                    <span class="px-4 group-hover:text-primary group-hover:font-semibold">
+                                        Lihat Selengkapnya
+                                    </span>
+                                </button>
+
+                                <!-- Tempat menampilkan jumlah dilihat -->
+                                <div class="px-4">
+                                    <p id="data-views-{{ $file->id }}">Dilihat: {{ $file->dilihat }}</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach
             </div>
+
             {{-- MASTERPLAN END --}}
             {{-- POWERPOINT START --}}
-            <div class="px-4 mt-14 sm:mx-7">
+            <div class="px-4 lg:px-24 mt-14 sm:mx-7">
                 <div class="w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">POWERPOINT
                     </h2>
                 </div>
             </div>
 
-            <div class="px-4 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
+            <div class="px-4 lg:px-24 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
                 @foreach ($powerpointFiles as $file)
                     <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
                             <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
-                            <button class="group mb-5"><span
-                                    class="px-4 group-hover:text-primary group-hover:font-semibold"><a
-                                        href="{{ $file->url }}" target="_blank">Lihat Selengkapnya</a>
-                                    ></span></button>
+
+                            <div class="flex justify-between">
+                                <!-- Tombol View -->
+                                <button class="group mb-5 view-data" data-id="{{ $file->id }}"
+                                    data-url="{{ $file->url }}">
+                                    <span class="px-4 group-hover:text-primary group-hover:font-semibold">
+                                        Lihat Selengkapnya
+                                    </span>
+                                </button>
+
+                                <!-- Tempat menampilkan jumlah dilihat -->
+                                <div class="px-4">
+                                    <p id="data-views-{{ $file->id }}">Dilihat: {{ $file->dilihat }}</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach
@@ -627,216 +410,70 @@
     {{-- Masterplan Section End --}}
 
     {{-- Booklet Info Start --}}
-    <section id="booklet"
-        class="relative min-h-screen flex flex-col justify-center overflow-hidden pb-32 bg-gradient-to-b from-gradient/30">
-        <div class="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
+    <section id="content5"
+        class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-b from-gradient/30 content">
+        <div class="w-full max-w-7xl mx-auto px-4 md:px-6 py-24">
             <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] text-center font-bold mb-7 block">Booklet Info Smart City</h1>
+                <h1 class="text-[48px] text-center font-bold mb-7 text-primary block page-title">Booklet Info Smart
+                    City</h1>
             </div>
             <!-- Card slider -->
-            <section class="px-12">
-                <div class="max-w-xs mx-auto relative">
+            <div class="relative w-full max-w-7xl overflow-hidden">
+                <div id="slider" class="flex transition-transform duration-500">
+                    @foreach ($booklets as $card)
+                        <div class="flex-shrink-0 w-full xs:w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 group">
+                            <div
+                                class="bg-white rounded-tl-lg rounded-tr-3xl rounded-br-lg rounded-bl-3xl border border-gray-300 shadow-lg flex flex-col items-center w-full relative overflow-hidden">
 
-                    <input id="article-01" type="radio" name="slider" class="sr-only peer/01">
-                    <input id="article-02" type="radio" name="slider" class="sr-only peer/02">
-                    <input id="article-03" type="radio" name="slider" class="sr-only peer/03" checked>
-                    <input id="article-04" type="radio" name="slider" class="sr-only peer/04">
-                    <input id="article-05" type="radio" name="slider" class="sr-only peer/05">
+                                <!-- Gambar dengan efek zoom dan overlay -->
+                                <div class="relative overflow-hidden w-full h-[400px]">
+                                    <img src="{{ asset('uploads/booklet/' . $card->gambar) }}"
+                                        alt="{{ $card->judul }}"
+                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110">
+                                    <div
+                                        class="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300">
+                                    </div>
+                                </div>
 
-                    <div
-                        class="
-                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                        peer-focus-visible/01:[&_article]:ring
-                        peer-focus-visible/01:[&_article]:ring-indigo-300
-                        peer-checked/01:relative
-                        peer-checked/01:z-50
-                        peer-checked/01:translate-x-0
-                        peer-checked/01:scale-100
-                        peer-checked/01:[&>label]:pointer-events-none
-                        peer-checked/02:-translate-x-20
-                        peer-checked/02:scale-[83.75%]
-                        peer-checked/02:z-40
-                        peer-checked/03:-translate-x-40
-                        peer-checked/03:z-30
-                        peer-checked/04:-translate-x-40
-                        peer-checked/04:opacity-0
-                        peer-checked/05:-translate-x-40
-                    ">
-                        <label class="absolute inset-0" for="article-01"><span class="sr-only">Focus on the big
-                                picture</span></label>
-                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
-                            <header class="mb-2">
-                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
-                                    alt="Icon" />
-                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                            </header>
-                            <footer class="text-right">
-                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                    more -></a>
-                            </footer>
-                        </article>
-                    </div>
-
-                    <div
-                        class="
-                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                        peer-focus-visible/02:[&_article]:ring
-                        peer-focus-visible/02:[&_article]:ring-indigo-300
-                        peer-checked/01:translate-x-20
-                        peer-checked/01:scale-[83.75%]
-                        peer-checked/01:z-40
-                        peer-checked/02:relative
-                        peer-checked/02:z-50
-                        peer-checked/02:translate-x-0
-                        peer-checked/02:scale-100
-                        peer-checked/02:[&>label]:pointer-events-none
-                        peer-checked/03:-translate-x-20
-                        peer-checked/03:scale-[83.75%]
-                        peer-checked/03:z-40
-                        peer-checked/04:-translate-x-40
-                        peer-checked/04:z-30
-                        peer-checked/05:-translate-x-40
-                        peer-checked/05:opacity-0
-                    ">
-                        <label class="absolute inset-0" for="article-02"><span class="sr-only">Focus on the big
-                                picture</span></label>
-                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
-                            <header class="mb-2">
-                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
-                                    alt="Icon" />
-                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                            </header>
-                            <footer class="text-right">
-                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                    more -></a>
-                            </footer>
-                        </article>
-                    </div>
-
-                    <div
-                        class="
-                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                        peer-focus-visible/03:[&_article]:ring
-                        peer-focus-visible/03:[&_article]:ring-indigo-300
-                        peer-checked/01:translate-x-40
-                        peer-checked/01:z-30
-                        peer-checked/02:translate-x-20
-                        peer-checked/02:scale-[83.75%]
-                        peer-checked/02:z-40
-                        peer-checked/03:relative
-                        peer-checked/03:z-50
-                        peer-checked/03:translate-x-0
-                        peer-checked/03:scale-100
-                        peer-checked/03:[&>label]:pointer-events-none
-                        peer-checked/04:-translate-x-20
-                        peer-checked/04:scale-[83.75%]
-                        peer-checked/04:z-40
-                        peer-checked/05:-translate-x-40
-                        peer-checked/05:z-30
-                    ">
-                        <label class="absolute inset-0" for="article-03"><span class="sr-only">Focus on the big
-                                picture</span></label>
-                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
-                            <header class="mb-2">
-                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
-                                    alt="Icon" />
-                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                            </header>
-                            <footer class="text-right">
-                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                    more -></a>
-                            </footer>
-                        </article>
-                    </div>
-
-                    <div
-                        class="
-                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                        peer-focus-visible/04:[&_article]:ring
-                        peer-focus-visible/04:[&_article]:ring-indigo-300
-
-                        peer-checked/01:translate-x-40
-                        peer-checked/01:opacity-0
-
-                        peer-checked/02:translate-x-40
-                        peer-checked/02:z-30
-
-                        peer-checked/03:translate-x-20
-                        peer-checked/03:scale-[83.75%]
-                        peer-checked/03:z-40
-
-                        peer-checked/04:relative
-                        peer-checked/04:z-50
-                        peer-checked/04:translate-x-0
-                        peer-checked/04:scale-100
-                        peer-checked/04:[&>label]:pointer-events-none
-
-                        peer-checked/05:-translate-x-20
-                        peer-checked/05:scale-[83.75%]
-                        peer-checked/05:z-40
-                    ">
-                        <label class="absolute inset-0" for="article-04"><span class="sr-only">Focus on the big
-                                picture</span></label>
-                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
-                            <header class="mb-2">
-                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
-                                    alt="Icon" />
-                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                            </header>
-                            <footer class="text-right">
-                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                    more -></a>
-                            </footer>
-                        </article>
-                    </div>
-
-                    <div
-                        class="
-                        absolute w-fit inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]
-                        peer-focus-visible/05:[&_article]:ring
-                        peer-focus-visible/05:[&_article]:ring-indigo-300
-                        peer-checked/01:translate-x-40
-                        peer-checked/02:translate-x-40
-                        peer-checked/02:opacity-0
-                        peer-checked/03:translate-x-40
-                        peer-checked/03:z-30
-                        peer-checked/04:translate-x-20
-                        peer-checked/04:scale-[83.75%]
-                        peer-checked/04:z-40
-                        peer-checked/05:relative
-                        peer-checked/05:z-50
-                        peer-checked/05:translate-x-0
-                        peer-checked/05:scale-100
-                        peer-checked/05:[&>label]:pointer-events-none
-                    ">
-                        <label class="absolute inset-0" for="article-05"><span class="sr-only">Focus on the big
-                                picture</span></label>
-                        <article class="bg-white w-fit p-6 rounded-lg shadow-2xl">
-                            <header class="mb-2">
-                                <img class="inline-flex h-96 rounded-lg shadow mb-3" src="/img/pdf2018.jpg"
-                                    alt="Icon" />
-                                <h1 class="text-xl font-bold text-slate-900">Focus on the big picture</h1>
-                            </header>
-                            <footer class="text-right">
-                                <a class="text-sm font-medium text-indigo-500 hover:underline" href="#0">Read
-                                    more -></a>
-                            </footer>
-                        </article>
-                    </div>
+                                <!-- Judul dan tombol -->
+                                <h1 class="text-lg text-primary font-bold pt-1 my-4">{{ $card->judul }}</h1>
+                                <a href="{{ $card->url }}"
+                                    class="bg-primary text-white px-4 py-2 rounded transition duration-300 hover:bg-blue-800 absolute bottom-12"
+                                    target="_blank">Selengkapnya</a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            </section>
+
+                <!-- Tombol Navigasi -->
+                <button id="prevButton"
+                    class="absolute h-full rounded-s-xl p-4 left-0 top-1/2 transform -translate-y-1/2 bg-white/50 border border-gray-300 text-white ml-2 group group-hover:bg-white">
+                    <span class="group-hover:text-primary">&#10094;</span>
+                </button>
+                <button id="nextButton"
+                    class="absolute h-full rounded-e-xl p-4 right-0 top-1/2 transform -translate-y-1/2 bg-white/50 border border-gray-300 text-white mr-2 group">
+                    <span class="group-hover:text-primary">&#10095;</span>
+                </button>
+            </div>
+
             <!-- End: Card slider -->
         </div>
     </section>
     {{-- Booklet Info End --}}
 
     {{-- Road Map Section Start --}}
-    <section id="roadmap" class="pt-24 pb-32">
+    <section id="content6" class="pt-24 pb-32 content">
         <div class="w-full">
-            <div class="px-4 sm:mx-7">
-                <h1 class="text-[48px] font-bold mb-7 block">Road Map Jangka Menengah E-Gov dan Smart City</h1>
+            <div class="px-4 lg:px-24 sm:mx-7">
+                <h1 class="text-[48px] font-bold mb-7 text-primary block text-center page-title">Road Map</h1>
             </div>
-            <div class="px-4 sm:mx-7"></div>
+            @foreach ($roadmaps as $rm)
+                <div class="px-4 lg:px-24 sm:mx-7">
+                    <div class="w-full p-5 shadow-lg border border-gray-300 rounded-xl">
+                        <img src="{{ asset('uploads/roadmap/' . $rm->gambar) }}" alt="dokumen" class="w-full">
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
     {{-- Road Map Section End --}}
@@ -928,6 +565,150 @@
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
+
+    <!-- Script AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Event click pada tombol view-data
+            $('.view-data').click(function(event) {
+                event.preventDefault(); // Mencegah halaman melakukan redirect secara langsung
+
+                // Ambil ID dan URL dari tombol yang diklik
+                let dataId = $(this).data('id');
+                let targetUrl = $(this).data('url');
+
+                // Panggil fungsi getDataById() menggunakan AJAX
+                $.ajax({
+                    url: `/data/${dataId}`, // Route ke fungsi getDataById di Controller
+                    type: 'GET',
+                    success: function(response) {
+                        // Update tampilan jumlah "Dilihat" pada elemen yang sesuai
+                        $(`#data-views-${dataId}`).text('Dilihat: ' + response.dilihat);
+
+                        // Arahkan pengguna ke URL yang telah ditentukan di tab baru
+                        window.open(targetUrl, '_blank');
+                    },
+                    error: function(error) {
+                        console.log("Terjadi kesalahan:", error);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const cardCount = slider.children.length;
+        let currentIndex = 0;
+        let autoSlideInterval;
+
+        function updateSliderPosition() {
+            const screenWidth = window.innerWidth;
+            let cardsPerSlide;
+
+            // Tentukan jumlah card yang tampil per slide berdasarkan ukuran layar
+            if (screenWidth >= 1024) {
+                cardsPerSlide = 3;
+            } else if (screenWidth >= 768) {
+                cardsPerSlide = 2;
+            } else {
+                cardsPerSlide = 1;
+            }
+
+            // Total slide yang tersedia, dengan mempertimbangkan jumlah card yang tampil per slide
+            const maxIndex = Math.ceil(cardCount / cardsPerSlide) - 1;
+
+            // Pastikan indeks tidak melebihi maxIndex untuk menghindari tampilan kosong
+            currentIndex = Math.min(currentIndex, maxIndex);
+
+            // Update posisi slider
+            slider.style.transform = `translateX(-${currentIndex * (100 / cardsPerSlide)}%)`;
+
+            // Matikan tombol navigasi jika berada di ujung
+            prevButton.disabled = (currentIndex === 0);
+            nextButton.disabled = (currentIndex === maxIndex);
+        }
+
+        // Fungsi untuk mulai auto-slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                const screenWidth = window.innerWidth;
+                let cardsPerSlide = screenWidth >= 1024 ? 3 : screenWidth >= 768 ? 2 : 1;
+                const maxIndex = Math.ceil(cardCount / cardsPerSlide) - 1;
+
+                // Pindah slide jika belum mencapai akhir
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Reset ke awal setelah mencapai akhir
+                }
+
+                updateSliderPosition();
+            }, 3000);
+        }
+
+        // Fungsi untuk menghentikan auto-slide
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSliderPosition();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            const screenWidth = window.innerWidth;
+            let cardsPerSlide = screenWidth >= 1024 ? 3 : screenWidth >= 768 ? 2 : 1;
+            const maxIndex = Math.ceil(cardCount / cardsPerSlide) - 1;
+
+            // Pindah slide hanya jika belum mencapai akhir
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSliderPosition();
+            }
+        });
+
+        // Update posisi slider saat ukuran layar berubah
+        window.addEventListener('resize', updateSliderPosition);
+
+        // Tambahkan fungsi auto-slide
+        startAutoSlide();
+
+        // Pause auto-slide saat hover dan lanjutkan saat hover hilang
+        const cardContainers = document.querySelectorAll('.group');
+        cardContainers.forEach(card => {
+            card.addEventListener('mouseenter', stopAutoSlide);
+            card.addEventListener('mouseleave', startAutoSlide);
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#searchInput").on("keydown", function(event) {
+                if (event.key === "Enter") { // Menggunakan 'Enter' agar lebih universal
+                    event.preventDefault(); // Mencegah submit form default
+                    const query = $(this).val().toLowerCase();
+                    if (query) {
+                        let found = false;
+
+                        $(".content").each(function() {
+                            if ($(this).text().toLowerCase().includes(query) && !found) {
+                                $(window).scrollTop($(this).offset().top);
+                                found = true;
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 
     <script>
         // Navbar Fixed

@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booklet;
+use App\Models\Dimensi;
 use App\Models\Dokumen;
 use App\Models\Kategori;
+use App\Models\Navigasi;
 use App\Models\Programimp;
+use App\Models\Roadmap;
+use App\Models\Subdimensi;
+use App\Models\Video;
 use App\Models\Visidanmisi;
 use Illuminate\Http\Request;
 
@@ -14,6 +20,14 @@ class GeneralController extends Controller
     {
         $dokumen = Dokumen::all();
         $visimisi = Visidanmisi::all();
+        $dimensis = Dimensi::all();
+        $subdimensis = Subdimensi::all();
+        $videos = Video::all();
+        $roadmaps = Roadmap::all();
+        $booklets = Booklet::all();
+        $navigasis = Navigasi::all();
+
+        $dimensiList = Subdimensi::distinct('dimensi')->pluck('dimensi');
 
         // Ambil ID dari kategori masterplan dan powerpoint
         $masterplanCategory = Kategori::where('kategori', 'masterplan')->first();
@@ -24,6 +38,6 @@ class GeneralController extends Controller
         $powerpointFiles = Dokumen::where('kategori_id', $powerpointCategory->id)->get();
 
         // Kirim data ke view
-        return view('general', compact('dokumen', 'visimisi', 'masterplanFiles', 'powerpointFiles'));
+        return view('general', compact('dokumen', 'visimisi', 'dimensis', 'subdimensis', 'dimensiList', 'videos', 'roadmaps', 'booklets', 'navigasis', 'masterplanFiles', 'powerpointFiles'));
     }
 }
