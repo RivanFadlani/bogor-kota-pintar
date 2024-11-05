@@ -4,17 +4,41 @@ namespace App\Http\Controllers;
 
 use App\Models\Penilaian;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class PenilaianController extends Controller
 {
-    public function index(): View
-    {
-        $penilaianAdm = Penilaian::latest()->paginate(5); // 10 items per page
+    protected $allowedPerPage = [5, 10, 25, 50];
 
-        return view('admin.penilaian.index', compact('penilaianAdm'));
-        //
+    public function index(Request $request): View
+    {
+        $sortField = $request->query('sort_by', 'judul');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
+        $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
+
+        // DB = nama table
+        $items = DB::table('penilaians')
+            ->where('judul', 'like', '%' . $query . '%')
+            ->orWhere('nilai', 'like', '%' . $query . '%')
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.penilaian.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
     public function create(): View

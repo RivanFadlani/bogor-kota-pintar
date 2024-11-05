@@ -15,25 +15,49 @@
                 </div>
                 <div class="mt-4 flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
                     <div class="relative">
-                        <input type="text" id="tableSearch" placeholder="Cari Penilaian..."
-                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                        <div class="absolute left-3 top-2.5">
-                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
+                        {{-- search form start --}}
+                        <form action="{{ route('admin.penilaian.index') }}" method="GET" class="flex">
+                            <input type="text" name="query" value="{{ old('query', $query) }}"
+                                placeholder="Cari Penilaian..."
+                                class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <div class="absolute left-3 top-2.5">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                            <button type="submit"
+                                class="w-full h-full ms-2 px-5 py-2 rounded-lg bg-blue-600 text-white">Cari</button>
+                        </form>
+                        {{-- search form end --}}
+                        @if ($query)
+                            <p class="font-medium mt-3">Hasil dari: {{ $query }}</p>
+                            <!-- Menampilkan teks hasil pencarian -->
+                        @endif
                     </div>
                     <div class="flex items-center">
-                        <span class="mr-2 text-sm text-gray-600">Tampilkan</span>
-                        <select id="entriesPerPage"
-                            class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="10">10</option>
-                            <option value="3">3</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                        </select>
-                        <span class="ml-2 text-sm text-gray-600">entries</span>
+                        {{-- entries per page start --}}
+                        <div class="flex items-center">
+                            <form method="GET" action="{{ route('admin.penilaian.index') }}"
+                                class="flex items-center space-x-2">
+                                <label for="per_page" class="text-sm font-medium text-gray-700">Show</label>
+                                <select name="per_page" id="per_page" onchange="this.form.submit()"
+                                    class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    @foreach ($allowedPerPage as $value)
+                                        <option value="{{ $value }}" {{ $perPage == $value ? 'selected' : '' }}>
+                                            {{ $value }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <span class="text-sm text-gray-700">entries</span>
+
+                                <!-- Preserve existing sort parameters -->
+                                <input type="hidden" name="sort_by" value="{{ $sortField }}">
+                                <input type="hidden" name="direction" value="{{ $sortDirection }}">
+                            </form>
+                        </div>
+                        {{-- entries per page end --}}
                     </div>
                 </div>
             </div>
@@ -41,20 +65,42 @@
             <!-- Table Section -->
             <div class="bg-white rounded-lg shadow overflow-hidden">
                 <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200" id="penilaianTable">
+                    <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr class="bg-gray-50">
+                                {{-- ascending descending start --}}
                                 <th
-                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 transition">
-                                    <div class="flex items-center">
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <a href="{{ route('admin.penilaian.index', [
+                                        'sort_by' => 'judul',
+                                        'direction' => $sortField === 'judul' && $sortDirection === 'asc' ? 'desc' : 'asc',
+                                        'per_page' => $perPage,
+                                    ]) }}"
+                                        class="group inline-flex items-center gap-x-2 hover:text-blue-600">
                                         Judul
-                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-                                        </svg>
-                                    </div>
+                                        <span class="inline-flex flex-col items-center">
+                                            @if ($sortField === 'judul')
+                                                @if ($sortDirection === 'asc')
+                                                    <svg class="w-3 h-3 text-blue-600" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M12 5l8 8H4z" />
+                                                    </svg>
+                                                @else
+                                                    <svg class="w-3 h-3 text-blue-600" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M12 19l-8-8h16z" />
+                                                    </svg>
+                                                @endif
+                                            @else
+                                                <svg class="w-3 h-3 text-gray-400 group-hover:text-blue-600"
+                                                    viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 5l8 8H4z" />
+                                                </svg>
+                                            @endif
+                                        </span>
+                                    </a>
                                 </th>
+                                {{-- ascending descending end --}}
                                 <th
                                     class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Nilai</th>
@@ -64,7 +110,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($penilaianAdm as $penilaian)
+                            @foreach ($items as $penilaian)
                                 <tr class="hover:bg-gray-50 transition-colors">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                         {{ $penilaian->judul }}
@@ -118,9 +164,24 @@
                                 </p>
                             </div>
                             <div>
-                                <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
-                                    {{ $penilaianAdm->links() }}
+                                {{-- Paginate Start --}}
+
+                                <!-- Pagination -->
+                                <div class="mt-4">
+                                    {{ $items->appends([
+                                            'sort_by' => $sortField,
+                                            'direction' => $sortDirection,
+                                            'per_page' => $perPage,
+                                        ])->links() }}
                                 </div>
+
+                                <!-- Showing entries info -->
+                                <div class="mt-4 text-sm text-gray-600">
+                                    Showing {{ $items->firstItem() ?? 0 }} to {{ $items->lastItem() ?? 0 }} of
+                                    {{ $items->total() }} entries
+                                </div>
+
+                                {{-- Paginate End --}}
                             </div>
                         </div>
                     </div>
@@ -232,45 +293,6 @@
             });
         @endif
 
-        // Table Search Functionality
-        document.getElementById('tableSearch').addEventListener('keyup', function() {
-            let searchText = this.value.toLowerCase();
-            let table = document.getElementById('penilaianTable');
-            let rows = table.getElementsByTagName('tr');
-
-            for (let i = 1; i < rows.length; i++) {
-                let showRow = false;
-                let cells = rows[i].getElementsByTagName('td');
-
-                for (let j = 0; j < cells.length; j++) {
-                    let cellText = cells[j].textContent || cells[j].innerText;
-                    if (cellText.toLowerCase().indexOf(searchText) > -1) {
-                        showRow = true;
-                        break;
-                    }
-                }
-
-                rows[i].style.display = showRow ? '' : 'none';
-            }
-        });
-
-        // Entries Per Page
-        document.getElementById('entriesPerPage').addEventListener('change', function() {
-            let rowsPerPage = parseInt(this.value);
-            let table = document.getElementById('penilaianTable');
-            let rows = table.getElementsByTagName('tr');
-            let totalRows = rows.length - 1; // Exclude header row
-            let pages = Math.ceil(totalRows / rowsPerPage);
-
-            // Show only the first n rows
-            for (let i = 1; i <= totalRows; i++) {
-                rows[i].style.display = i <= rowsPerPage ? '' : 'none';
-            }
-
-            // Update pagination if needed
-            // You might want to implement a more sophisticated pagination system here
-        });
-
         // Delete Modal Functions
         function openDeleteModal(penilaianId) {
             const modal = document.getElementById('deleteModal');
@@ -304,38 +326,5 @@
                 imageModal.classList.add('hidden');
             }
         }
-
-        // Sort table columns
-        document.querySelectorAll('th').forEach(header => {
-            header.addEventListener('click', function() {
-                const table = document.getElementById('dimensiTable');
-                const rows = Array.from(table.querySelectorAll('tbody tr'));
-                const index = Array.from(this.parentElement.children).indexOf(this);
-                const isNumeric = !isNaN(rows[0].children[index].textContent);
-                let direction = this.classList.contains('sort-asc') ? -1 : 1;
-
-                // Sort rows
-                rows.sort((a, b) => {
-                    let x = a.children[index].textContent.trim();
-                    let y = b.children[index].textContent.trim();
-
-                    if (isNumeric) {
-                        x = parseFloat(x);
-                        y = parseFloat(y);
-                    }
-
-                    return x > y ? direction : -direction;
-                });
-
-                // Update sort direction indicator
-                this.classList.toggle('sort-asc');
-                this.classList.toggle('sort-desc');
-
-                // Update table body
-                const tbody = table.querySelector('tbody');
-                tbody.innerHTML = '';
-                rows.forEach(row => tbody.appendChild(row));
-            });
-        });
     </script>
 </x-app-layout>

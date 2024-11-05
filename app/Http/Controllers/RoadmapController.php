@@ -5,17 +5,41 @@ namespace App\Http\Controllers;
 use App\Models\Roadmap;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class RoadmapController extends Controller
 {
-    public function index()
-    {
-        $roadmaps = Roadmap::orderBy('created_at', 'desc')->get();
-        $roadmapAdm = Roadmap::latest()->paginate(5); // 10 items per page
+    protected $allowedPerPage = [5, 10, 25, 50];
 
-        return view('admin.roadmap.index', compact('roadmaps', 'roadmapAdm'));
+    public function index(Request $request)
+    {
+        $sortField = $request->query('sort_by', 'judul');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
+        $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
+
+        // DB = nama table
+        $items = DB::table('roadmaps')
+            ->where('judul', 'like', '%' . $query . '%')
+            ->orWhere('gambar', 'like', '%' . $query . '%')
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.roadmap.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
 

@@ -65,7 +65,7 @@
             <!-- Table Section -->
             <div class="bg-white rounded-lg shadow overflow-hidden">
                 <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200" id="dimensiTable">
+                    <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr class="bg-gray-50">
                                 {{-- ascending descending start --}}
@@ -300,45 +300,6 @@
             });
         @endif
 
-        // Table Search Functionality
-        document.getElementById('tableSearch').addEventListener('keyup', function() {
-            let searchText = this.value.toLowerCase();
-            let table = document.getElementById('dimensiTable');
-            let rows = table.getElementsByTagName('tr');
-
-            for (let i = 1; i < rows.length; i++) {
-                let showRow = false;
-                let cells = rows[i].getElementsByTagName('td');
-
-                for (let j = 0; j < cells.length; j++) {
-                    let cellText = cells[j].textContent || cells[j].innerText;
-                    if (cellText.toLowerCase().indexOf(searchText) > -1) {
-                        showRow = true;
-                        break;
-                    }
-                }
-
-                rows[i].style.display = showRow ? '' : 'none';
-            }
-        });
-
-        // Entries Per Page
-        document.getElementById('entriesPerPage').addEventListener('change', function() {
-            let rowsPerPage = parseInt(this.value);
-            let table = document.getElementById('dimensiTable');
-            let rows = table.getElementsByTagName('tr');
-            let totalRows = rows.length - 1; // Exclude header row
-            let pages = Math.ceil(totalRows / rowsPerPage);
-
-            // Show only the first n rows
-            for (let i = 1; i <= totalRows; i++) {
-                rows[i].style.display = i <= rowsPerPage ? '' : 'none';
-            }
-
-            // Update pagination if needed
-            // You might want to implement a more sophisticated pagination system here
-        });
-
         // Delete Modal Functions
         function openDeleteModal(dimensiId) {
             const modal = document.getElementById('deleteModal');
@@ -372,38 +333,5 @@
                 imageModal.classList.add('hidden');
             }
         }
-
-        // Sort table columns
-        document.querySelectorAll('th').forEach(header => {
-            header.addEventListener('click', function() {
-                const table = document.getElementById('dimensiTable');
-                const rows = Array.from(table.querySelectorAll('tbody tr'));
-                const index = Array.from(this.parentElement.children).indexOf(this);
-                const isNumeric = !isNaN(rows[0].children[index].textContent);
-                let direction = this.classList.contains('sort-asc') ? -1 : 1;
-
-                // Sort rows
-                rows.sort((a, b) => {
-                    let x = a.children[index].textContent.trim();
-                    let y = b.children[index].textContent.trim();
-
-                    if (isNumeric) {
-                        x = parseFloat(x);
-                        y = parseFloat(y);
-                    }
-
-                    return x > y ? direction : -direction;
-                });
-
-                // Update sort direction indicator
-                this.classList.toggle('sort-asc');
-                this.classList.toggle('sort-desc');
-
-                // Update table body
-                const tbody = table.querySelector('tbody');
-                tbody.innerHTML = '';
-                rows.forEach(row => tbody.appendChild(row));
-            });
-        });
     </script>
 </x-app-layout>

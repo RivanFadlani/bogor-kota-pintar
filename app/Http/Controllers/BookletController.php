@@ -3,18 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booklet;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class BookletController extends Controller
 {
+    protected $allowedPerPage = [5, 10, 25, 50];
+
     public function index(Request $request)
     {
-        $booklets = Booklet::orderBy('created_at', 'desc')->get();
-        $bookletAdm = Booklet::latest()->paginate(5); // 10 items per page
-        return view('admin.booklet.index', compact('booklets', 'bookletAdm'));
+        $sortField = $request->query('sort_by', 'judul');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
+        $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
+
+        // DB = nama table
+        $items = DB::table('booklets')
+            ->where('judul', 'like', '%' . $query . '%')
+            ->orWhere('url', 'like', '%' . $query . '%')
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.booklet.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
     public function create(): View

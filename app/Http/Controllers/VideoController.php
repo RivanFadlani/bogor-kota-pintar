@@ -5,17 +5,41 @@ namespace App\Http\Controllers;
 use App\Models\Video;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class VideoController extends Controller
 {
-    public function index()
-    {
-        $videos = Video::orderBy('created_at', 'desc')->get();
-        $videoAdm = Video::latest()->paginate(5); // 10 items per page
+    protected $allowedPerPage = [5, 10, 25, 50];
 
-        return view('admin.video.index', compact('videos', 'videoAdm'));
+    public function index(Request $request)
+    {
+        $sortField = $request->query('sort_by', 'judul');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
+        $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
+
+        // DB = nama table
+        $items = DB::table('videos')
+            ->where('judul', 'like', '%' . $query . '%')
+            ->orWhere('youtube_link', 'like', '%' . $query . '%')
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.video.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
 

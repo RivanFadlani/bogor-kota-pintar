@@ -2,20 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subdimensi;
 use Illuminate\View\View;
+use App\Models\Subdimensi;
 use Illuminate\Support\Str;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class SubdimensiController extends Controller
 {
-    public function index()
-    {
-        $subdimensis = Subdimensi::orderBy('created_at', 'desc')->get();
-        $subdimensiAdm = Subdimensi::latest()->paginate(5); // 10 items per page
+    protected $allowedPerPage = [5, 10, 25, 50];
 
-        return view('admin.subdimensi.index', compact('subdimensis', 'subdimensiAdm'));
+    public function index(Request $request)
+    {
+        $sortField = $request->query('sort_by', 'dimensi');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
+        $query = $request->input('query'); // Ambil input pencarian dari request
+
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
+
+        // DB = nama table
+        $items = DB::table('subdimensis')
+            ->where('dimensi', 'like', '%' . $query . '%')
+            ->orWhere('deskripsi', 'like', '%' . $query . '%')
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage) // Pagination
+            ->appends(['query' => $query]);
+
+        return view('admin.subdimensi.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
 
