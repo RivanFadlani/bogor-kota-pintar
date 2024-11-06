@@ -27,7 +27,7 @@
         <div class="container">
             <nav class="w-full border-gray-200 relative">
                 <div
-                    class="w-full px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
+                    class="w-full px-10 lg:px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
                     <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
@@ -150,7 +150,7 @@
                         Kota Bogor
                     </h2>
                     <p
-                        class="text-base font-semibold w-[700px] text-slate-300 text-center mb-5 px-10 sm:text-start sm:ps-10">
+                        class="text-base font-semibold md:w-[600px] lg:w-[700px] text-slate-300 text-center mb-5 px-10 sm:text-start sm:ps-10">
                         Menyediakan informasi terkini mengenai layanan Pemerintah dan Agenda Pemerintah yang akan
                         mempermudah akses informasi bagi Masyarakat, sehingga transparansi data Pemerintah bisa
                         tercapai.</p>
@@ -158,7 +158,7 @@
                     <div class="flex justify-center sm:justify-start sm:ps-10">
                         <form class="relative">
                             <input type="text" id="searchInput"
-                                class="w-96 pl-10 pr-4 py-2 rounded-full shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                class="w-72 lg:w-96 pl-10 pr-4 py-2 rounded-full shadow-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                                 placeholder="Cari...">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"

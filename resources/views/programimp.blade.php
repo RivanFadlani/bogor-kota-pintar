@@ -22,7 +22,7 @@
         <div class="container">
             <nav class="w-full border-gray-200 relative">
                 <div
-                    class="w-full px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
+                    class="w-full px-10 lg:px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
                     <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
