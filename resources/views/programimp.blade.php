@@ -22,7 +22,7 @@
         <div class="container">
             <nav class="w-full border-gray-200 relative">
                 <div
-                    class="w-full px-10 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
+                    class="w-full px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
                     <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
@@ -101,8 +101,7 @@
                                         </li>
                                         <li>
                                             <a href="/programimp"
-                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
-                                                target="_blank">Program
+                                                class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Program
                                                 Implementasi</a>
                                         </li>
                                         <li>
@@ -138,7 +137,7 @@
             <div class="w-screen h-[700px] bg-cover rounded-bl-[150px]"
                 style="background-image: url(/img/bogor-wahyu-priyanto.jpg)">
                 <div
-                    class="w-full h-full bg-gradient-to-t from-primary rounded-bl-[150px] self-center p-10 px-4 relative">
+                    class="w-full h-full bg-gradient-to-t from-primary rounded-bl-[150px] self-center p-10 px-4 lg:px-24 relative">
                     <h1
                         class="text-5xl font-bold text-white text-center mt-64 mb-1 sm:text-start sm:ps-10 lg:text-[65px]">
                         Hasil Penilaian Smart City</h1>
