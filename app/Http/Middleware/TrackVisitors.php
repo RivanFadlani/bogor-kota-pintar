@@ -16,15 +16,18 @@ class TrackVisitors
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Simpan kunjungan baru ke database
-        Visitor::create([
-            'ip_address' => $request->ip(),    // Simpan IP Address pengunjung
-            'user_agent' => $request->userAgent(), // Simpan User Agent pengunjung
-            'visited_date' => now()->toDateString(),    // Simpan tanggal kunjungan (YYYY-MM-DD
-            'visited_at' => now(),             // Simpan waktu kunjungan
-        ]);
+        // Pastikan hanya halaman tertentu yang memicu pencatatan kunjungan, misalnya halaman 'general'
+        if ($request->is('general')) {
+            // Simpan kunjungan baru ke database
+            Visitor::create([
+                'ip_address' => $request->ip(),                // Simpan IP Address pengunjung
+                'user_agent' => $request->userAgent(),         // Simpan User Agent pengunjung
+                'visited_date' => now()->toDateString(),       // Simpan tanggal kunjungan (YYYY-MM-DD)
+                'visited_at' => now(),                         // Simpan waktu kunjungan
+            ]);
+        }
 
-
+        // Lanjutkan request ke aplikasi
         return $next($request);
     }
 }
