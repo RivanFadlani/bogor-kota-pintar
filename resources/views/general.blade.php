@@ -126,12 +126,24 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li>
+                                <!-- Google Translate Trigger Button (gambar Google Translate) -->
+                                <button id="translateButton" class="border-none bg-none mt-2 p-0">
+                                    <img src="https://www.google.com/images/icons/product/translate-32.png"
+                                        alt="Google Translate" style="cursor: pointer;">
+                                </button>
+
+                                <!-- Google Translate Widget -->
+                                <div id="google_translate_element" class="hidden absolute z-[1000] text-center">
+                                </div>
+                            </li>
                         </ul>
 
                     </div>
                     <!-- Navbar content end -->
                 </div>
             </nav>
+
         </div>
 
     </header>
@@ -182,6 +194,8 @@
         <div class="w-full">
             <div class="px-4 lg:px-24 sm:mx-7">
                 <h1 class="text-[48px] font-bold mb-5 text-primary block">Dimensi</h1>
+                <!-- Google Translate Widget -->
+                <div id="google_translate_element"></div>
             </div>
             <div class="flex flex-wrap gap-6 px-4 lg:px-24 sm:mx-7">
                 {{-- card 1 --}}
@@ -564,6 +578,37 @@
     {{-- Footer End --}}
 
     {{-- JS Start --}}
+
+    {{-- Google Translate Widget Start --}}
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        document.getElementById("translateButton").onclick = function() {
+            var translateElement = document.getElementById("google_translate_element");
+
+            // Tampilkan elemen ketika tombol diklik
+            if (translateElement.style.display === "none") {
+                translateElement.style.display = "block";
+
+                // Posisi elemen di bawah tombol dan digeser ke kiri sedikit
+                var buttonRect = this.getBoundingClientRect();
+                translateElement.style.top = buttonRect.bottom + 10 + "px"; // Jarak 10px di bawah tombol
+                translateElement.style.left = buttonRect.left - 50 + "px"; // Geser 20px ke kiri dari posisi tombol
+            } else {
+                translateElement.style.display = "none"; // Sembunyikan jika diklik lagi
+            }
+        };
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+    {{-- Google Translate Widget Start End --}}
 
     {{-- scroll reveal start --}}
     <script src="/js/script.js"></script>

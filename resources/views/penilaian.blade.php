@@ -26,7 +26,7 @@
                 <div
                     class="w-full px-10 lg:px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
-                    <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
+                    <a class="nav-link flex items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
                         <span class="self-center text-lg font-semibold whitespace-nowrap">Smart City</span>
                         <!-- Mobile button (hamburger icon) -->
@@ -55,37 +55,37 @@
                         <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
                             <li>
                                 <a href="/general"
-                                    class="block woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2">Beranda</a>
+                                    class="block nav-link woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2">Beranda</a>
                             </li>
                             <li>
                                 <a href="/general"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
                             </li>
                             <li>
                                 <a href="/general"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
                                     & Misi</a>
                             </li>
                             <li>
                                 <a href="/general"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
                             </li>
                             <li>
                                 <a href="/general"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
                             </li>
                             <li>
                                 <a href="/general"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
                                     Map</a>
                             </li>
                             <li>
                                 <a href="#contact"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
                             </li>
                             <li>
                                 <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                    class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Dropdown
+                                    class="nav-link text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Lainnya
                                     <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -119,6 +119,17 @@
                                             </li>
                                         @endforeach
                                     </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <!-- Google Translate Trigger Button (gambar Google Translate) -->
+                                <button id="translateButton" class="border-none bg-none mt-2 p-0">
+                                    <img src="https://www.google.com/images/icons/product/translate-32.png"
+                                        alt="Google Translate" style="cursor: pointer;">
+                                </button>
+
+                                <!-- Google Translate Widget -->
+                                <div id="google_translate_element" class="hidden absolute z-[1000] text-center">
                                 </div>
                             </li>
                         </ul>
@@ -319,6 +330,37 @@
     {{-- Footer End --}}
 
     {{-- JS START --}}
+
+    {{-- Google Translate Widget Start --}}
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        document.getElementById("translateButton").onclick = function() {
+            var translateElement = document.getElementById("google_translate_element");
+
+            // Tampilkan elemen ketika tombol diklik
+            if (translateElement.style.display === "none") {
+                translateElement.style.display = "block";
+
+                // Posisi elemen di bawah tombol dan digeser ke kiri sedikit
+                var buttonRect = this.getBoundingClientRect();
+                translateElement.style.top = buttonRect.bottom + 10 + "px"; // Jarak 10px di bawah tombol
+                translateElement.style.left = buttonRect.left - 50 + "px"; // Geser 20px ke kiri dari posisi tombol
+            } else {
+                translateElement.style.display = "none"; // Sembunyikan jika diklik lagi
+            }
+        };
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+    {{-- Google Translate Widget Start End --}}
 
     {{-- Scroll Reveal Start --}}
     <script src="/js/script.js"></script>
