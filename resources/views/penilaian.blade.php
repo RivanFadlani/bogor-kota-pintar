@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     @vite('resources/css/app.css')
     <title>Program Implementasi</title>
 </head>
@@ -165,7 +167,7 @@
                         @foreach ($penilaians as $penilaian)
                             <!-- Card 1 -->
                             <div
-                                class="bg-gradient-to-r from-primary to-gray-400 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-300">
+                                class="slide-up bg-gradient-to-r from-primary to-gray-400 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-300">
                                 <div class="flex items-center bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
                                     <div class="flex-1">
                                         <h3 class="text-xl font-bold text-white mb-2">
@@ -210,7 +212,8 @@
             @endforeach
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 @foreach ($sertifikats as $sertifikat)
-                    <div class="rounded-2xl h-fit shadow-xl overflow-hidden hover:-translate-y-1 transition-transform">
+                    <div
+                        class="slide-up rounded-2xl h-fit shadow-xl overflow-hidden hover:-translate-y-1 transition-transform">
                         <img src="{{ asset('uploads/sertifikat/' . $sertifikat->gambar) }}"
                             alt="{{ $sertifikat->judul }}">
                     </div>
@@ -225,7 +228,7 @@
 
             <div class=" w-full h-full p-10 bg-white border border-gray-300 shadow-xl rounded-2xl">
                 @foreach ($sertifikats as $sertifikat)
-                    <div class="w-full mb-5 py-3 px-7 border border-gray-300 rounded-xl bg-slate-100">
+                    <div class="slide-up w-full mb-5 py-3 px-7 border-b border-gray-400">
                         {{ $sertifikat->kategori }}</div>
                 @endforeach
             </div>
@@ -316,6 +319,9 @@
     {{-- Footer End --}}
 
     {{-- JS START --}}
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <script src="public/js/pagedone.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 

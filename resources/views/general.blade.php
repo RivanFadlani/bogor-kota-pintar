@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <title>Smart City Bogor</title>
@@ -185,7 +187,7 @@
                 {{-- card 1 --}}
                 @foreach ($dimensis as $dimensi)
                     <div
-                        class="relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl hover:-translate-y-1 transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
+                        class="slide-up relative flex flex-col w-full items-center border border-solid shadow-xl border-gray-200 rounded-2xl hover:-translate-y-1 transition-all duration-500 md:flex-row md:w-[48%] lg:w-[48%] overflow-hidden">
                         <div
                             class="block w-full items-center mx-auto overflow-hidden md:w-32 md:h-full h-32 bg-primary">
                             <img src="{{ asset('uploads/dimensi/' . $dimensi->gambar) }}" alt="dokumen"
@@ -215,7 +217,7 @@
             <div class="flex flex-col md:flex-row md:items-center px-4 lg:px-24 sm:mx-7 lg:mx-auto">
                 <!-- Card Visi (lebar full) -->
                 <div
-                    class="flex-grow w-full py-16 px-10 sm:py-16 sm:px-10 mt-4 flex bg-white rounded-3xl justify-start items-center shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mt-0 md:mb-0 lg:mr-16">
+                    class="slide-up flex-grow w-full py-16 px-10 sm:py-16 sm:px-10 mt-4 flex bg-white rounded-3xl justify-start items-center shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mt-0 md:mb-0 lg:mr-16">
                     <div class="w-full flex">
                         <h2 class="text-5xl font-bold mb-3">Visi</h2> <!-- Margin bawah dikurangi -->
                         @foreach ($visimisi as $vm)
@@ -228,7 +230,7 @@
 
                 <!-- Gambar di sebelah kanan card Visi -->
                 <img src="/img/Visi.png" alt="visimisi"
-                    class="h-full mb-4 hidden pt-7 md:w-72 md:hidden lg:w-[calc(30%-12px)] lg:block mx-auto md:mx-0">
+                    class="slide-up h-full mb-4 hidden pt-7 md:w-72 md:hidden lg:w-[calc(30%-12px)] lg:block mx-auto md:mx-0">
                 <!-- Gambar tetap disebelah kanan -->
             </div>
 
@@ -237,12 +239,12 @@
                 <div class="flex flex-col md:flex-row w-full">
                     <!-- Gambar di sebelah kiri card Misi -->
                     <img src="/img/Visi.png" alt="visimisi"
-                        class="h-full mb-4 hidden md:w-72 md:hidden lg:w-[calc(30%-12px)] lg:block md:mr-8 lg:mr-16 mx-auto md:mx-0">
+                        class="slide-up h-full mb-4 hidden md:w-72 md:hidden lg:w-[calc(30%-12px)] lg:block md:mr-8 lg:mr-16 mx-auto md:mx-0">
                     <!-- Gambar tetap disebelah kiri -->
 
                     <!-- Card Misi (height menyesuaikan isi) -->
                     <div
-                        class="flex-grow h-min w-full mt-5 py-16 px-10 sm:py-16 sm:px-10 mb-4 flex bg-white rounded-3xl justify-end items-start shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mb-0">
+                        class="slide-up flex-grow h-min w-full mt-5 py-16 px-10 sm:py-16 sm:px-10 mb-4 flex bg-white rounded-3xl justify-end items-start shadow-[inset_0_4px_10px_rgba(0,0,0,0.4)] md:mb-0">
                         <div class="w-full flex">
                             <h2 class="text-5xl pt-2 font-bold mb-3">Misi</h2> <!-- Margin bawah dikurangi -->
                             @foreach ($visimisi as $vm)
@@ -269,7 +271,7 @@
                         @endif
                         @if ($video->getYouTubeEmbedUrl())
                             <iframe src="{{ $video->getYouTubeEmbedUrl() }}"
-                                class="aspect-video w-full h-full lg:w-[87%] lg:h-[87%] rounded-xl mx-auto"
+                                class="slide-up aspect-video w-full h-full lg:w-[87%] lg:h-[87%] rounded-xl mx-auto"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
@@ -310,7 +312,7 @@
             <div id="product-list" class="w-full px-2  sm:px-8 lg:px-28 flex flex-wrap">
                 @foreach ($subdimensis as $subdimensi)
                     <div
-                        class="{{ strtolower($subdimensi->dimensi) }} relative bg-primary text-white m-2 p-6 hover:-translate-y-1 transition-all duration-500 rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
+                        class="{{ strtolower($subdimensi->dimensi) }} slide-up relative bg-primary text-white m-2 p-6 hover:-translate-y-1 transition-all duration-500 rounded-lg shadow-lg h-64 w-[calc(90%-10px)] md:w-[calc(50%-50px)] lg:w-[calc(30%-60px)]">
                         <h1 class="text-xl font-bold mb-2">({{ $subdimensi->dimensi }})</h1>
                         <h2 class="text-lg mb-4">{{ $subdimensi->sub }}</h2>
                         <p class="text-sm mb-6">{!! $subdimensi->deskripsi !!}</p>
@@ -337,7 +339,7 @@
             </div>
             {{-- MASTERPLAN START --}}
             <div class="px-4 lg:px-24 mt-14 sm:mx-7">
-                <div class="w-full bg-primary rounded-xl">
+                <div class="slide-up w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">MASTERPLAN
                         SMART CITY KOTA BOGOR
                     </h2>
@@ -345,7 +347,8 @@
             </div>
             <div class="px-4 lg:px-24 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
                 @foreach ($masterplanFiles as $file)
-                    <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                    <div
+                        class="slide-up w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
                             <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
 
@@ -372,7 +375,7 @@
             {{-- MASTERPLAN END --}}
             {{-- POWERPOINT START --}}
             <div class="px-4 lg:px-24 mt-14 sm:mx-7">
-                <div class="w-full bg-primary rounded-xl">
+                <div class="slide-up w-full bg-primary rounded-xl">
                     <h2 class="text-lg text-white font-semibold text-center px-3 py-3 sm:text-xl uppercase">POWERPOINT
                     </h2>
                 </div>
@@ -380,7 +383,8 @@
 
             <div class="px-4 lg:px-24 grid grid-cols-1 gap-3 mt-5 sm:mx-7 md:grid-cols-2">
                 @foreach ($powerpointFiles as $file)
-                    <div class="w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                    <div
+                        class="slide-up w-full grid bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
                         <div>
                             <h2 class="text-lg text-dark font-bold text-start px-4 pt-3 pb-1">{{ $file->judul }}</h2>
 
@@ -420,7 +424,7 @@
             <div class="relative w-full max-w-7xl overflow-hidden">
                 <div id="slider" class="flex transition-transform duration-500">
                     @foreach ($booklets as $card)
-                        <div class="flex-shrink-0 w-full xs:w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 group">
+                        <div class="slide-up flex-shrink-0 w-full xs:w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 group">
                             <div
                                 class="bg-white rounded-tl-lg rounded-tr-3xl rounded-br-lg rounded-bl-3xl border border-gray-300 shadow-lg flex flex-col items-center w-full relative overflow-hidden">
 
@@ -437,7 +441,7 @@
                                 <!-- Judul dan tombol -->
                                 <h1 class="text-lg text-primary font-bold pt-1 my-4">{{ $card->judul }}</h1>
                                 <a href="{{ $card->url }}"
-                                    class="bg-primary text-white px-4 py-2 rounded transition duration-300 hover:bg-blue-800 absolute bottom-12"
+                                    class="bg-primary text-white px-4 py-2 rounded-lg transition duration-300 hover:bg-blue-800 absolute bottom-12"
                                     target="_blank">Selengkapnya</a>
                             </div>
                         </div>
@@ -467,7 +471,7 @@
                 <h1 class="text-[48px] font-bold mb-7 text-primary block text-center page-title">Road Map</h1>
             </div>
             @foreach ($roadmaps as $rm)
-                <div class="px-4 lg:px-24 sm:mx-7">
+                <div class="slide-up px-4 lg:px-24 sm:mx-7">
                     <div class="w-full p-5 shadow-lg border border-gray-300 rounded-xl">
                         <img src="{{ asset('uploads/roadmap/' . $rm->gambar) }}" alt="dokumen" class="w-full">
                     </div>
@@ -560,6 +564,8 @@
     {{-- Footer End --}}
 
     {{-- JS Start --}}
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 
