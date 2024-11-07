@@ -31,7 +31,7 @@
                 <div
                     class="w-full px-10 lg:px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
-                    <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
+                    <a class="flex nav-link items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
                         <span class="self-center text-lg font-semibold whitespace-nowrap">Smart City</span>
                         <!-- Mobile button (hamburger icon) -->
@@ -60,37 +60,37 @@
                         <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
                             <li>
                                 <a href="#beranda"
-                                    class="block woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2">Beranda</a>
+                                    class="block nav-link woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2 hover:text-primary [&.a]">Beranda</a>
                             </li>
                             <li>
                                 <a href="#content1"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
                             </li>
                             <li>
                                 <a href="#content2"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
                                     & Misi</a>
                             </li>
                             <li>
                                 <a href="#content4"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Masterplan</a>
                             </li>
                             <li>
                                 <a href="#content5"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Booklet</a>
                             </li>
                             <li>
                                 <a href="#content6"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Road
                                     Map</a>
                             </li>
                             <li>
                                 <a href="#contact"
-                                    class="block lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Kontak</a>
                             </li>
                             <li>
                                 <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                    class="text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Lainnya
+                                    class="text-gray-700 nav-link hover:bg-gray-50 lg:hover:bg-transparent pl-3 pr-4 py-2 font-medium flex items-center justify-between w-full lg:w-auto">Lainnya
                                     <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -564,14 +564,17 @@
     {{-- Footer End --}}
 
     {{-- JS Start --}}
+
+    {{-- scroll reveal start --}}
     <script src="/js/script.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    {{-- scroll reveal start --}}
 
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 
-    <!-- Script AJAX -->
+    <!-- Dokumen Counter Start -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -601,7 +604,9 @@
             });
         });
     </script>
+    <!-- Dokumen Counter End -->
 
+    {{-- Card Slider Start --}}
     <script>
         const slider = document.getElementById('slider');
         const prevButton = document.getElementById('prevButton');
@@ -692,8 +697,9 @@
             card.addEventListener('mouseleave', startAutoSlide);
         });
     </script>
+    {{-- Card Slider End --}}
 
-
+    {{-- Search bar Start --}}
     <script>
         $(document).ready(function() {
             $("#searchInput").on("keydown", function(event) {
@@ -714,7 +720,9 @@
             });
         });
     </script>
+    {{-- Search bar End --}}
 
+    {{-- Navbar Transparant to White Start --}}
     <script>
         // Navbar Fixed
         window.onscroll = function() {
@@ -722,15 +730,41 @@
             const fixedNav = header.offsetTop;
 
             if (window.pageYOffset > fixedNav) {
-                header.classList.add('navbar-fixed', 'hitam')
+                header.classList.add('navbar-fixed')
             } else {
-                header.classList.remove('navbar-fixed', 'hitam')
-                header.classList.remove('text-white')
+                header.classList.remove('navbar-fixed')
             }
-
-
         }
     </script>
+    {{-- Navbar Transparant to White End --}}
+
+    {{-- Navbar Nav Link Color Start --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            function updateNavColors() {
+                const scrollPosition = window.scrollY;
+
+                navLinks.forEach(link => {
+                    if (scrollPosition > 0) {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-slate-800');
+                    } else {
+                        link.classList.remove('text-slate-800');
+                        link.classList.add('text-white');
+                    }
+                });
+            }
+
+            // Initial check
+            updateNavColors();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', updateNavColors);
+        });
+    </script>
+    {{-- Navbar Nav Link Color End --}}
 
     <script>
         const navLinks = document.querySelector('.nav-links')
@@ -741,6 +775,7 @@
         }
     </script>
 
+    {{-- Isotope Data Filter Start --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -762,6 +797,7 @@
             });
         });
     </script>
+    {{-- Isotope Data Filter End --}}
 
 
     {{-- JS End --}}

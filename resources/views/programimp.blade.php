@@ -253,12 +253,16 @@
     {{-- Footer End --}}
 
     {{-- JS START --}}
+
+    {{-- Scroll reveal Start --}}
     <script src="/js/script.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    {{-- Scroll reveal End --}}
 
     <script src="public/js/pagedone.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 
+    {{-- Navbar Transparant to White Start --}}
     <script>
         // Navbar Fixed
         window.onscroll = function() {
@@ -273,6 +277,35 @@
             }
         }
     </script>
+    {{-- Navbar Transparant to White Start --}}
+
+    {{-- Navbar Nav Link Color Start --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            function updateNavColors() {
+                const scrollPosition = window.scrollY;
+
+                navLinks.forEach(link => {
+                    if (scrollPosition > 0) {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-slate-800');
+                    } else {
+                        link.classList.remove('text-slate-800');
+                        link.classList.add('text-white');
+                    }
+                });
+            }
+
+            // Initial check
+            updateNavColors();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', updateNavColors);
+        });
+    </script>
+    {{-- Navbar Nav Link Color Endc --}}
 
     <script>
         const navLinks = document.querySelector('.nav-links')
