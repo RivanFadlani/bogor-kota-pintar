@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     @vite('resources/css/app.css')
     <title>Program Implementasi</title>
 </head>
@@ -22,7 +24,7 @@
         <div class="container">
             <nav class="w-full border-gray-200 relative">
                 <div
-                    class="w-full px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
+                    class="w-full px-10 lg:px-28 flex flex-wrap items-center justify-between lg:gap-x-10 lg:justify-start lg:space-x-8">
                     <!-- Brand logo and title -->
                     <a class="flex items-center lg:w-auto w-full justify-between lg:justify-start">
                         <img src="/img/diskominfo.png" alt="" class="w-16">
@@ -155,7 +157,7 @@
     {{-- Program Section Start --}}
     <section id="" class="pl-3 pt-10 pb-32">
         @foreach ($getProgram as $program)
-            <div class="w-full p-10">
+            <div class="slide-up w-full p-10">
                 <div class="px-16 border border-gray-300 shadow-xl rounded-2xl py-10 sm:mx-7">
                     <h1 class="page-title text-primary text-[34px] text-center font-bold mt-5 mb-10 block">
                         {{ $program->judul }}
@@ -251,6 +253,9 @@
     {{-- Footer End --}}
 
     {{-- JS START --}}
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <script src="public/js/pagedone.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 
