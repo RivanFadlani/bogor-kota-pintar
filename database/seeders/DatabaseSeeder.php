@@ -15,9 +15,22 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        $this->call([
+            BookletSeeder::class,
+            DimensiSeeder::class,
+            KategoriSeeder::class,
+            SubdimensiSeeder::class,
+            VideoSeeder::class,
+            VisimisiSeeder::class,
+            DokumenSeeder::class
+            // Tambahkan seeder lain jika diperlukan
+        ]);
+
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin Pintar',
+            'email' => 'adminpintar@gmail.com',
+            'usertype' => 'admin',
+            'password' => bcrypt('12345678'),
         ]);
     }
 }
