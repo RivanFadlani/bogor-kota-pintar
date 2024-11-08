@@ -51,6 +51,32 @@
                 <!-- Input Judul End -->
             </div>
 
+            {{-- Status Start --}}
+            <div class="mb-4 flex flex-wrap">
+                <label class="block uppercase tracking-wider text-left text-sm font-medium"
+                    for="status">Status</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <select
+                    class="block w-full p-2 border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
+                    id="status" name="status" required>
+                    <option value="publish" {{ old('status', $videos->status) == 'publish' ? 'selected' : '' }}>
+                        Publish</option>
+                    <option value="tidak publish"
+                        {{ old('status', $videos->status) == 'tidak publish' ? 'selected' : '' }}>Tidak Publish
+                    </option>
+                </select>
+                @error('status')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            {{-- Status End --}}
+
             <!-- Tombol Submit -->
             <div>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>

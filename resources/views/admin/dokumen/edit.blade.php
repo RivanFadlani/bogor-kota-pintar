@@ -27,9 +27,16 @@
             @method('PUT')
 
             {{-- Input Judul Start --}}
-            <div class="mb-4">
+            <div class="mb-4 flex flex-wrap">
                 <label for="judul"
                     class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Judul</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
                 <input type="text" name="judul" id="judul"
                     class="w-full p-2 border border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
                     value="{{ old('judul', $dokumens->judul) }}" required>
@@ -42,7 +49,7 @@
             <!-- Input Upload Gambar Start -->
             <div class="mb-4">
                 <label for="gambar" class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Upload
-                    Gambar (Thumbnail):</label>
+                    Gambar (Thumbnail)</label>
                 <input type="file" name="gambar" id="gambar" class="w-full p-2 border border-gray-300 rounded"
                     value="{{ old('gambar', $dokumens->gambar) }}">
                 <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
@@ -59,11 +66,18 @@
             <!-- Input Upload Gambar End -->
 
             <!-- Input Link Start -->
-            <div class="mb-4">
+            <div class="mb-4 flex flex-wrap">
                 <label for="url"
                     class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Link</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
                 <input type="text" name="url" id="url"
-                    class="w-full p-2 border text-gray-700 tracking-wider text-left text-sm font-medium rounded"
+                    class="w-full p-2 border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
                     value="{{ old('link', $dokumens->url) }}" required>
                 @error('url')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -71,39 +85,58 @@
             </div>
             {{-- Input Link End --}}
 
-            {{-- Kategori Select Start --}}
-            <div class="mb-4">
-                <label for="kategori_id" class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Pilih
-                    Kategori</label>
-                <select name="kategori_id" id="kategori_id"
-                    class="block w-full p-2 border text-gray-700 tracking-wider text-left text-sm font-medium rounded">
-                    @foreach ($kategoris as $kategori)
-                        <option value="{{ $kategori->id }}" @if (old('kategori_id', $dokumens->kategori_id ?? '') == $kategori->id) selected @endif>
-                            {{ $kategori->kategori }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-            {{-- Kategori Select End --}}
+            {{-- Select Kategori & Status Start --}}
+            <div class="grid grid-cols-2 gap-3">
+                {{-- Kategori Select Start --}}
+                <div class="mb-4 flex flex-wrap">
+                    <label for="kategori_id"
+                        class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Pilih
+                        Kategori</label>
+                    <div class="relative group">
+                        <span class="text-red-600 font-bold">*</span>
+                        <span
+                            class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                            harus diisi
+                        </span>
+                    </div>
+                    <select name="kategori_id" id="kategori_id"
+                        class="block w-full p-2 border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded">
+                        @foreach ($kategoris as $kategori)
+                            <option value="{{ $kategori->id }}" @if (old('kategori_id', $dokumens->kategori_id ?? '') == $kategori->id) selected @endif>
+                                {{ $kategori->kategori }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                {{-- Kategori Select End --}}
 
-            {{-- Status Start --}}
-            <div>
-                <label class="block mb-2 uppercase tracking-wider text-left text-sm font-medium"
-                    for="status">Status:</label>
-                <select
-                    class="block w-full p-2 border text-gray-700 tracking-wider text-left text-sm font-medium rounded"
-                    id="status" name="status" required>
-                    <option value="publish" {{ old('status', $dokumens->status) == 'publish' ? 'selected' : '' }}>
-                        Publish</option>
-                    <option value="tidak publish"
-                        {{ old('status', $dokumens->status) == 'tidak publish' ? 'selected' : '' }}>Tidak Publish
-                    </option>
-                </select>
-                @error('status')
-                    <p>{{ $message }}</p>
-                @enderror
+                {{-- Status Start --}}
+                <div class="mb-4 flex flex-wrap">
+                    <label class="block uppercase tracking-wider text-left text-sm font-medium"
+                        for="status">Status</label>
+                    <div class="relative group">
+                        <span class="text-red-600 font-bold">*</span>
+                        <span
+                            class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                            harus diisi
+                        </span>
+                    </div>
+                    <select
+                        class="block w-full p-2 border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
+                        id="status" name="status" required>
+                        <option value="publish" {{ old('status', $dokumens->status) == 'publish' ? 'selected' : '' }}>
+                            Publish</option>
+                        <option value="tidak publish"
+                            {{ old('status', $dokumens->status) == 'tidak publish' ? 'selected' : '' }}>Tidak Publish
+                        </option>
+                    </select>
+                    @error('status')
+                        <p>{{ $message }}</p>
+                    @enderror
+                </div>
+                {{-- Status End --}}
             </div>
-            {{-- Status End --}}
+            {{-- Select Kategori & Status Start --}}
 
             <!-- Tombol Submit -->
             <div>

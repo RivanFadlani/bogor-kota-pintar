@@ -55,7 +55,7 @@
                                         {{ request()->routeIs('admin.dokumen.index') || request()->routeIs('admin.kategori.index')
                                             ? 'bg-blue-50 text-blue-600'
                                             : 'text-gray-700 hover:bg-gray-50' }}">
-                                    <span class="uppercase tracking-wider font-medium">Dokumen</span>
+                                    <span class="capitalize tracking-wider font-medium">Dokumen</span>
                                     <svg class="w-4 h-4 transition-transform duration-200"
                                         :class="{ 'rotate-180': open }" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
@@ -72,14 +72,14 @@
                                     x-transition:leave-end="opacity-0 transform scale-95" style="display: none;">
                                     <li>
                                         <a href="{{ route('admin.dokumen.index') }}"
-                                            class="block pl-8 pr-4 py-2 uppercase tracking-wider font-medium rounded-lg transition-colors duration-200
+                                            class="block pl-8 pr-4 py-2 capitalize tracking-wider font-medium rounded-lg transition-colors duration-200
                                            {{ request()->routeIs('admin.dokumen.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Dokumen
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('admin.kategori.index') }}"
-                                            class="block pl-8 pr-4 py-2 rounded-lg uppercase tracking-wider font-medium transition-colors duration-200
+                                            class="block pl-8 pr-4 py-2 rounded-lg capitalize tracking-wider font-medium transition-colors duration-200
                                            {{ request()->routeIs('admin.kategori.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Kategori
                                         </a>
@@ -90,7 +90,7 @@
                             <!-- Remaining menu items -->
                             <li>
                                 <a href="{{ route('admin.visimisi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.visimisi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Visi dan Misi
                                 </a>
@@ -98,7 +98,7 @@
 
                             <li>
                                 <a href="{{ route('admin.programimp.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.programimp.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Program Implementasi
                                 </a>
@@ -106,7 +106,7 @@
 
                             <li>
                                 <a href="{{ route('admin.dimensi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.dimensi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Dimensi
                                 </a>
@@ -114,7 +114,7 @@
 
                             <li>
                                 <a href="{{ route('admin.booklet.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.booklet.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Booklet
                                 </a>
@@ -122,7 +122,7 @@
 
                             <li>
                                 <a href="{{ route('admin.subdimensi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.subdimensi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Sub Dimensi
                                 </a>
@@ -130,7 +130,7 @@
 
                             <li>
                                 <a href="{{ route('admin.video.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.video.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Video
                                 </a>
@@ -138,7 +138,7 @@
 
                             <li>
                                 <a href="{{ route('admin.roadmap.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.roadmap.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Road Map
                                 </a>
@@ -151,7 +151,7 @@
                                         {{ request()->routeIs('admin.penilaian.index') || request()->routeIs('admin.penilaian.index')
                                             ? 'bg-blue-50 text-blue-600'
                                             : 'text-gray-700 hover:bg-gray-50' }}">
-                                    <span class="uppercase tracking-wider font-medium">Hasil Penilaian</span>
+                                    <span class="capitalize tracking-wider font-medium">Hasil Penilaian</span>
                                     <svg class="w-4 h-4 transition-transform duration-200"
                                         :class="{ 'rotate-180': open }" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
@@ -168,14 +168,14 @@
                                     x-transition:leave-end="opacity-0 transform scale-95" style="display: none;">
                                     <li>
                                         <a href="{{ route('admin.penilaian.index') }}"
-                                            class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                            class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                            {{ request()->routeIs('admin.penilaian.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Penilaian
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('admin.sertifikat.index') }}"
-                                            class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                            class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                            {{ request()->routeIs('admin.sertifikat.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
                                             Sertifikat Penghargaan
                                         </a>
@@ -185,7 +185,7 @@
 
                             <li>
                                 <a href="{{ route('admin.navigasi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 uppercase tracking-wider font-medium
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.navigasi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Navigasi
                                 </a>
