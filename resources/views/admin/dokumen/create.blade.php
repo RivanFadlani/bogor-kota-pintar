@@ -40,7 +40,7 @@
             <div class="mb-4">
                 <label for="gambar" class="block text-gray-700">Upload Gambar (Thumbnail):</label>
                 <input type="file" name="gambar" id="gambar"
-                    class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}" required>
+                    class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}">
                 <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
             </div>
             <!-- Input Upload Gambar End -->
@@ -66,6 +66,20 @@
                 </select>
             </div>
             {{-- Select Kategori End --}}
+
+            {{-- Status Start --}}
+            <div>
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="publish" {{ old('status') == 'publish' ? 'selected' : '' }}>Publish</option>
+                    <option value="tidak publish" {{ old('status') == 'tidak publish' ? 'selected' : '' }}>Tidak
+                        Publish</option>
+                </select>
+                @error('status')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            {{-- Status End --}}
 
             <!-- Tombol Submit -->
             <div>

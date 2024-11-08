@@ -28,8 +28,10 @@
 
             {{-- Input Judul Start --}}
             <div class="mb-4">
-                <label for="judul" class="block text-gray-700">Judul</label>
-                <input type="text" name="judul" id="judul" class="w-full p-2 border border-gray-300 rounded"
+                <label for="judul"
+                    class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Judul</label>
+                <input type="text" name="judul" id="judul"
+                    class="w-full p-2 border border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
                     value="{{ old('judul', $dokumens->judul) }}" required>
                 @error('judul')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -39,13 +41,18 @@
 
             <!-- Input Upload Gambar Start -->
             <div class="mb-4">
-                <label for="gambar" class="block text-gray-700">Upload Gambar (Thumbnail):</label>
+                <label for="gambar" class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Upload
+                    Gambar (Thumbnail):</label>
                 <input type="file" name="gambar" id="gambar" class="w-full p-2 border border-gray-300 rounded"
                     value="{{ old('gambar', $dokumens->gambar) }}">
                 <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
                 <!-- Menampilkan nama file lama -->
                 @if ($dokumens->gambar)
-                    <p class="text-gray-500 mt-2">File saat ini: {{ $dokumens->gambar }}</p>
+                    <div class="form-group">
+                        <label>Pratinjau Gambar Saat Ini:</label>
+                        <img src="{{ asset('uploads/dokumen/' . $dokumens->gambar) }}" alt="{{ $dokumens->judul }}"
+                            style="max-width: 200px; max-height: 200px;">
+                    </div>
                 @endif
             </div>
 
@@ -53,8 +60,10 @@
 
             <!-- Input Link Start -->
             <div class="mb-4">
-                <label for="url" class="block text-gray-700">Link</label>
-                <input type="text" name="url" id="url" class="w-full p-2 border border-gray-300 rounded"
+                <label for="url"
+                    class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Link</label>
+                <input type="text" name="url" id="url"
+                    class="w-full p-2 border text-gray-700 tracking-wider text-left text-sm font-medium rounded"
                     value="{{ old('link', $dokumens->url) }}" required>
                 @error('url')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -63,19 +72,42 @@
             {{-- Input Link End --}}
 
             {{-- Kategori Select Start --}}
-            <div>
-                <label for="kategori_id">Pilih Kategori</label>
-                <select name="kategori_id" id="kategori_id">
+            <div class="mb-4">
+                <label for="kategori_id" class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Pilih
+                    Kategori</label>
+                <select name="kategori_id" id="kategori_id"
+                    class="block w-full p-2 border text-gray-700 tracking-wider text-left text-sm font-medium rounded">
                     @foreach ($kategoris as $kategori)
-                        <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
+                        <option value="{{ $kategori->id }}" @if (old('kategori_id', $dokumens->kategori_id ?? '') == $kategori->id) selected @endif>
+                            {{ $kategori->kategori }}
+                        </option>
                     @endforeach
                 </select>
             </div>
             {{-- Kategori Select End --}}
 
+            {{-- Status Start --}}
+            <div>
+                <label class="block mb-2 uppercase tracking-wider text-left text-sm font-medium"
+                    for="status">Status:</label>
+                <select
+                    class="block w-full p-2 border text-gray-700 tracking-wider text-left text-sm font-medium rounded"
+                    id="status" name="status" required>
+                    <option value="publish" {{ old('status', $dokumens->status) == 'publish' ? 'selected' : '' }}>
+                        Publish</option>
+                    <option value="tidak publish"
+                        {{ old('status', $dokumens->status) == 'tidak publish' ? 'selected' : '' }}>Tidak Publish
+                    </option>
+                </select>
+                @error('status')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            {{-- Status End --}}
+
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+                <button type="submit" class="bg-blue-700 text-white mt-5 px-4 py-2 rounded">Simpan Perubahan</button>
             </div>
         </form>
         <!-- Dokumen Form End -->

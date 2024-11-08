@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('dokumens', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->string('url');
             $table->integer('dilihat')->default(0);
             $table->foreignId('kategori_id');
+            $table->enum('status', ['publish', 'tidak publish'])->default('tidak publish');
             $table->timestamps();
         });
     }
