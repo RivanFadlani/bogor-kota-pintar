@@ -54,7 +54,8 @@ class RoadmapController extends Controller
     {
         $request->validate([
             'judul' => 'nullable|string',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024'
+            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -69,6 +70,7 @@ class RoadmapController extends Controller
         Roadmap::create([
             'judul' => $request->judul,
             'gambar' => $filename ?? '',
+            'status' => $request->status,
         ]);
         return redirect()->route('admin.roadmap.index')->with('success', 'Dokumen berhasil ditambahkan!');
     }
@@ -88,7 +90,8 @@ class RoadmapController extends Controller
         // Validasi input (jadikan gambar opsional saat update)
         $request->validate([
             'judul' => 'nullable|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         // Cari quickwin berdasarkan ID
@@ -112,6 +115,7 @@ class RoadmapController extends Controller
 
         // Update data quickwin lainnya
         $roadmaps->judul = $request->judul;
+        $roadmaps->status = $request->status;
         $roadmaps->save();
 
         // Redirect ke halaman yang diinginkan setelah update
