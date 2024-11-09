@@ -44,9 +44,33 @@
             </div>
             <!-- Input Upload Gambar End -->
 
+            {{-- Status Start --}}
+            <div class="flex flex-wrap">
+                <label for="status"
+                    class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Status:</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <select id="status" name="status"
+                    class="block w-full p-2 border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
+                    required>
+                    <option value="publish" {{ old('status') == 'publish' ? 'selected' : '' }}>Publish</option>
+                    <option value="tidak publish" {{ old('status') == 'tidak publish' ? 'selected' : '' }}>Tidak
+                        Publish</option>
+                </select>
+                @error('status')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            {{-- Status End --}}
+
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Dokumen</button>
+                <button type="submit" class="bg-blue-700 mt-5 text-white px-4 py-2 rounded">Tambah Dokumen</button>
             </div>
         </form>
         <!-- Dokumen Form Start -->

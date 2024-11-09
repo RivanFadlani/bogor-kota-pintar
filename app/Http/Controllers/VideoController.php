@@ -28,6 +28,7 @@ class VideoController extends Controller
         $items = DB::table('videos')
             ->where('judul', 'like', '%' . $query . '%')
             ->orWhere('youtube_link', 'like', '%' . $query . '%')
+            ->orWhere('status', 'like', '%' . $query . '%')
             ->orderBy($sortField, $sortDirection) // asc, desc
             ->paginate($perPage) // Pagination
             ->appends(['query' => $query]);
@@ -55,11 +56,13 @@ class VideoController extends Controller
         $request->validate([
             'judul' => 'nullable|string|max:50',
             'youtube_link' => 'required|url',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         Video::create([
             'judul' => $request->judul,
-            'youtube_link' => $request->youtube_link
+            'youtube_link' => $request->youtube_link,
+            'status' => $request->status
         ]);
         return redirect()->route('admin.video.index')->with('success', 'Dokumen berhasil ditambahkan!');
     }
@@ -80,6 +83,7 @@ class VideoController extends Controller
         $request->validate([
             'judul' => 'nullable|string|max:50',
             'youtube_link' => 'required|url',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         // Cari quickwin berdasarkan ID
@@ -88,6 +92,7 @@ class VideoController extends Controller
         // Update data quickwin lainnya
         $videos->judul = $request->judul;
         $videos->youtube_link = $request->youtube_link;
+        $videos->status = $request->status;
         $videos->save();
 
         // Redirect ke halaman yang diinginkan setelah update

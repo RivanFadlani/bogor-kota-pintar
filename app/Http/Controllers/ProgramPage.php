@@ -10,7 +10,7 @@ class ProgramPage extends Controller
 {
     public function program()
     {
-        $getProgram = Programimp::all();
+        $getProgram = Programimp::where('status', 'publish')->get();
         $navigasis = Navigasi::all();
 
         return view('programimp', compact('getProgram', 'navigasis'));

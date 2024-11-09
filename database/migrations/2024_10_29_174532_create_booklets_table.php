@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('judul');
             $table->string('gambar');
             $table->string('url');
+            $table->enum('status', ['publish', 'tidak publish'])->default('tidak publish');
             $table->timestamps();
         });
     }

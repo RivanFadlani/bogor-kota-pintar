@@ -22,9 +22,9 @@ class GeneralController extends Controller
         $visimisi = Visidanmisi::all();
         $dimensis = Dimensi::all();
         $subdimensis = Subdimensi::all();
-        $videos = Video::all();
-        $roadmaps = Roadmap::all();
-        $booklets = Booklet::all();
+        $videos = Video::where('status', 'publish')->get();
+        $roadmaps = Roadmap::where('status', 'publish')->get();
+        $booklets = Booklet::where('status', 'publish')->get();
         $navigasis = Navigasi::all();
 
         $dimensiList = Subdimensi::distinct('dimensi')->pluck('dimensi');
@@ -34,8 +34,8 @@ class GeneralController extends Controller
         $powerpointCategory = Kategori::where('kategori', 'powerpoint')->first();
 
         // Mengambil dokumen berdasarkan kategori
-        $masterplanFiles = Dokumen::where('kategori_id', $masterplanCategory->id)->get();
-        $powerpointFiles = Dokumen::where('kategori_id', $powerpointCategory->id)->get();
+        $masterplanFiles = Dokumen::where('kategori_id', $masterplanCategory->id)->where('status', 'publish')->get();
+        $powerpointFiles = Dokumen::where('kategori_id', $powerpointCategory->id)->where('status', 'publish')->get();
 
         // Kirim data ke view
         return view('general', compact('dokumen', 'visimisi', 'dimensis', 'subdimensis', 'dimensiList', 'videos', 'roadmaps', 'booklets', 'navigasis', 'masterplanFiles', 'powerpointFiles'));

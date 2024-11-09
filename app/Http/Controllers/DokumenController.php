@@ -52,7 +52,8 @@ class DokumenController extends Controller
                     ->orWhere('url', 'like', '%' . $query . '%')
                     ->orWhereHas('kategori', function ($q) use ($query) {
                         $q->where('kategori', 'like', '%' . $query . '%'); // Pencarian berdasarkan nama kategori
-                    });
+                    })
+                    ->orWhere('status', 'like', '%' . $query . '%');
             })
             ->orderBy($sortField, $sortDirection) // asc, desc
             ->paginate($perPage); // Pagination
@@ -78,10 +79,11 @@ class DokumenController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
             'judul' => 'required|string|max:100',
             'url' => 'required|url',
-            'kategori_id' => 'required'
+            'kategori_id' => 'required',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -97,7 +99,8 @@ class DokumenController extends Controller
             'gambar' => $filename ?? '',
             'judul' => $request->judul,
             'url' => $request->url,
-            'kategori_id' => $request->kategori_id
+            'kategori_id' => $request->kategori_id,
+            'status' => $request->status,
         ]);
         return redirect()->route('admin.dokumen.index')->with('success', 'Dokumen berhasil ditambahkan!');
     }
@@ -120,7 +123,8 @@ class DokumenController extends Controller
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
             'judul' => 'required|string|max:100',
             'url' => 'required|url',
-            'kategori_id' => 'required'
+            'kategori_id' => 'required',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         // Cari quickwin berdasarkan ID
@@ -146,6 +150,7 @@ class DokumenController extends Controller
         $dokumens->judul = $request->judul;
         $dokumens->url = $request->url;
         $dokumens->kategori_id = $request->kategori_id;
+        $dokumens->status = $request->status;
         $dokumens->save();
 
         // Redirect ke halaman yang diinginkan setelah update
