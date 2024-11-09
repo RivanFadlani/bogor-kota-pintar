@@ -51,6 +51,7 @@
                 </div>
                 <!-- Input Upload Gambar End -->
             </div>
+
             {{-- Status Start --}}
             <div class="mb-4 flex flex-wrap">
                 <label class="block uppercase tracking-wider text-left text-sm font-medium"

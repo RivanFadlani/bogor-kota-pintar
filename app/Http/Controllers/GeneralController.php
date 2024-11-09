@@ -24,7 +24,7 @@ class GeneralController extends Controller
         $subdimensis = Subdimensi::all();
         $videos = Video::where('status', 'publish')->get();
         $roadmaps = Roadmap::where('status', 'publish')->get();
-        $booklets = Booklet::all();
+        $booklets = Booklet::where('status', 'publish')->get();
         $navigasis = Navigasi::all();
 
         $dimensiList = Subdimensi::distinct('dimensi')->pluck('dimensi');

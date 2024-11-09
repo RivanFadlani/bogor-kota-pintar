@@ -55,6 +55,7 @@ class BookletController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
             'judul' => 'required|string|max:50',
             'url' => 'required|url',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -70,6 +71,7 @@ class BookletController extends Controller
             'gambar' => $filename ?? '',
             'judul' => $request->judul,
             'url' => $request->url,
+            'status' => $request->status,
         ]);
         return redirect()->route('admin.booklet.index')->with('success', 'Dokumen berhasil ditambahkan!');
     }
@@ -91,6 +93,7 @@ class BookletController extends Controller
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
             'judul' => 'required|string|max:50',
             'url' => 'required|url',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         // Cari quickwin berdasarkan ID
@@ -115,6 +118,7 @@ class BookletController extends Controller
         // Update data quickwin lainnya
         $booklets->judul = $request->judul;
         $booklets->url = $request->url;
+        $booklets->status = $request->status;
         $booklets->save();
 
         // Redirect ke halaman yang diinginkan setelah update
