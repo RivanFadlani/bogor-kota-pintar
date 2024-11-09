@@ -51,6 +51,7 @@ class ProgramimpController extends Controller
         $request->validate([
             'judul' => 'required|string|max:50',
             'gambar' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         //upload foto KE file /uploads DI /storage
@@ -65,6 +66,7 @@ class ProgramimpController extends Controller
         Programimp::create([
             'judul' => $request->judul,
             'gambar' => $filename ?? '',
+            'status' => $request->status,
         ]);
         return redirect()->route('admin.programimp.index')->with('success', 'Dokumen berhasil ditambahkan!');
     }
@@ -85,6 +87,7 @@ class ProgramimpController extends Controller
         $request->validate([
             'judul' => 'required|string|max:50',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'status' => 'required|in:publish,tidak publish',
         ]);
 
         // Cari quickwin berdasarkan ID
@@ -108,6 +111,7 @@ class ProgramimpController extends Controller
 
         // Update data quickwin lainnya
         $programimps->judul = $request->judul;
+        $programimps->status = $request->status;
         $programimps->save();
 
         // Redirect ke halaman yang diinginkan setelah update
