@@ -28,10 +28,18 @@
 
             <div class="grid grid-cols-2 gap-4">
                 <!-- Input Judul Start -->
-                <div class="mb-4">
-                    <label for="judul" class="block text-gray-700">Dimensi</label>
+                <div class="mb-4 flex flex-wrap">
+                    <label for="judul"
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Dimensi</label>
+                    <div class="relative group">
+                        <span class="text-red-600 font-bold">*</span>
+                        <span
+                            class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                            harus diisi
+                        </span>
+                    </div>
                     <input type="text" name="dimensi" id="judul"
-                        class="w-full p-2 border border-gray-300 rounded"
+                        class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                         value="{{ old('dimensi', $subdimensis->dimensi) }}" required>
                     @error('dimensi')
                         <span class="bg-red-500">{{ $message }}</span>
@@ -40,11 +48,20 @@
                 <!-- Input Judul End -->
 
                 <!-- Input Judul Start -->
-                <div class="mb-4">
-                    <label for="judul" class="block text-gray-700">Sub Dimensi</label>
+                <div class="mb-4 flex flex-wrap">
+                    <label for="judul"
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Sub
+                        Dimensi</label>
+                    <div class="relative group">
+                        <span class="text-red-600 font-bold">*</span>
+                        <span
+                            class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                            harus diisi
+                        </span>
+                    </div>
                     <input type="text" name="sub" id="judul"
-                        class="w-full p-2 border border-gray-300 rounded" value="{{ old('sub', $subdimensis->sub) }}"
-                        required>
+                        class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
+                        value="{{ old('sub', $subdimensis->sub) }}" required>
                     @error('sub')
                         <span class="bg-red-500">{{ $message }}</span>
                     @enderror
@@ -53,8 +70,16 @@
             </div>
 
             <!-- Input Deskripsi Start -->
-            <div class="mb-4">
-                <label for="deskripsi" class="block text-gray-700">Misi</label>
+            <div class="mb-4 flex flex-wrap">
+                <label for="deskripsi"
+                    class="block mb-2 uppercase tracking-wider text-left text-sm font-medium text-gray-700">Misi</label>
+                <div class="relative group w-1/2">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
                 <textarea name="deskripsi" id="deskripsi" class="w-full p-2 border border-gray-300 rounded ckeditor" required>{{ old('deskripsi', $subdimensis->deskripsi) }}</textarea>
                 @error('misi')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -63,13 +88,27 @@
             <!-- Input Deskripsi End -->
 
             <!-- Input Upload Gambar Start -->
-            <div class="mb-4">
-                <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
+            <div class="mb-4 flex flex-wrap">
+                <label for="gambar"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Upload
+                    Gambar</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
                 <input type="file" name="gambar" id="gambar" class="w-full p-2 border border-gray-300 rounded">
-                <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
+                <p class="text-red-500 w-full">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
                 <!-- Menampilkan nama file lama -->
                 @if ($subdimensis->gambar)
-                    <p class="text-gray-500 mt-2">File saat ini: {{ $subdimensis->gambar }}</p>
+                    <div class="form-group">
+                        <label class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Pratinjau
+                            Gambar Saat Ini:</label>
+                        <img src="{{ asset('uploads/subdimensi/' . $subdimensis->gambar) }}"
+                            alt="{{ $subdimensis->judul }}" style="max-width: 200px; max-height: 200px;">
+                    </div>
                 @endif
             </div>
 
@@ -77,7 +116,7 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+                <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Simpan Perubahan</button>
             </div>
         </form>
         <!-- Form untuk menambah quickwin End -->

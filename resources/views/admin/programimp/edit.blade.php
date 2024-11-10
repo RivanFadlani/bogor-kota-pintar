@@ -27,9 +27,18 @@
             @method('PUT')
 
             <!-- Input Judul Start -->
-            <div class="mb-4">
-                <label for="judul" class="block text-gray-700">Kategori</label>
-                <input type="text" name="judul" id="judul" class="w-full p-2 border border-gray-300 rounded"
+            <div class="mb-4 flex flex-wrap">
+                <label for="judul"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Kategori</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <input type="text" name="judul" id="judul"
+                    class="w-full input: text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                     value="{{ old('judul', $programimps->judul) }}" required>
                 @error('judul')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -38,13 +47,27 @@
             <!-- Input Judul End -->
 
             <!-- Input Upload Gambar Start -->
-            <div class="mb-4">
-                <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
+            <div class="mb-4 flex flex-wrap">
+                <label for="gambar"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Upload
+                    Gambar</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
                 <input type="file" name="gambar" id="gambar" class="w-full p-2 border border-gray-300 rounded">
-                <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
+                <p class="text-red-500 w-full">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
                 <!-- Menampilkan nama file lama -->
                 @if ($programimps->gambar)
-                    <p class="text-gray-500 mt-2">File saat ini: {{ $programimps->gambar }}</p>
+                    <div class="form-group">
+                        <label class="block mb-2 capitalize tracking-wider text-left text-sm font-normal">Pratinjau
+                            Gambar Saat Ini:</label>
+                        <img src="{{ asset('uploads/ProgramImplementasi/' . $programimps->gambar) }}"
+                            alt="{{ $programimps->judul }}" style="max-width: 200px; max-height: 200px;">
+                    </div>
                 @endif
             </div>
 
@@ -52,7 +75,7 @@
 
             {{-- Status Start --}}
             <div class="mb-4 flex flex-wrap">
-                <label class="block uppercase tracking-wider text-left text-sm font-medium"
+                <label class="block capitalize tracking-wider text-left text-sm font-medium"
                     for="status">Status</label>
                 <div class="relative group">
                     <span class="text-red-600 font-bold">*</span>

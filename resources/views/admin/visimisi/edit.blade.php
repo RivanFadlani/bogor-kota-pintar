@@ -27,9 +27,18 @@
             @method('PUT')
 
             <!-- Input Visi Start -->
-            <div class="mb-4">
-                <label for="visi" class="block text-gray-700">Visi</label>
-                <input type="text" name="visi" id="visi" class="w-full p-2 border border-gray-300 rounded"
+            <div class="mb-4 flex flex-wrap">
+                <label for="visi"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Visi</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <input type="text" name="visi" id="visi"
+                    class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                     value="{{ old('visi', $visimisis->visi) }}" required>
                 @error('judul')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -38,8 +47,16 @@
             <!-- Input Judul End -->
 
             <!-- Textarea Misi Start -->
-            <div class="mb-4">
-                <label for="misi" class="block text-gray-700">Misi</label>
+            <div class="mb-4 flex flex-wrap">
+                <label for="misi"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Misi</label>
+                <div class="relative group w-1/2">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
                 <textarea name="misi" id="misi" class="w-full p-2 border border-gray-300 rounded ckeditor" required>{{ old('misi', $visimisis->misi) }}</textarea>
                 @error('misi')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -49,7 +66,7 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+                <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Simpan Perubahan</button>
             </div>
         </form>
         {{-- Kategori Form End --}}

@@ -27,9 +27,18 @@
             @method('PUT')
 
             <!-- Input Judul Start -->
-            <div class="mb-4">
-                <label for="kategori" class="block text-gray-700">Kategori</label>
-                <input type="text" name="kategori" id="kategori" class="w-full p-2 border border-gray-300 rounded"
+            <div class="mb-4 flex flex-wrap">
+                <label for="kategori"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Kategori</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <input type="text" name="kategori" id="kategori"
+                    class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                     value="{{ old('judul', $kategoris->kategori) }}" required>
                 @error('judul')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -39,7 +48,7 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+                <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Simpan Perubahan</button>
             </div>
         </form>
         {{-- Kategori Form End --}}

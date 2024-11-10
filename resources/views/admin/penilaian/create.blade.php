@@ -26,9 +26,18 @@
             @csrf
 
             <!-- Input Judul Start -->
-            <div class="mb-4">
-                <label for="judul" class="block text-gray-700">Judul</label>
-                <input type="text" name="judul" id="judul" class="w-full p-2 border border-gray-300 rounded"
+            <div class="mb-4 flex flex-wrap">
+                <label for="judul"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Judul</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <input type="text" name="judul" id="judul"
+                    class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                     value="{{ old('judul') }}">
                 @error('judul')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -37,9 +46,18 @@
             <!-- Input Judul End -->
 
             <!-- Input Nilai Start -->
-            <div class="mb-4">
-                <label for="nilai" class="block text-gray-700">nilai</label>
-                <input type="nilai" name="nilai" id="nilai" class="w-full p-2 border border-gray-300 rounded"
+            <div class="mb-4 flex flex-wrap">
+                <label for="nilai"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">nilai</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <input type="nilai" name="nilai" id="nilai"
+                    class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                     value="{{ old('nilai') }}">
                 @error('nilai')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -50,7 +68,7 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Penilaian</button>
+                <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Tambah Penilaian</button>
             </div>
         </form>
         <!-- Dokumen Form Start -->
