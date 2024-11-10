@@ -28,9 +28,11 @@
             <div class="grid grid-cols-2 gap-4">
                 <!-- Input Sertifikat Start -->
                 <div class="mb-4">
-                    <label for="judul" class="block text-gray-700">Judul</label>
+                    <label for="judul"
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Judul</label>
                     <input type="text" name="judul" id="judul"
-                        class="w-full p-2 border border-gray-300 rounded" value="{{ old('judul') }}">
+                        class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
+                        value="{{ old('judul') }}">
                     @error('judul')
                         <span class="bg-red-500">{{ $message }}</span>
                     @enderror
@@ -39,9 +41,13 @@
 
                 <!-- Input untuk Upload Gambar start -->
                 <div class="mb-4">
-                    <label for="gambar" class="block text-gray-700">Upload Gambar:</label>
+                    <label for="gambar"
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Upload
+                        Gambar:</label>
                     <input type="file" name="gambar" id="gambar"
-                        class="w-full p-2 border bg-white border-gray-300 rounded" value="{{ old('gambar') }}">
+                        class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border bg-white border-gray-300 rounded"
+                        value="{{ old('gambar') }}">
+                    <p class="text-red-500">Ukuran maks. file gambar: 1 MB / 1024 KB</p>
                 </div>
                 <!-- Input untuk Upload Gambar end -->
 
@@ -49,8 +55,10 @@
 
             <!-- Input Kategori Start -->
             <div class="mb-4">
-                <label for="kategori" class="block text-gray-700">Kategori</label>
-                <input type="text" name="kategori" id="kategori" class="w-full p-2 border border-gray-300 rounded"
+                <label for="kategori"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Kategori</label>
+                <input type="text" name="kategori" id="kategori"
+                    class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                     value="{{ old('kategori') }}">
                 @error('kategori')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -60,7 +68,7 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Sertifikat</button>
+                <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Tambah Sertifikat</button>
             </div>
         </form>
         <!-- Form untuk menambah quickwin end -->

@@ -29,7 +29,7 @@
                 <!-- Input Dimensi Start -->
                 <div class="mb-4 flex flex-wrap">
                     <label for="judul"
-                        class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Judul</label>
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Judul</label>
                     <div class="relative group">
                         <span class="text-red-600 font-bold">*</span>
                         <span
@@ -47,7 +47,8 @@
 
                 <!-- Input Dimensi Start -->
                 <div class="mb-4 flex flex-wrap">
-                    <label for="yt" class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Link
+                    <label for="yt"
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Link
                         Youtube</label>
                     <div class="relative group">
                         <span class="text-red-600 font-bold">*</span>
@@ -70,7 +71,7 @@
             {{-- Status Start --}}
             <div class="flex flex-wrap">
                 <label for="status"
-                    class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Status</label>
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Status</label>
                 <div class="relative group">
                     <span class="text-red-600 font-bold">*</span>
                     <span

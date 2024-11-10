@@ -28,10 +28,19 @@
 
             <div class="grid grid-cols-2 gap-4">
                 <!-- Input Judul Start -->
-                <div class="mb-4">
-                    <label for="judul" class="block text-gray-700">Judul</label>
+                <div class="mb-4 flex flex-wrap">
+                    <label for="judul"
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Judul</label>
+                    <div class="relative group">
+                        <span class="text-red-600 font-bold">*</span>
+                        <span
+                            class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                            harus diisi
+                        </span>
+                    </div>
                     <input type="text" name="judul" id="judul"
-                        class="w-full p-2 border border-gray-300 rounded" value="{{ old('judul', $videos->judul) }}">
+                        class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
+                        value="{{ old('judul', $videos->judul) }}">
                     @error('judul')
                         <span class="bg-red-500">{{ $message }}</span>
                     @enderror
@@ -39,10 +48,19 @@
                 <!-- Input Judul End -->
 
                 <!-- Input Judul Start -->
-                <div class="mb-4">
-                    <label for="judul" class="block text-gray-700">Link Youtube</label>
+                <div class="mb-4 flex flex-wrap">
+                    <label for="judul"
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Link
+                        Youtube</label>
+                    <div class="relative group">
+                        <span class="text-red-600 font-bold">*</span>
+                        <span
+                            class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                            harus diisi
+                        </span>
+                    </div>
                     <input type="text" name="youtube_link" id="judul"
-                        class="w-full p-2 border border-gray-300 rounded"
+                        class="w-full text-gray-700 tracking-wider text-left text-sm font-medium p-2 border border-gray-300 rounded"
                         value="{{ old('youtube_link', $videos->youtube_link) }}" required>
                     @error('youtube_link')
                         <span class="bg-red-500">{{ $message }}</span>
@@ -53,7 +71,7 @@
 
             {{-- Status Start --}}
             <div class="mb-4 flex flex-wrap">
-                <label class="block uppercase tracking-wider text-left text-sm font-medium"
+                <label class="block capitalize tracking-wider text-left text-sm font-medium"
                     for="status">Status</label>
                 <div class="relative group">
                     <span class="text-red-600 font-bold">*</span>
@@ -79,7 +97,7 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+                <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Simpan Perubahan</button>
             </div>
         </form>
         <!-- Form untuk menambah quickwin End -->

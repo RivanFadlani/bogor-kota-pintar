@@ -28,7 +28,7 @@
             {{-- Input Judul Start --}}
             <div class="mb-4 flex flex-wrap">
                 <label for="judul"
-                    class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Judul</label>
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Judul</label>
                 <div class="relative group">
                     <span class="text-red-600 font-bold">*</span>
                     <span
@@ -47,7 +47,7 @@
 
             <!-- Input Upload Gambar Start -->
             <div class="mb-4">
-                <label for="gambar" class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Upload
+                <label for="gambar" class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Upload
                     Gambar (Thumbnail)</label>
                 <input type="file" name="gambar" id="gambar"
                     class="w-full p-2 border bg-white border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
@@ -59,7 +59,7 @@
             <!-- Input Link Start -->
             <div class="mb-4 flex flex-wrap">
                 <label for="url"
-                    class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Link</label>
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Link</label>
                 <div class="relative group">
                     <span class="text-red-600 font-bold">*</span>
                     <span
@@ -81,7 +81,7 @@
                 {{-- Select Kategori Start --}}
                 <div class="flex flex-wrap">
                     <label for="kategori_id"
-                        class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Pilih
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Pilih
                         Kategori</label>
                     <div class="relative group">
                         <span class="text-red-600 font-bold">*</span>
@@ -102,7 +102,7 @@
                 {{-- Status Start --}}
                 <div class="flex flex-wrap">
                     <label for="status"
-                        class="block mb-2 uppercase tracking-wider text-left text-sm font-medium">Status:</label>
+                        class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Status</label>
                     <div class="relative group">
                         <span class="text-red-600 font-bold">*</span>
                         <span
