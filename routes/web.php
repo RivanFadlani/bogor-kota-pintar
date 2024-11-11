@@ -23,6 +23,7 @@ use App\Http\Controllers\NavigasiController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PenilaianPage;
 use App\Http\Controllers\PenilianController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\QuickwinController;
 use App\Http\Controllers\ProgramimpController;
 use App\Http\Controllers\SertifikatController;
@@ -45,6 +46,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/permission', [PermissionController::class, 'index'])->name('permission.index');
+    Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
+    Route::post('/permission', [PermissionController::class, 'store'])->name('permission.store');
+    Route::get('/permission/{id}/edit', [PermissionController::class, 'edit'])->name('permission.edit');
+    Route::post('/permission/{id}', [PermissionController::class, 'update'])->name('permission.update');
+    Route::delete('/permission/{id}', [PermissionController::class, 'destroy'])->name('permission.destroy');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
