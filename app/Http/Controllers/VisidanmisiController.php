@@ -2,26 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visidanmisi;
 use Illuminate\View\View;
+use App\Models\Visidanmisi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class VisidanmisiController extends Controller
 {
-    public function general()
+    // public function general()
+    // {
+    //     $visimisis = Visidanmisi::all();
+
+    //     return view('general', compact('visimisis'));
+    // }
+
+    protected $allowedPerPage = [5, 10, 25, 50];
+
+    public function index(Request $request): View
     {
-        $visimisis = Visidanmisi::all();
+        $sortField = $request->query('sort_by', 'visi');
+        $sortDirection = $request->query('direction', 'asc');
+        $perPage = (int) $request->query('per_page', 5);
+        $query = $request->input('query'); // Ambil input pencarian dari request
 
-        return view('general', compact('visimisis'));
-    }
+        if (!in_array($perPage, $this->allowedPerPage)) {
+            $perPage = 5;
+        }
 
-    public function index(): View
-    {
-        $visimisis = Visidanmisi::latest()->paginate(10);
+        // DB = nama table
+        $items = DB::table('visidanmisis')
+            ->where('visi', 'like', '%' . $query . '%')
+            ->orWhere('misi', 'like', '%' . $query . '%')
+            ->orderBy($sortField, $sortDirection) // asc, desc
+            ->paginate($perPage) // Pagination
+            ->appends(['query' => $query]);
 
-        return view('admin.visimisi.index', compact('visimisis'));
-        //
+        return view('admin.visimisi.index', [
+            'items' => $items,
+            'query' => $query,
+            'sortField' => $sortField,
+            'sortDirection' => $sortDirection,
+            'perPage' => $perPage,
+            'allowedPerPage' => $this->allowedPerPage
+        ]); // Kirim data ke view
     }
 
     public function create(): View

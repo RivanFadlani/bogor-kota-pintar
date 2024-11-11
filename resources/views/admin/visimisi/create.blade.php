@@ -26,9 +26,18 @@
             @csrf
 
             <!-- Input Visi Start -->
-            <div class="mb-4">
-                <label for="visi" class="block text-gray-700">Visi</label>
-                <input type="text" name="visi" id="visi" class="w-full p-2 border border-gray-300 rounded"
+            <div class="mb-4 flex flex-wrap">
+                <label for="visi"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Visi</label>
+                <div class="relative group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <input type="text" name="visi" id="visi"
+                    class="w-full text-gray-700 tracking-wider text-left text-sm font-medium  p-2 border border-gray-300 rounded"
                     value="{{ old('visi') }}" required>
                 @error('visi')
                     <span class="bg-red-500">{{ $message }}</span>
@@ -37,9 +46,17 @@
             <!-- Input Visi End -->
 
             <!-- Textarea Misi Start -->
-            <div class="mb-4">
-                <label for="misi" class="block text-gray-700">Misi</label>
-                <textarea name="misi" id="misi" class="w-full p-2 border border-gray-300 rounded" required>{{ old('misi') }}</textarea>
+            <div class="mb-4 flex flex-wrap">
+                <label for="misi"
+                    class="block mb-2 capitalize tracking-wider text-left text-sm font-medium text-gray-700">Misi</label>
+                <div class="relative w-1/2 group">
+                    <span class="text-red-600 font-bold">*</span>
+                    <span
+                        class="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1">
+                        harus diisi
+                    </span>
+                </div>
+                <textarea name="misi" id="misi" class="w-full p-2 border border-gray-300 rounded ckeditor" required>{{ old('misi') }}</textarea>
                 @error('misi')
                     <span class="bg-red-500">{{ $message }}</span>
                 @enderror
@@ -48,9 +65,11 @@
 
             <!-- Tombol Submit -->
             <div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah Dokumen</button>
+                <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Tambah Dokumen</button>
             </div>
         </form>
         <!-- Dokumen Form Start -->
     </div>
+
+    <script src="/ckeditor/ckeditor.js"></script>
 </x-app-layout>
