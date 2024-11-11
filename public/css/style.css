@@ -6,3 +6,48 @@
     padding-top: 20px; /* This creates some space between the element and the border. */
     border-bottom: 5px solid black; /* This creates the border. Replace black with whatever color you want. */
 }
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px; /* Ubah ukuran button menjadi 70px */
+    height: 70px; /* Ubah ukuran button menjadi 70px */
+    background-color: white;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-top-btn::before {
+    content: "";
+    width: 15px; /* Perbesar ukuran panah */
+    height: 15px; /* Perbesar ukuran panah */
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    transform: rotate(45deg);
+    margin-top: 6px;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px; /* Ubah ukuran SVG menjadi 70px */
+    height: 70px; /* Ubah ukuran SVG menjadi 70px */
+}
+
+.progress-ring__circle {
+    stroke: #242f9b;
+    stroke-width: 5; /* Ubah ketebalan stroke menjadi 5 */
+    fill: transparent;
+    transition: stroke-dashoffset 0.1s;
+    transform: rotate(-90deg);
+    transform-origin: 35px 35px; /* Sesuaikan transform origin */
+}

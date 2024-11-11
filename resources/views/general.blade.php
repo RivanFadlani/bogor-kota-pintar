@@ -23,6 +23,16 @@
 </head>
 
 <body>
+
+    {{-- Scroll To Top $ Scroll Progress Start --}}
+    <button class="scroll-top-btn">
+        <svg class="progress-ring" width="70" height="70"> <!-- Ubah ukuran SVG -->
+            <circle class="progress-ring__circle" r="32" cx="35" cy="35" />
+            <!-- Sesuaikan radius dan posisi circle -->
+        </svg>
+    </button>
+    {{-- Scroll To Top $ Scroll Progress End --}}
+
     {{-- Header Section Start --}}
     <header class="w-full p-3 absolute lg:max-w-full mx-auto">
 
@@ -578,6 +588,46 @@
     {{-- Footer End --}}
 
     {{-- JS Start --}}
+
+    {{-- Scroll To Top $ Scroll Progress Start --}}
+    <script type="text/javascript">
+        const scrollButton = document.querySelector('.scroll-top-btn');
+        const circle = document.querySelector('.progress-ring__circle');
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference;
+
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100 * circumference);
+            circle.style.strokeDashoffset = offset;
+        }
+
+        function updateScroll() {
+            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = window.scrollY;
+            const scrollPercent = (scrolled / scrollTotal) * 100;
+
+            setProgress(scrollPercent);
+
+            if (scrolled > 300) {
+                scrollButton.style.display = 'flex';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        }
+
+        scrollButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        window.addEventListener('scroll', updateScroll);
+    </script>
+    {{-- Scroll To Top $ Scroll Progress End --}}
 
     {{-- Google Translate Widget Start --}}
     <script type="text/javascript">

@@ -18,6 +18,15 @@
 
 <body>
 
+    {{-- Scroll To Top $ Scroll Progress Start --}}
+    <button class="scroll-top-btn">
+        <svg class="progress-ring" width="70" height="70"> <!-- Ubah ukuran SVG -->
+            <circle class="progress-ring__circle" r="32" cx="35" cy="35" />
+            <!-- Sesuaikan radius dan posisi circle -->
+        </svg>
+    </button>
+    {{-- Scroll To Top $ Scroll Progress End --}}
+
     {{-- Header Section Start --}}
     <header class="w-full p-3 absolute lg:max-w-full mx-auto">
 
@@ -237,9 +246,9 @@
         {{-- Kategori Start --}}
         <div class="px-4 lg:px-24 sm:mx-7">
 
-            <div class=" w-full h-full p-10 bg-white border border-gray-300 shadow-xl rounded-2xl">
+            <div class=" w-full h-full p-5 bg-white border border-gray-300 shadow-xl rounded-2xl">
                 @foreach ($sertifikats as $sertifikat)
-                    <div class="slide-up w-full mb-5 py-3 px-7 border-b border-gray-400">
+                    <div class="slide-up w-full py-1 px-7">
                         {{ $sertifikat->kategori }}</div>
                 @endforeach
             </div>
@@ -330,6 +339,46 @@
     {{-- Footer End --}}
 
     {{-- JS START --}}
+
+    {{-- Scroll To Top $ Scroll Progress Start --}}
+    <script type="text/javascript">
+        const scrollButton = document.querySelector('.scroll-top-btn');
+        const circle = document.querySelector('.progress-ring__circle');
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference;
+
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100 * circumference);
+            circle.style.strokeDashoffset = offset;
+        }
+
+        function updateScroll() {
+            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = window.scrollY;
+            const scrollPercent = (scrolled / scrollTotal) * 100;
+
+            setProgress(scrollPercent);
+
+            if (scrolled > 300) {
+                scrollButton.style.display = 'flex';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        }
+
+        scrollButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        window.addEventListener('scroll', updateScroll);
+    </script>
+    {{-- Scroll To Top $ Scroll Progress End --}}
 
     {{-- Google Translate Widget Start --}}
     <script type="text/javascript">
