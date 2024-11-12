@@ -8,9 +8,21 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class BookletController extends Controller
+class BookletController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view booklets', only: ['index']),
+            new Middleware('permission:edit booklets', only: ['edit']),
+            new Middleware('permission:create booklets', only: ['create']),
+            new Middleware('permission:delete booklets', only: ['destroy']),
+        ];
+    }
+
     protected $allowedPerPage = [5, 10, 25, 50];
 
     public function index(Request $request)

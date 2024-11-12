@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
-use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
 class UserController extends Controller implements HasMiddleware
 {
@@ -66,7 +67,10 @@ class UserController extends Controller implements HasMiddleware
      */
     public function create()
     {
-        //
+        $roles = Role::orderBy('name', 'ASC')->get();
+        return view('admin.users.create', [
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -74,15 +78,26 @@ class UserController extends Controller implements HasMiddleware
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|same:confirm_password',
+            'confirm_password' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        if ($validator->fails()) {
+            return redirect()->route('users.create')->withInput()->withErrors($validator);
+        }
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        $user->syncRoles($request->role);
+
+        return redirect()->route('users.index')->with('success', 'User added successfully');
     }
 
     /**
@@ -129,8 +144,12 @@ class UserController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect()->route('roles.index')->with('success', 'Status deleted successfully!');
     }
 }

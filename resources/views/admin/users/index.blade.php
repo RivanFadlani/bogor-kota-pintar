@@ -5,13 +5,15 @@
             <div class="mb-8">
                 <div class="flex justify-between items-center">
                     <h1 class="text-3xl font-bold text-gray-900">Daftar Roles</h1>
-                    <a href="{{ route('roles.create') }}"
-                        class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow transition duration-150 ease-in-out">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
-                        Tambah Roles
-                    </a>
+                    @can('create users')
+                        <a href="{{ route('users.create') }}"
+                            class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow transition duration-150 ease-in-out">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                            Tambah Roles
+                        </a>
+                    @endcan
                 </div>
                 <div class="mt-4 flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
                     <div class="relative">
@@ -136,7 +138,7 @@
                                                 Edit
                                             </a>
                                         @endcan
-                                        {{-- <button onclick="openDeleteModal('{{ $role->id }}')"
+                                        <button onclick="openDeleteModal('{{ $user->id }}')"
                                             class="inline-flex items-center px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition">
                                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24">
@@ -144,7 +146,7 @@
                                                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                             </svg>
                                             Hapus
-                                        </button> --}}
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -301,10 +303,10 @@
         @endif
 
         // Delete Modal Functions
-        function openDeleteModal(rolesId) {
+        function openDeleteModal(usersId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
-            form.action = `/roles/${rolesId}`;
+            form.action = `/users/${usersId}`;
             modal.classList.remove('hidden');
         }
 

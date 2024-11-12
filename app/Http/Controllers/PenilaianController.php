@@ -7,9 +7,21 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class PenilaianController extends Controller
+class PenilaianController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view penilaians', only: ['index']),
+            new Middleware('permission:edit penilaians', only: ['edit']),
+            new Middleware('permission:create penilaians', only: ['create']),
+            new Middleware('permission:delete penilaians', only: ['destroy']),
+        ];
+    }
+
     protected $allowedPerPage = [5, 10, 25, 50];
 
     public function index(Request $request): View

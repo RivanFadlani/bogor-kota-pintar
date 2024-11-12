@@ -8,9 +8,21 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class ProgramimpController extends Controller
+class ProgramimpController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view program implementasis', only: ['index']),
+            new Middleware('permission:edit program implementasis', only: ['edit']),
+            new Middleware('permission:create program implementasis', only: ['create']),
+            new Middleware('permission:delete program implementasis', only: ['destroy']),
+        ];
+    }
+
     protected $allowedPerPage = [5, 10, 25, 50];
 
     public function index(Request $request): View
