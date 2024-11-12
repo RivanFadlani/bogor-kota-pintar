@@ -29,7 +29,7 @@ class RoleController extends Controller
                 $q->where('name', 'like', '%' . $query . '%')
                     // ->orWhere('url', 'like', '%' . $query . '%')
                     ->orWhereHas('permissions', function ($q) use ($query) {
-                        $q->where('permissions', 'like', '%' . $query . '%'); // Pencarian berdasarkan nama kategori
+                        $q->where('name', 'like', '%' . $query . '%'); // Pencarian berdasarkan nama kategori
                     });
                 // ->orWhere('status', 'like', '%' . $query . '%');
             })

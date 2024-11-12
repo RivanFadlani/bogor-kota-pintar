@@ -113,6 +113,14 @@
                             </li>
 
                             <li>
+                                <a href="{{ route('users.index') }}"
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                   {{ request()->routeIs('users.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                    Users
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('admin.programimp.index') }}"
                                     class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.programimp.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
