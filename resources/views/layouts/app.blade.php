@@ -97,6 +97,22 @@
                             </li>
 
                             <li>
+                                <a href="{{ route('permission.index') }}"
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                   {{ request()->routeIs('permission.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                    Permission
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('roles.index') }}"
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                   {{ request()->routeIs('roles.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                    Roles
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('admin.programimp.index') }}"
                                     class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
                                    {{ request()->routeIs('admin.programimp.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
