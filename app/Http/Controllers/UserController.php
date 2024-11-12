@@ -7,9 +7,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class UserController extends Controller
+class UserController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view users', only: ['index']),
+            new Middleware('permission:edit users', only: ['edit']),
+            // new Middleware('permission:create users', only: ['create']),
+            // new Middleware('permission:delete users', only: ['destroy']),
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -72,6 +72,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::post('/users/{id}', [UserController::class, 'update'])->name('users.update');
     // Route::delete('/roles/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+
+    // NAVIGASI ROUTE
+    Route::get('/admin/navigasi', [NavigasiController::class, 'index'])->name('admin.navigasi.index');
+    Route::get('/admin/navigasi/create', [NavigasiController::class, 'create'])->name('admin.navigasi.create');
+    Route::post('/admin/navigasi/store', [NavigasiController::class, 'store'])->name('admin.navigasi.store');
+    Route::get('/admin/navigasi/{id}/edit', [NavigasiController::class, 'edit'])->name('admin.navigasi.edit');
+    Route::put('/admin/navigasi/{id}', [NavigasiController::class, 'update'])->name('admin.navigasi.update');
+    Route::delete('/admin/navigasi/{id}', [NavigasiController::class, 'destroy'])->name('admin.navigasi.destroy');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -173,14 +181,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/sertifikat/{id}/edit', [SertifikatController::class, 'edit'])->name('admin.sertifikat.edit');
     Route::put('/admin/sertifikat/{id}', [SertifikatController::class, 'update'])->name('admin.sertifikat.update');
     Route::delete('/admin/sertifikat/{id}', [SertifikatController::class, 'destroy'])->name('admin.sertifikat.destroy');
-
-    // SERTIFIKAT ROUTE
-    Route::get('/admin/navigasi', [NavigasiController::class, 'index'])->name('admin.navigasi.index');
-    Route::get('/admin/navigasi/create', [NavigasiController::class, 'create'])->name('admin.navigasi.create');
-    Route::post('/admin/navigasi/store', [NavigasiController::class, 'store'])->name('admin.navigasi.store');
-    Route::get('/admin/navigasi/{id}/edit', [NavigasiController::class, 'edit'])->name('admin.navigasi.edit');
-    Route::put('/admin/navigasi/{id}', [NavigasiController::class, 'update'])->name('admin.navigasi.update');
-    Route::delete('/admin/navigasi/{id}', [NavigasiController::class, 'destroy'])->name('admin.navigasi.destroy');
 });
 
 require __DIR__ . '/auth.php';

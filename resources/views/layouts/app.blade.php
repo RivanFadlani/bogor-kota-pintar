@@ -96,29 +96,41 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="{{ route('permission.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('permission.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Permission
-                                </a>
-                            </li>
+                            {{-- Permission Nav Start --}}
+                            @can('view permissions')
+                                <li>
+                                    <a href="{{ route('permission.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('permission.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Permission
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Permission Nav End --}}
 
-                            <li>
-                                <a href="{{ route('roles.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('roles.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Roles
-                                </a>
-                            </li>
+                            {{-- Roles Nav Start --}}
+                            @can('view roles')
+                                <li>
+                                    <a href="{{ route('roles.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('roles.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Roles
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Roles Nav End --}}
 
-                            <li>
-                                <a href="{{ route('users.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('users.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Users
-                                </a>
-                            </li>
+                            {{-- User Nav Start --}}
+                            @can('view users')
+                                <li>
+                                    <a href="{{ route('users.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('users.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Users
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- User Nav End --}}
 
                             <li>
                                 <a href="{{ route('admin.programimp.index') }}"
@@ -207,13 +219,17 @@
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="{{ route('admin.navigasi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.navigasi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Navigasi
-                                </a>
-                            </li>
+                            {{-- Navigasi Nav Start --}}
+                            @can('view navigasis')
+                                <li>
+                                    <a href="{{ route('admin.navigasi.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.navigasi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Navigasi
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Navigasi Nav End --}}
                         </ul>
                     </nav>
                 </div>
