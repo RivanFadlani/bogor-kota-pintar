@@ -7,9 +7,21 @@ use App\Models\Visidanmisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class VisidanmisiController extends Controller
+class VisidanmisiController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view visimisis', only: ['index']),
+            new Middleware('permission:edit visimisis', only: ['edit']),
+            new Middleware('permission:create visimisis', only: ['create']),
+            new Middleware('permission:delete visimisis', only: ['destroy']),
+        ];
+    }
+
     // public function general()
     // {
     //     $visimisis = Visidanmisi::all();

@@ -8,9 +8,21 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class DimensiController extends Controller
+class DimensiController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view dimensis', only: ['index']),
+            new Middleware('permission:edit dimensis', only: ['edit']),
+            new Middleware('permission:create dimensis', only: ['create']),
+            new Middleware('permission:delete dimensis', only: ['destroy']),
+        ];
+    }
+
     protected $allowedPerPage = [5, 10, 25, 50];
 
     public function index(Request $request)

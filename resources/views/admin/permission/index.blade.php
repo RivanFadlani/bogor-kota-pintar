@@ -4,23 +4,23 @@
             <!-- Header Section -->
             <div class="mb-8">
                 <div class="flex justify-between items-center">
-                    <h1 class="text-3xl font-bold text-gray-900">Daftar Navigasi</h1>
-                    @can('create navigasis')
-                        <a href="{{ route('admin.navigasi.create') }}"
+                    <h1 class="text-3xl font-bold text-gray-900">Daftar Permissions</h1>
+                    @can('create permissions')
+                        <a href="{{ route('permission.create') }}"
                             class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow transition duration-150 ease-in-out">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                             </svg>
-                            Tambah Navigasi
+                            Tambah Permission
                         </a>
                     @endcan
                 </div>
                 <div class="mt-4 flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
                     <div class="relative">
                         {{-- search form start --}}
-                        <form action="{{ route('admin.navigasi.index') }}" method="GET" class="flex">
+                        <form action="{{ route('permission.index') }}" method="GET" class="flex">
                             <input type="text" name="query" value="{{ old('query', $query) }}"
-                                placeholder="Cari Navigasi..."
+                                placeholder="Cari Permission..."
                                 class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
                             <div class="absolute left-3 top-2.5">
                                 <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
@@ -41,7 +41,7 @@
                     <div class="flex items-center">
                         {{-- entries per page start --}}
                         <div class="flex items-center">
-                            <form method="GET" action="{{ route('admin.navigasi.index') }}"
+                            <form method="GET" action="{{ route('permission.index') }}"
                                 class="flex items-center space-x-2">
                                 <label for="per_page" class="text-sm font-medium text-gray-700">Show</label>
                                 <select name="per_page" id="per_page" onchange="this.form.submit()"
@@ -73,15 +73,15 @@
                                 {{-- ascending descending start --}}
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    <a href="{{ route('admin.navigasi.index', [
-                                        'sort_by' => 'nav',
-                                        'direction' => $sortField === 'nav' && $sortDirection === 'asc' ? 'desc' : 'asc',
+                                    <a href="{{ route('permission.index', [
+                                        'sort_by' => 'name',
+                                        'direction' => $sortField === 'name' && $sortDirection === 'asc' ? 'desc' : 'asc',
                                         'per_page' => $perPage,
                                     ]) }}"
                                         class="group inline-flex items-center gap-x-2 hover:text-blue-600">
-                                        Navigasi
+                                        Name
                                         <span class="inline-flex flex-col items-center">
-                                            @if ($sortField === 'nav')
+                                            @if ($sortField === 'name')
                                                 @if ($sortDirection === 'asc')
                                                     <svg class="w-3 h-3 text-blue-600" viewBox="0 0 24 24"
                                                         fill="currentColor">
@@ -105,27 +105,18 @@
                                 {{-- ascending descending end --}}
                                 <th
                                     class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Link</th>
-                                <th
-                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Aksi</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($items as $navigasi)
+                            @foreach ($items as $permission)
                                 <tr class="hover:bg-gray-50 transition-colors">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $navigasi->nav }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <a href="{{ $navigasi->url }}" target="_blank"
-                                            class="text-blue-600 hover:text-blue-800 hover:underline">
-                                            {{ $navigasi->url }}
-                                        </a>
+                                        {{ $permission->name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                                        @can('edit navigasis')
-                                            <a href="{{ route('admin.navigasi.edit', $navigasi->id) }}"
+                                        @can('edit permissions')
+                                            <a href="{{ route('permission.edit', $permission->id) }}"
                                                 class="inline-flex items-center px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition">
                                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -135,8 +126,8 @@
                                                 Edit
                                             </a>
                                         @endcan
-                                        @can('delete navigasis')
-                                            <button onclick="openDeleteModal('{{ $navigasi->id }}')"
+                                        @can('delete permissions')
+                                            <button onclick="openDeleteModal('{{ $permission->id }}')"
                                                 class="inline-flex items-center px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition">
                                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -302,10 +293,10 @@
         @endif
 
         // Delete Modal Functions
-        function openDeleteModal(navigasiId) {
+        function openDeleteModal(permissionId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
-            form.action = `/admin/navigasi/${navigasiId}`;
+            form.action = `/permission/${permissionId}`;
             modal.classList.remove('hidden');
         }
 

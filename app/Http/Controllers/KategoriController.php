@@ -8,9 +8,21 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class KategoriController extends Controller
+class KategoriController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view kategori dokumens', only: ['index']),
+            new Middleware('permission:edit kategori dokumens', only: ['edit']),
+            new Middleware('permission:create kategori dokumens', only: ['create']),
+            new Middleware('permission:delete kategori dokumens', only: ['destroy']),
+        ];
+    }
+
     protected $allowedPerPage = [5, 10, 25, 50];
 
     public function index(Request $request): View

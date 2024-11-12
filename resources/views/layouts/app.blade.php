@@ -70,79 +70,152 @@
                                     x-transition:leave="transition ease-in duration-75"
                                     x-transition:leave-start="opacity-100 transform scale-100"
                                     x-transition:leave-end="opacity-0 transform scale-95" style="display: none;">
-                                    <li>
-                                        <a href="{{ route('admin.dokumen.index') }}"
-                                            class="block pl-8 pr-4 py-2 capitalize tracking-wider font-medium rounded-lg transition-colors duration-200
-                                           {{ request()->routeIs('admin.dokumen.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
-                                            Dokumen
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.kategori.index') }}"
-                                            class="block pl-8 pr-4 py-2 rounded-lg capitalize tracking-wider font-medium transition-colors duration-200
-                                           {{ request()->routeIs('admin.kategori.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
-                                            Kategori
-                                        </a>
-                                    </li>
+                                    {{-- Dokumen Nav Start --}}
+                                    @can('view dokumens')
+                                        <li>
+                                            <a href="{{ route('admin.dokumen.index') }}"
+                                                class="block pl-8 pr-4 py-2 capitalize tracking-wider font-medium rounded-lg transition-colors duration-200
+                                        {{ request()->routeIs('admin.dokumen.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                                Dokumen
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    {{-- Dokumen Nav End --}}
+                                    {{-- Kategori Nav Start --}}
+                                    @can('view kategori dokumens')
+                                        <li>
+                                            <a href="{{ route('admin.kategori.index') }}"
+                                                class="block pl-8 pr-4 py-2 rounded-lg capitalize tracking-wider font-medium transition-colors duration-200
+                                        {{ request()->routeIs('admin.kategori.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                                Kategori
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    {{-- Kategori Nav End --}}
                                 </ul>
                             </li>
 
                             <!-- Remaining menu items -->
-                            <li>
-                                <a href="{{ route('admin.visimisi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.visimisi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Visi dan Misi
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="{{ route('admin.programimp.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.programimp.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Program Implementasi
-                                </a>
-                            </li>
+                            {{-- Visi Misi Nav Start --}}
+                            @can('view visimisis')
+                                <li>
+                                    <a href="{{ route('admin.visimisi.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.visimisi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Visi dan Misi
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Visi Misi Nav End --}}
 
-                            <li>
-                                <a href="{{ route('admin.dimensi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.dimensi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Dimensi
-                                </a>
-                            </li>
+                            {{-- Permission Nav Start --}}
+                            @can('view permissions')
+                                <li>
+                                    <a href="{{ route('permission.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('permission.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Permission
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Permission Nav End --}}
 
-                            <li>
-                                <a href="{{ route('admin.booklet.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.booklet.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Booklet
-                                </a>
-                            </li>
+                            {{-- Roles Nav Start --}}
+                            @can('view roles')
+                                <li>
+                                    <a href="{{ route('roles.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('roles.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Roles
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Roles Nav End --}}
 
-                            <li>
-                                <a href="{{ route('admin.subdimensi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.subdimensi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Sub Dimensi
-                                </a>
-                            </li>
+                            {{-- User Nav Start --}}
+                            @can('view users')
+                                <li>
+                                    <a href="{{ route('users.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('users.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Users
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- User Nav End --}}
 
-                            <li>
-                                <a href="{{ route('admin.video.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.video.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Video
-                                </a>
-                            </li>
+                            {{-- Program Implementasi Nav Start --}}
+                            @can('view program implementasis')
+                                <li>
+                                    <a href="{{ route('admin.programimp.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.programimp.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Program Implementasi
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Program Implementasi Nav End --}}
 
-                            <li>
-                                <a href="{{ route('admin.roadmap.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.roadmap.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Road Map
-                                </a>
-                            </li>
+                            {{-- Dimensi Nav Start --}}
+                            @can('view dimensis')
+                                <li>
+                                    <a href="{{ route('admin.dimensi.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.dimensi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Dimensi
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Dimensi Nav End --}}
+
+                            {{-- Booklet Nav Start --}}
+                            @can('view booklets')
+                                <li>
+                                    <a href="{{ route('admin.booklet.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.booklet.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Booklet
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Booklet Nav Start --}}
+
+                            {{-- Sub Dimensi Nav Start --}}
+                            @can('view sub dimensis')
+                                <li>
+                                    <a href="{{ route('admin.subdimensi.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.subdimensi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Sub Dimensi
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Sub Dimensi Nav Start --}}
+
+                            {{-- Video Nav Start --}}
+                            @can('view videos')
+                                <li>
+                                    <a href="{{ route('admin.video.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.video.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Video
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Video Nav End --}}
+
+                            {{-- Road map Nav Start --}}
+                            @can('view road maps')
+                                <li>
+                                    <a href="{{ route('admin.roadmap.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.roadmap.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Road Map
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Road map Nav End --}}
 
                             <!-- Penilaian dan Sertifikat Dropdown -->
                             <li class="relative" x-data="{ open: false }">
@@ -166,30 +239,38 @@
                                     x-transition:leave="transition ease-in duration-75"
                                     x-transition:leave-start="opacity-100 transform scale-100"
                                     x-transition:leave-end="opacity-0 transform scale-95" style="display: none;">
-                                    <li>
-                                        <a href="{{ route('admin.penilaian.index') }}"
-                                            class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                           {{ request()->routeIs('admin.penilaian.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
-                                            Penilaian
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.sertifikat.index') }}"
-                                            class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                           {{ request()->routeIs('admin.sertifikat.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
-                                            Sertifikat Penghargaan
-                                        </a>
-                                    </li>
+                                    @can('view penilaians')
+                                        <li>
+                                            <a href="{{ route('admin.penilaian.index') }}"
+                                                class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                        {{ request()->routeIs('admin.penilaian.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                                Penilaian
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can('view sertifikats')
+                                        <li>
+                                            <a href="{{ route('admin.sertifikat.index') }}"
+                                                class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                        {{ request()->routeIs('admin.sertifikat.index') ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-50' }}">
+                                                Sertifikat Penghargaan
+                                            </a>
+                                        </li>
+                                    @endcan
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="{{ route('admin.navigasi.index') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                   {{ request()->routeIs('admin.navigasi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                    Navigasi
-                                </a>
-                            </li>
+                            {{-- Navigasi Nav Start --}}
+                            @can('view navigasis')
+                                <li>
+                                    <a href="{{ route('admin.navigasi.index') }}"
+                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('admin.navigasi.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                        Navigasi
+                                    </a>
+                                </li>
+                            @endcan
+                            {{-- Navigasi Nav End --}}
                         </ul>
                     </nav>
                 </div>
