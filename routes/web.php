@@ -173,17 +173,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/sertifikat/{id}', [SertifikatController::class, 'destroy'])->name('admin.sertifikat.destroy');
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+// Route::middleware(['auth', 'admin'])->group(function () {
 
 
-    // QUICKWIN ROUTE
-    Route::get('/admin/quickwin', [QuickwinController::class, 'index'])->name('admin.quickwin.index');
-    Route::get('/admin/quickwin/create', [QuickwinController::class, 'create'])->name('admin.quickwin.create');
-    Route::post('/admin/quickwin/store', [QuickwinController::class, 'store'])->name('admin.quickwin.store');
-    Route::get('/admin/quickwin/{id}/edit', [QuickwinController::class, 'edit'])->name('admin.quickwin.edit');
-    Route::put('/admin/quickwin/{id}', [QuickwinController::class, 'update'])->name('admin.quickwin.update');
-    Route::delete('/admin/quickwin/{id}', [QuickwinController::class, 'destroy'])->name('admin.quickwin.destroy');
-});
+//     // QUICKWIN ROUTE
+//     Route::get('/admin/quickwin', [QuickwinController::class, 'index'])->name('admin.quickwin.index');
+//     Route::get('/admin/quickwin/create', [QuickwinController::class, 'create'])->name('admin.quickwin.create');
+//     Route::post('/admin/quickwin/store', [QuickwinController::class, 'store'])->name('admin.quickwin.store');
+//     Route::get('/admin/quickwin/{id}/edit', [QuickwinController::class, 'edit'])->name('admin.quickwin.edit');
+//     Route::put('/admin/quickwin/{id}', [QuickwinController::class, 'update'])->name('admin.quickwin.update');
+//     Route::delete('/admin/quickwin/{id}', [QuickwinController::class, 'destroy'])->name('admin.quickwin.destroy');
+// });
 
 require __DIR__ . '/auth.php';
 
