@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-    <!-- //END quickwins -->
+        <!-- //END quickwins -->
     </div>
 
 </x-app-layout>
