@@ -29,6 +29,15 @@ class LoginRequest extends FormRequest
         return [
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
+            'captcha' => 'required|captcha', // Tambahkan ini untuk validasi captcha
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'captcha.required' => 'Captcha harus diisi.',
+            'captcha.captcha' => 'Captcha yang Anda masukkan tidak sesuai.',
         ];
     }
 
@@ -80,6 +89,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 }
