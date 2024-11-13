@@ -22,15 +22,17 @@ class DatabaseSeeder extends Seeder
             SubdimensiSeeder::class,
             VideoSeeder::class,
             VisimisiSeeder::class,
-            DokumenSeeder::class
+            DokumenSeeder::class,
+            PermissionSeeder::class,
+            UserSeeder::class
             // Tambahkan seeder lain jika diperlukan
         ]);
 
-        User::factory()->create([
-            'name' => 'Admin Pintar',
-            'email' => 'adminpintar@gmail.com',
-            'usertype' => 'admin',
-            'password' => bcrypt('12345678'),
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Admin Pintar',
+        //     'email' => 'adminpintar@gmail.com',
+        //     'usertype' => 'admin',
+        //     'password' => bcrypt('12345678'),
+        // ]);
     }
 }
