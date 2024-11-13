@@ -109,41 +109,65 @@
                             @endcan
                             {{-- Visi Misi Nav End --}}
 
-                            {{-- Permission Nav Start --}}
-                            @can('view permissions')
-                                <li>
-                                    <a href="{{ route('permission.index') }}"
-                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                {{ request()->routeIs('permission.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                        Permission
-                                    </a>
-                                </li>
-                            @endcan
-                            {{-- Permission Nav End --}}
-
-                            {{-- Roles Nav Start --}}
-                            @can('view roles')
-                                <li>
-                                    <a href="{{ route('roles.index') }}"
-                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                {{ request()->routeIs('roles.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                        Roles
-                                    </a>
-                                </li>
-                            @endcan
-                            {{-- Roles Nav End --}}
-
-                            {{-- User Nav Start --}}
-                            @can('view users')
-                                <li>
-                                    <a href="{{ route('users.index') }}"
-                                        class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
-                                {{ request()->routeIs('users.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
-                                        Users
-                                    </a>
-                                </li>
-                            @endcan
-                            {{-- User Nav End --}}
+                            <!-- Masterplan dan PPT Dropdown -->
+                            <li class="relative" x-data="{ open: false }">
+                                <button @click="open = !open" @click.away="open = false"
+                                    class="w-full flex items-center justify-between p-3 rounded-lg text-left transition-colors duration-200
+                                        {{ request()->routeIs('permission.index') ||
+                                        request()->routeIs('roles.index') ||
+                                        request()->routeIs('users.index')
+                                            ? 'bg-blue-50 text-blue-600'
+                                            : 'text-gray-700 hover:bg-gray-50' }}">
+                                    <span class="capitalize tracking-wider font-medium">Auth</span>
+                                    <svg class="w-4 h-4 transition-transform duration-200"
+                                        :class="{ 'rotate-180': open }" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <ul class="mt-2 space-y-1 transition-all duration-200" x-show="open"
+                                    x-transition:enter="transition ease-out duration-200"
+                                    x-transition:enter-start="opacity-0 transform scale-95"
+                                    x-transition:enter-end="opacity-100 transform scale-100"
+                                    x-transition:leave="transition ease-in duration-75"
+                                    x-transition:leave-start="opacity-100 transform scale-100"
+                                    x-transition:leave-end="opacity-0 transform scale-95" style="display: none;">
+                                    {{-- Permission Nav Start --}}
+                                    @can('view permissions')
+                                        <li>
+                                            <a href="{{ route('permission.index') }}"
+                                                class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                            {{ request()->routeIs('permission.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                                Permission
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    {{-- Permission Nav End --}}
+                                    {{-- Roles Nav Start --}}
+                                    @can('view roles')
+                                        <li>
+                                            <a href="{{ route('roles.index') }}"
+                                                class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                            {{ request()->routeIs('roles.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                                Roles
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    {{-- Roles Nav End --}}
+                                    {{-- User Nav Start --}}
+                                    @can('view users')
+                                        <li>
+                                            <a href="{{ route('users.index') }}"
+                                                class="block pl-8 pr-4 py-2 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                            {{ request()->routeIs('users.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                                Users
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    {{-- User Nav End --}}
+                                </ul>
+                            </li>
 
                             {{-- Program Implementasi Nav Start --}}
                             @can('view program implementasis')
@@ -221,7 +245,7 @@
                             <li class="relative" x-data="{ open: false }">
                                 <button @click="open = !open" @click.away="open = false"
                                     class="w-full flex items-center justify-between p-3 rounded-lg text-left transition-colors duration-200
-                                        {{ request()->routeIs('admin.penilaian.index') || request()->routeIs('admin.penilaian.index')
+                                        {{ request()->routeIs('admin.penilaian.index') || request()->routeIs('admin.sertifikat.index')
                                             ? 'bg-blue-50 text-blue-600'
                                             : 'text-gray-700 hover:bg-gray-50' }}">
                                     <span class="capitalize tracking-wider font-medium">Hasil Penilaian</span>

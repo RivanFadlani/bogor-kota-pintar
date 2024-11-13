@@ -44,6 +44,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/reload-captcha', function () {
+    return response()->json(['captcha' => captcha_img('math')]);
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -66,6 +70,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/roles/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
 
     // USER ROUTE
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
@@ -173,17 +178,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/sertifikat/{id}', [SertifikatController::class, 'destroy'])->name('admin.sertifikat.destroy');
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+// Route::middleware(['auth', 'admin'])->group(function () {
 
 
-    // QUICKWIN ROUTE
-    Route::get('/admin/quickwin', [QuickwinController::class, 'index'])->name('admin.quickwin.index');
-    Route::get('/admin/quickwin/create', [QuickwinController::class, 'create'])->name('admin.quickwin.create');
-    Route::post('/admin/quickwin/store', [QuickwinController::class, 'store'])->name('admin.quickwin.store');
-    Route::get('/admin/quickwin/{id}/edit', [QuickwinController::class, 'edit'])->name('admin.quickwin.edit');
-    Route::put('/admin/quickwin/{id}', [QuickwinController::class, 'update'])->name('admin.quickwin.update');
-    Route::delete('/admin/quickwin/{id}', [QuickwinController::class, 'destroy'])->name('admin.quickwin.destroy');
-});
+//     // QUICKWIN ROUTE
+//     Route::get('/admin/quickwin', [QuickwinController::class, 'index'])->name('admin.quickwin.index');
+//     Route::get('/admin/quickwin/create', [QuickwinController::class, 'create'])->name('admin.quickwin.create');
+//     Route::post('/admin/quickwin/store', [QuickwinController::class, 'store'])->name('admin.quickwin.store');
+//     Route::get('/admin/quickwin/{id}/edit', [QuickwinController::class, 'edit'])->name('admin.quickwin.edit');
+//     Route::put('/admin/quickwin/{id}', [QuickwinController::class, 'update'])->name('admin.quickwin.update');
+//     Route::delete('/admin/quickwin/{id}', [QuickwinController::class, 'destroy'])->name('admin.quickwin.destroy');
+// });
 
 require __DIR__ . '/auth.php';
 
