@@ -317,7 +317,7 @@
         function openDeleteModal(subdimensiId) {
             const modal = document.getElementById('deleteModal');
             const form = document.getElementById('deleteForm');
-            form.action = `/admin/dokumen/${dokumenId}`;
+            form.action = `/admin/subdimensi/${subdimensiId}`;
             modal.classList.remove('hidden');
         }
 

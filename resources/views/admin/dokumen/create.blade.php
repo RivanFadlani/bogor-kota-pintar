@@ -113,6 +113,8 @@
                     <select id="status" name="status"
                         class="block w-full p-2 border-gray-300 text-gray-700 tracking-wider text-left text-sm font-medium rounded"
                         required>
+                        <option value="" disabled {{ old('status') == '' ? 'selected' : '' }}>Silahkan pilih
+                            status</option>
                         <option value="publish" {{ old('status') == 'publish' ? 'selected' : '' }}>Publish</option>
                         <option value="tidak publish" {{ old('status') == 'tidak publish' ? 'selected' : '' }}>Tidak
                             Publish</option>

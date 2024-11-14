@@ -90,6 +90,8 @@ class DokumenController extends Controller implements HasMiddleware
 
     public function store(Request $request): RedirectResponse
     {
+        // dd($request->all());
+
         $request->validate([
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
             'judul' => 'required|string|max:100',

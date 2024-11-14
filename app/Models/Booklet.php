@@ -12,6 +12,7 @@ class Booklet extends Model
     protected $fillable = [
         'judul',
         'gambar',
-        'url'
+        'url',
+        'status'
     ];
 }
