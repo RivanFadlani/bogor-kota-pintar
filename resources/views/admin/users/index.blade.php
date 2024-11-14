@@ -4,14 +4,14 @@
             <!-- Header Section -->
             <div class="mb-8">
                 <div class="flex justify-between items-center">
-                    <h1 class="text-3xl font-bold text-gray-900">Daftar Roles</h1>
+                    <h1 class="text-3xl font-bold text-gray-900">Daftar Users</h1>
                     @can('create users')
                         <a href="{{ route('users.create') }}"
                             class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow transition duration-150 ease-in-out">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                             </svg>
-                            Tambah Roles
+                            Tambah Users
                         </a>
                     @endcan
                 </div>

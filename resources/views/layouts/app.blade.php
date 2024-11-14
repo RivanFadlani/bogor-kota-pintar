@@ -33,8 +33,8 @@
                             <!-- Dashboard -->
                             <li>
                                 <a href="{{ route('dashboard') }}"
-                                    class="block p-3 rounded-lg transition-colors duration-200
-                                   {{ request()->routeIs('dashboard') ? 'bg-blue-700 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                    class="block p-3 rounded-lg transition-colors duration-200 capitalize tracking-wider font-medium
+                                {{ request()->routeIs('dashboard') ? 'bg-blue-700 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Dashboard
                                 </a>
                             </li>
