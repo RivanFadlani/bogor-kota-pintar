@@ -116,10 +116,10 @@ class DimensiController extends Controller implements HasMiddleware
                 unlink(public_path('uploads/dimensi/' . $dimensis->gambar));
             }
 
-            // Simpan gambar baru
+            // Simpan gambar baru di direktori yang sama
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/dokumen/'), $filename);
+            $file->move(public_path('uploads/dimensi/'), $filename); // Ubah path ke 'uploads/dimensi/'
 
             // Update nama file gambar pada model
             $dimensis->gambar = $filename;
@@ -133,6 +133,7 @@ class DimensiController extends Controller implements HasMiddleware
         // Redirect ke halaman yang diinginkan setelah update
         return redirect()->route('admin.dimensi.index')->with('success', 'Dokumen berhasil diperbarui.');
     }
+
 
     public function destroy($id)
     {

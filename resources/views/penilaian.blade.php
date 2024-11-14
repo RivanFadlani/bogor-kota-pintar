@@ -258,80 +258,81 @@
 
     {{-- Footer Start --}}
 
-    <section id="contact" class="pt-24 pb-32 bg-primary">
+    <section id="contact" class="pt-12 pb-8 bg-primary">
         <div class="w-full">
-            <div class="px-4 sm:mx-7 text-center">
+            <div class="px-2 sm:mx-4 text-center">
                 <h1 class="text-3xl font-semibold text-white">Smart City Kota Bogor</h1>
             </div>
-            <div class="px-4 sm:mx-7 grid grid-cols-1 gap-x-3 md:grid-cols-2 lg:grid-cols-4 mt-14 justify-center">
+            <div class="px-2 sm:mx-4 grid grid-cols-1 gap-x-1.5 md:grid-cols-2 lg:grid-cols-4 mt-7 justify-center">
                 <div class="telp text-center grid">
-                    <h2 class="text-white text-2xl font-medium mb-1">Telp</h2>
-                    <h3 class="text-indigo-400 text-lg">+62251 - 8321075</h3>
+                    <h2 class="text-white text-lg font-medium mb-0.5">Telp</h2>
+                    <h3 class="text-indigo-400 text-base">+62251 - 8321075</h3>
                 </div>
                 <div class="email text-center grid">
-                    <h2 class="text-white text-2xl font-medium mb-1">Email - Informasi</h2>
-                    <h3 class="text-indigo-400 text-lg">bag.humas@kotabogor.go.id</h3>
+                    <h2 class="text-white text-lg font-medium mb-0.5">Email - Informasi</h2>
+                    <h3 class="text-indigo-400 text-base">bag.humas@kotabogor.go.id</h3>
                 </div>
                 <div class="email text-center grid">
-                    <h2 class="text-white text-2xl font-medium mb-1">Email - Admin</h2>
-                    <h3 class="text-indigo-400 text-lg">kominfo@kotabogor.go.id</h3>
+                    <h2 class="text-white text-lg font-medium mb-0.5">Email - Admin</h2>
+                    <h3 class="text-indigo-400 text-base">kominfo@kotabogor.go.id</h3>
                 </div>
                 <div class="email text-center grid">
-                    <h2 class="text-white text-2xl font-medium mb-1">Website - Pengaduan</h2>
-                    <h3 class="text-indigo-400 text-lg">sibadra.kotabogor.go.id</h3>
+                    <h2 class="text-white text-lg font-medium mb-0.5">Website - Pengaduan</h2>
+                    <h3 class="text-indigo-400 text-base">sibadra.kotabogor.go.id</h3>
                 </div>
             </div>
 
-            <div class="px-4 sm:mx-7 flex flex-wrap gap-3 mt-14 justify-center">
-                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                        d="M12.037 21.998a10.313 10.313 0 0 1-7.168-3.049 9.888 9.888 0 0 1-2.868-7.118 9.947 9.947 0 0 1 3.064-6.949A10.37 10.37 0 0 1 12.212 2h.176a9.935 9.935 0 0 1 6.614 2.564L16.457 6.88a6.187 6.187 0 0 0-4.131-1.566 6.9 6.9 0 0 0-4.794 1.913 6.618 6.618 0 0 0-2.045 4.657 6.608 6.608 0 0 0 1.882 4.723 6.891 6.891 0 0 0 4.725 2.07h.143c1.41.072 2.8-.354 3.917-1.2a5.77 5.77 0 0 0 2.172-3.41l.043-.117H12.22v-3.41h9.678c.075.617.109 1.238.1 1.859-.099 5.741-4.017 9.6-9.746 9.6l-.215-.002Z"
-                        clip-rule="evenodd" />
-                </svg>
-
-                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                        d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
-                        clip-rule="evenodd" />
-                </svg>
-
-                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" />
-                </svg>
-
-
-                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" fill="none" viewBox="0 0 24 24">
-                    <path fill="currentColor" fill-rule="evenodd"
-                        d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                        clip-rule="evenodd" />
-                </svg>
-            </div>
-
-            <div class="px-4 sm:mx-7 flex flex-col gap-x-3 mt-5 text-center">
-                <h2 class="text-white font-semibold text-2xl">Statistik Pengunjung</h2>
-                <div class="flex flex-wrap gap-x-3 text-center justify-center">
-                    <h3 class="text-indigo-400 text-lg">Hari Ini: {{ $todayVisitors }}</h3>
-                    <h3 class="text-indigo-400 text-lg">Total Pengunjung: {{ $totalVisitors }}</h3>
+            <!-- Group Icons -->
+            <div class="px-2 sm:mx-4 flex flex-wrap gap-4 mt-7 justify-center">
+                <!-- Google Icon -->
+                <div class="p-2 bg-white/10 rounded-full">
+                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M12.037 21.998a10.313 10.313 0 0 1-7.168-3.049 9.888 9.888 0 0 1-2.868-7.118 9.947 9.947 0 0 1 3.064-6.949A10.37 10.37 0 0 1 12.212 2h.176a9.935 9.935 0 0 1 6.614 2.564L16.457 6.88a6.187 6.187 0 0 0-4.131-1.566 6.9 6.9 0 0 0-4.794 1.913 6.618 6.618 0 0 0-2.045 4.657 6.608 6.608 0 0 0 1.882 4.723 6.891 6.891 0 0 0 4.725 2.07h.143c1.41.072 2.8-.354 3.917-1.2a5.77 5.77 0 0 0 2.172-3.41l.043-.117H12.22v-3.41h9.678c.075.617.109 1.238.1 1.859-.099 5.741-4.017 9.6-9.746 9.6l-.215-.002Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <!-- Facebook Icon -->
+                <div class="p-2 bg-white/10 rounded-full">
+                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <!-- Twitter/X Icon -->
+                <div class="p-2 bg-white/10 rounded-full">
+                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" />
+                    </svg>
                 </div>
             </div>
 
-            <!-- New section for "Supported by" text and image link -->
-            <div class="px-4 sm:mx-7 mt-5 text-center ">
-                <h3 class="text-white font-semibold mb-3">Supported by</h3>
-                <a href="https://bsw.kotabogor.go.id" target="_blank" rel="noopener noreferrer">
-                    <img src="/img/bsw.png" class="mx-auto w-64 h-auto">
-                </a>
+            <!-- Statistik Pengunjung -->
+            <div class="px-2 sm:mx-4 flex flex-col gap-x-1.5 mt-7 text-center">
+                <h2 class="text-white font-semibold text-lg mb-0.5">Statistik Pengunjung</h2>
+                <div class="flex flex-wrap gap-3 text-center justify-center">
+                    <h3 class="text-indigo-400 text-base">Hari Ini: {{ $todayVisitors }}</h3>
+                    <h3 class="text-indigo-400 text-base">Total Pengunjung: {{ $totalVisitors }}</h3>
+                </div>
             </div>
 
-            <div class="px-4 sm:mx-7 mt-10 text-center">
-                <h3 class="text-white text-lg">Copyright © 2024 Dinas Komunikasi dan Informatika Kota Bogor. All
-                    Right Reserved
-                </h3>
+            <!-- Supported By -->
+            <div class="mt-7 text-center">
+                <p class="text-white text-sm mb-2">Supported By</p>
+                <div class="flex justify-center gap-4">
+                    <img src="/img/bsw.png" alt="Support Logo 1" class="h-16 w-auto">
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center mt-7">
+                <p class="text-white/80 text-xs">Copyright © 2024 Dinas Komunikasi dan Informatika Kota Bogor. All
+                    Right Reserved</p>
             </div>
         </div>
     </section>
