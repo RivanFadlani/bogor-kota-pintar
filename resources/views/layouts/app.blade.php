@@ -31,13 +31,13 @@
                     <nav>
                         <ul class="space-y-2">
                             <!-- Dashboard -->
-                            {{-- <li>
-                                <a href="{{ route('admin.dashboard.index') }}"
+                            <li>
+                                <a href="{{ route('dashboard') }}"
                                     class="block p-3 rounded-lg transition-colors duration-200
-                                   {{ request()->routeIs('admin.dashboard.index') ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
+                                   {{ request()->routeIs('dashboard') ? 'bg-blue-700 text-white' : 'text-gray-700 hover:bg-gray-50' }}">
                                     Dashboard
                                 </a>
-                            </li> --}}
+                            </li>
 
                             {{-- <!-- Quickwins -->
                             <li>
