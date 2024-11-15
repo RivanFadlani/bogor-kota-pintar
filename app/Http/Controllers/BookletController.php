@@ -40,6 +40,7 @@ class BookletController extends Controller implements HasMiddleware
         $items = DB::table('booklets')
             ->where('judul', 'like', '%' . $query . '%')
             ->orWhere('url', 'like', '%' . $query . '%')
+            ->orWhere('status', 'like', '%' . $query . '%')
             ->orderBy($sortField, $sortDirection) // asc, desc
             ->paginate($perPage) // Pagination
             ->appends(['query' => $query]);

@@ -13,7 +13,8 @@ class Dokumen extends Model
         'judul',
         'gambar',
         'url',
-        'kategori_id'
+        'kategori_id',
+        'status'
     ];
 
     public function kategori()

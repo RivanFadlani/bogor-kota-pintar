@@ -68,10 +68,10 @@
                     <div class="hidden z-[9999] lg:flex flex-wrap w-full lg:w-auto justify-between lg:flex-row lg:items-center lg:space-x-4"
                         id="mobile-menu">
                         <ul class="flex-col lg:flex-row flex lg:space-x-4 mt-4 lg:mt-0 text-gray-700">
-                            <li>
+                            {{-- <li>
                                 <a href="#beranda"
                                     class="block nav-link woa lg:inline-block text-slate-800 font-semibold pl-3 pr-4 py-2 hover:text-primary [&.a]">Beranda</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="#content1"
                                     class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Dimensi</a>
@@ -80,6 +80,11 @@
                                 <a href="#content2"
                                     class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Visi
                                     & Misi</a>
+                            </li>
+                            <li>
+                                <a href="#content3"
+                                    class="block nav-link lg:inline-block font-semibold hover:bg-gray-50 lg:hover:bg-transparent text-gray-700 border-b lg:border-0 pl-3 pr-4 py-2">Sub
+                                    Dimensi</a>
                             </li>
                             <li>
                                 <a href="#content4"

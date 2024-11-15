@@ -11,7 +11,8 @@ class Video extends Model
 
     protected $fillable = [
         'judul',
-        'youtube_link'
+        'youtube_link',
+        'status'
     ];
 
     public function getYouTubeEmbedUrl()

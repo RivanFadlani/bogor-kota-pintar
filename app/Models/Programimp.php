@@ -11,6 +11,7 @@ class Programimp extends Model
 
     protected $fillable = [
         'judul',
-        'gambar'
+        'gambar',
+        'status'
     ];
 }
