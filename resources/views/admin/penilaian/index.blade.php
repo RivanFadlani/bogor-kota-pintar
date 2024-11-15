@@ -15,7 +15,7 @@
                         </a>
                     @endcan
                 </div>
-                <div class="mt-4 flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+                <div class="mt-4 mb-10 flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
                     <div class="relative">
                         {{-- search form start --}}
                         <form action="{{ route('admin.penilaian.index') }}" method="GET" class="flex">
@@ -62,6 +62,10 @@
                         {{-- entries per page end --}}
                     </div>
                 </div>
+                <a href="{{ route('admin.penilaian.index', ['sort_by' => 'created_at', 'direction' => 'desc']) }}"
+                    class="rounded-lg bg-blue-600 text-white  py-2 px-3">
+                    Urutkan Berdasarkan Data Terbaru
+                </a>
             </div>
 
             <!-- Table Section -->
