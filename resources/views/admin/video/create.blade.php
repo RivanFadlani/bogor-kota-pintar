@@ -26,7 +26,7 @@
             @csrf
 
             <div class="grid grid-cols-2 gap-4">
-                <!-- Input Dimensi Start -->
+                <!-- Input Judul Start -->
                 <div class="mb-4 flex flex-wrap">
                     <label for="judul"
                         class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Judul</label>
@@ -43,9 +43,9 @@
                         <span class="bg-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <!-- Input Dimensi End -->
+                <!-- Input Judul End -->
 
-                <!-- Input Dimensi Start -->
+                <!-- Input Link Start -->
                 <div class="mb-4 flex flex-wrap">
                     <label for="yt"
                         class="block mb-2 capitalize tracking-wider text-left text-sm font-medium">Link
@@ -59,12 +59,15 @@
                     </div>
                     <input type="text" name="youtube_link" id="yt"
                         class="w-full p-2 border border-gray-300 rounded" value="{{ old('youtube_link') }}" required>
+
                     @error('youtube_link')
                         <span class="bg-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <!-- Input Dimensi End -->
-
+                <!-- Input Link End -->
+                <p class="text-red-600 font-medium mb-5">Contoh penginputan link:
+                    https://youtu.be/iSU-mzNYbQ4?si=eRvf7LDObY7OuTOu atau
+                    https://www.youtube.com/watch?v=iSU-mzNYbQ4</p>
 
             </div>
 

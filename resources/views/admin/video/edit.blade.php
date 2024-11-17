@@ -67,6 +67,9 @@
                     @enderror
                 </div>
                 <!-- Input Judul End -->
+                <p class="text-red-600 font-medium mb-5">Contoh penginputan link:
+                    https://youtu.be/iSU-mzNYbQ4?si=eRvf7LDObY7OuTOu atau
+                    https://www.youtube.com/watch?v=iSU-mzNYbQ4</p>
             </div>
 
             {{-- Status Start --}}

@@ -109,7 +109,7 @@
                             @endcan
                             {{-- Visi Misi Nav End --}}
 
-                            <!-- Masterplan dan PPT Dropdown -->
+                            <!-- Master Dropdown Start -->
                             <li class="relative" x-data="{ open: false }">
                                 <button @click="open = !open" @click.away="open = false"
                                     class="w-full flex items-center justify-between p-3 rounded-lg text-left transition-colors duration-200
@@ -168,6 +168,7 @@
                                     {{-- User Nav End --}}
                                 </ul>
                             </li>
+                            <!-- Master Dropdown End -->
 
                             {{-- Program Implementasi Nav Start --}}
                             @can('view program implementasis')
