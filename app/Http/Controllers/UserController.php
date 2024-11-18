@@ -30,8 +30,8 @@ class UserController extends Controller implements HasMiddleware
 
     public function index(Request $request)
     {
-        $sortField = $request->query('sort_by', 'name');
-        $sortDirection = $request->query('direction', 'asc');
+        $sortField = $request->query('sort_by', 'created_at');
+        $sortDirection = $request->query('direction', 'desc');
         $perPage = (int) $request->query('per_page', 5);
         $query = $request->input('query'); // Ambil input pencarian dari request
 
@@ -79,7 +79,7 @@ class UserController extends Controller implements HasMiddleware
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|max:50',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|same:confirm_password',
             'confirm_password' => 'required',
@@ -124,7 +124,7 @@ class UserController extends Controller implements HasMiddleware
         $user = User::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|max:50',
             'email' => 'required|email|unique:users,email,' . $id . ',id'
         ]);
 

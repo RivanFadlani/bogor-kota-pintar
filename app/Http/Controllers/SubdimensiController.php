@@ -27,8 +27,8 @@ class SubdimensiController extends Controller implements HasMiddleware
 
     public function index(Request $request)
     {
-        $sortField = $request->query('sort_by', 'dimensi');
-        $sortDirection = $request->query('direction', 'asc');
+        $sortField = $request->query('sort_by', 'created_at');
+        $sortDirection = $request->query('direction', 'desc');
         $perPage = (int) $request->query('per_page', 5);
         $query = $request->input('query'); // Ambil input pencarian dari request
 

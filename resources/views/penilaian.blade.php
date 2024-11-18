@@ -40,7 +40,7 @@
                         <span class="self-center text-lg font-semibold whitespace-nowrap">Smart City</span>
                         <!-- Mobile button (hamburger icon) -->
                         <button data-collapse-toggle="mobile-menu" type="button"
-                            class="lg:hidden ml-3 text-slate-800 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
+                            class="lg:hidden ml-3 z-[99999] text-slate-800 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
                             aria-controls="mobile-menu-2" aria-expanded="false">
                             <span class="sr-only">Open main menu</span>
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"

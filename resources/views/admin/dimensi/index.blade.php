@@ -62,10 +62,6 @@
                         {{-- entries per page end --}}
                     </div>
                 </div>
-                <a href="{{ route('admin.dimensi.index', ['sort_by' => 'created_at', 'direction' => 'desc']) }}"
-                    class="rounded-lg bg-blue-600 text-white  py-2 px-3">
-                    Urutkan Berdasarkan Data Terbaru
-                </a>
             </div>
 
             <!-- Table Section -->
@@ -74,45 +70,18 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr class="bg-gray-50">
-                                {{-- ascending descending start --}}
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    <a href="{{ route('admin.dimensi.index', [
-                                        'sort_by' => 'judul',
-                                        'direction' => $sortField === 'judul' && $sortDirection === 'asc' ? 'desc' : 'asc',
-                                        'per_page' => $perPage,
-                                    ]) }}"
-                                        class="group inline-flex items-center gap-x-2 hover:text-blue-600">
-                                        Judul
-                                        <span class="inline-flex flex-col items-center">
-                                            @if ($sortField === 'judul')
-                                                @if ($sortDirection === 'asc')
-                                                    <svg class="w-3 h-3 text-blue-600" viewBox="0 0 24 24"
-                                                        fill="currentColor">
-                                                        <path d="M12 5l8 8H4z" />
-                                                    </svg>
-                                                @else
-                                                    <svg class="w-3 h-3 text-blue-600" viewBox="0 0 24 24"
-                                                        fill="currentColor">
-                                                        <path d="M12 19l-8-8h16z" />
-                                                    </svg>
-                                                @endif
-                                            @else
-                                                <svg class="w-3 h-3 text-gray-400 group-hover:text-blue-600"
-                                                    viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12 5l8 8H4z" />
-                                                </svg>
-                                            @endif
-                                        </span>
-                                    </a>
-                                </th>
-                                {{-- ascending descending end --}}
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Judul</th>
                                 <th
                                     class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Gambar</th>
                                 <th
                                     class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Deskripsi</th>
+                                <th
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Dibuat Pada</th>
                                 <th
                                     class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Aksi</th>
@@ -126,11 +95,14 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <img src="{{ asset('uploads/dimensi/' . $dimensi->gambar) }}" alt="dokumen"
-                                            class="h-20 w-20 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                                            class="h-20 w-20 bg-slate-800 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
                                             onclick="openImageModal(this.src)">
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <td class="px-6 py-4 text-wrap whitespace-nowrap text-sm text-gray-500">
                                         {!! $dimensi->deskripsi !!}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {!! $dimensi->created_at !!}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                                         @can('edit dimensis')
